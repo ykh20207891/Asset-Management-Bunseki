@@ -70,6 +70,62 @@ def _ensure_table(conn) -> None:
     conn.commit()
 
 
+BAND_EDGES = [(0, .03, "top3"), (.03, .10, "top10"), (.10, .25, "top25"),
+              (.25, .50, "mid"), (.50, .75, "low"), (.75, 1.01, "bottom")]
+
+
+def compute_band_stats(oos) -> dict:
+    """順位帯ごとに「保有期間の後に上がっていた割合」と平均リターンを出す。
+
+    画面の「N日後に上昇 52%」の元になる数字。oos は検証で得た
+    アウトオブサンプル予測（date, score, fwd_ret）。渡された銘柄集合の中での順位で帯を決める。
+    """
+    df = oos.dropna(subset=["score", "fwd_ret"]).copy()
+    df["rank"] = df.groupby("date")["score"].rank(ascending=False, method="first")
+    df["pct"] = df["rank"] / df.groupby("date")["score"].transform("size")
+
+    bands = {}
+    for lo, hi, key in BAND_EDGES:
+        part = df[(df["pct"] > lo) & (df["pct"] <= hi)]["fwd_ret"]
+        if len(part) == 0:
+            continue
+        bands[key] = {
+            "upRate": round(float((part > 0).mean()), 4),
+            "avgReturn": round(float(part.mean()), 5),
+            "samples": int(len(part)),
+        }
+    bands["overall"] = {
+        "upRate": round(float((df["fwd_ret"] > 0).mean()), 4),
+        "avgReturn": round(float(df["fwd_ret"].mean()), 5),
+        "samples": int(len(df)),
+        "periods": int(df["date"].nunique()),
+    }
+    return bands
+
+
+def _save_band_stats(conn, horizon: int, universe: str, bands: dict) -> None:
+    """reports/ はクラウドでは保存されないので、DB に持つ。"""
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS band_stats (
+            horizon_days INTEGER NOT NULL,
+            universe     TEXT NOT NULL,
+            measured_on  TEXT NOT NULL,
+            bands_json   TEXT NOT NULL,
+            PRIMARY KEY (horizon_days, universe)
+        )
+        """
+    )
+    conn.execute(
+        "INSERT INTO band_stats (horizon_days, universe, measured_on, bands_json) "
+        "VALUES (?, ?, date('now'), ?) "
+        "ON CONFLICT(horizon_days, universe) DO UPDATE SET "
+        "measured_on = excluded.measured_on, bands_json = excluded.bands_json",
+        (horizon, universe, json.dumps(bands, ensure_ascii=False)),
+    )
+    conn.commit()
+
+
 def _clean_detail(results: dict) -> dict:
     """DataFrame を含む項目を落として JSON にできる形にする。"""
     out = {}
@@ -162,6 +218,13 @@ def run(force: bool = False) -> dict | None:
         ),
     }
 
+    # 順位帯ごとの上昇実績も同じ検証結果から測り直して保存する
+    try:
+        with connect() as conn:
+            _save_band_stats(conn, HORIZON, universe, compute_band_stats(bt["oos"]))
+    except Exception as e:  # noqa: BLE001
+        LOG.warning("順位帯の実績を保存できませんでした: %s", e)
+
     with connect() as conn:
         conn.execute(
             """
@@ -210,7 +273,7 @@ def history(limit: int = 12) -> list[dict]:
             rows = conn.execute(
                 "SELECT measured_on, mean_ic, t_stat, hit_rate, top_k_return, "
                 "vs_universe, best_baseline, best_baseline_return, beats_baseline, "
-                "top_k, universe "
+                "top_k, universe, horizon_days "
                 "FROM performance_log ORDER BY measured_on DESC LIMIT ?",
                 (limit,),
             ).fetchall()
@@ -231,6 +294,8 @@ def history(limit: int = 12) -> list[dict]:
             # 測定条件。古い記録は「全銘柄の上位10」
             "topK": r[9] if r[9] is not None else 10,
             "universe": r[10] or "all",
+            # ％は「1回の保有期間（この日数）あたり」の平均
+            "horizonDays": r[11] or 7,
         }
         for r in rows
     ]

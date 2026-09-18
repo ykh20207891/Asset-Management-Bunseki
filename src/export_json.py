@@ -35,19 +35,33 @@ LOG = setup_logger("export_json")
 
 DEFAULT_TOP_N = 30
 
-# ウォークフォワード検証(backtest_oos_h7.csv / 39,268件・142期間)から集計した
-# 「その順位帯の銘柄が7日後に上昇していた実績割合」。
+# 「その順位帯の銘柄が、保有期間の後に上がっていた実績割合」。
 # モデルは上昇/下落そのものを予測しないため、断定の代わりにこの実績を示す。
-BACKTEST_CSV = "backtest_oos_h7.csv"
-DEFAULT_BANDS = {
-    "top3": {"upRate": 0.522, "avgReturn": -0.0026},
-    "top10": {"upRate": 0.499, "avgReturn": 0.0041},
-    "top25": {"upRate": 0.467, "avgReturn": -0.0004},
-    "mid": {"upRate": 0.464, "avgReturn": -0.0042},
-    "low": {"upRate": 0.460, "avgReturn": -0.0050},
-    "bottom": {"upRate": 0.440, "avgReturn": -0.0128},
-    "overall": {"upRate": 0.462, "avgReturn": -0.0054},
+# 本来の値は毎週の検証(track_performance)が測って DB の band_stats に保存する。
+# ここにあるのは、それがまだ無いとき用の既定値（同じ方法で測った実測値）。
+DEFAULT_BANDS_BY_HORIZON = {
+    # 7日予測・全銘柄（39,268件・142期間）
+    7: {
+        "top3": {"upRate": 0.522, "avgReturn": -0.0026},
+        "top10": {"upRate": 0.499, "avgReturn": 0.0041},
+        "top25": {"upRate": 0.467, "avgReturn": -0.0004},
+        "mid": {"upRate": 0.464, "avgReturn": -0.0042},
+        "low": {"upRate": 0.460, "avgReturn": -0.0050},
+        "bottom": {"upRate": 0.440, "avgReturn": -0.0128},
+        "overall": {"upRate": 0.462, "avgReturn": -0.0054},
+    },
+    # 5日予測(v2)・Bybit 上場銘柄（25,133件・147期間 / 2026-09-18 測定）
+    5: {
+        "top3": {"upRate": 0.5226, "avgReturn": 0.02224},
+        "top10": {"upRate": 0.5017, "avgReturn": 0.0062},
+        "top25": {"upRate": 0.4727, "avgReturn": 0.00159},
+        "mid": {"upRate": 0.4595, "avgReturn": -0.00092},
+        "low": {"upRate": 0.4562, "avgReturn": -0.00247},
+        "bottom": {"upRate": 0.4421, "avgReturn": -0.00829},
+        "overall": {"upRate": 0.461, "avgReturn": -0.00163},
+    },
 }
+DEFAULT_BANDS = DEFAULT_BANDS_BY_HORIZON[7]
 
 
 def _band_key(rank: int, total: int) -> str:
@@ -68,41 +82,19 @@ def _band_key(rank: int, total: int) -> str:
     return "bottom"
 
 
-def compute_bands() -> dict:
-    """検証結果CSVがあれば実測から集計し、無ければ既定値を使う。"""
-    path = REPORT_DIR / BACKTEST_CSV
-    if not path.exists():
-        return DEFAULT_BANDS
-
+def compute_bands(conn, horizon: int) -> dict:
+    """毎週の検証が DB に保存した実績を使い、無ければ期間に合った既定値を使う。"""
     try:
-        import pandas as pd
-
-        df = pd.read_csv(path, encoding="utf-8-sig")
-        df["rank"] = df.groupby("date")["score"].rank(ascending=False, method="first")
-        df["pct"] = df["rank"] / df.groupby("date")["score"].transform("size")
-
-        bands = {}
-        edges = [(0, .03, "top3"), (.03, .10, "top10"), (.10, .25, "top25"),
-                 (.25, .50, "mid"), (.50, .75, "low"), (.75, 1.01, "bottom")]
-        for lo, hi, key in edges:
-            s = df[(df["pct"] > lo) & (df["pct"] <= hi)]["fwd_ret"]
-            if len(s) == 0:
-                continue
-            bands[key] = {
-                "upRate": round(float((s > 0).mean()), 4),
-                "avgReturn": round(float(s.mean()), 5),
-                "samples": int(len(s)),
-            }
-        bands["overall"] = {
-            "upRate": round(float((df["fwd_ret"] > 0).mean()), 4),
-            "avgReturn": round(float(df["fwd_ret"].mean()), 5),
-            "samples": int(len(df)),
-            "periods": int(df["date"].nunique()),
-        }
-        return bands
-    except Exception as e:  # noqa: BLE001
-        LOG.warning("検証結果の集計に失敗したため既定値を使います: %s", e)
-        return DEFAULT_BANDS
+        row = conn.execute(
+            "SELECT bands_json FROM band_stats WHERE horizon_days = ? "
+            "ORDER BY (universe = 'bybit') DESC, measured_on DESC LIMIT 1",
+            (horizon,),
+        ).fetchone()
+        if row:
+            return json.loads(row[0])
+    except Exception:  # noqa: BLE001
+        pass  # テーブル未作成（まだ一度も検証していない）
+    return DEFAULT_BANDS_BY_HORIZON.get(horizon, DEFAULT_BANDS)
 
 
 def _price_on_or_after(conn, coin_id: str, date: str) -> float | None:
@@ -314,7 +306,7 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
         (horizon, predicted_on, model_tag),
     ).fetchone()[0]
 
-    bands = compute_bands()
+    bands = compute_bands(conn, horizon)
 
     # 最新スナップショットから価格変化率・時価総額・銘柄名を補う
     rows = conn.execute(
@@ -338,6 +330,7 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
     tradable = _tradable(conn)
     if tradable:
         rows = [r for r in rows if r[4] in tradable]
+    tradable_total = len(rows)
     rows = rows[:top_n]
 
     # チェーン/取引所（coin_meta。未取得なら空で出す）
@@ -345,8 +338,11 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
 
     items = []
     for position, r in enumerate(rows, start=1):
-        # 順位帯（過去実績）はモデルの全体順位で判定する
-        band_key = _band_key(r[0] or 0, total)
+        # 順位帯（過去実績）は、表示しているランキングの中での位置で判定する
+        # （Bybit 銘柄に絞っているなら、Bybit 銘柄の中で上位何 % か）
+        band_key = (
+            _band_key(position, tradable_total) if tradable else _band_key(r[0] or 0, total)
+        )
         band = bands.get(band_key, bands.get("overall", {}))
         items.append(
             {
@@ -394,6 +390,8 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
         "nextUpdateOn": conn.execute(
             "SELECT date(?, ?)", (predicted_on, f"+{horizon} day")
         ).fetchone()[0],
+        # 従来の7日予測を出している間だけ、切り替え後の日数を知らせる
+        "nextHorizonDays": cycle.HORIZON if horizon != cycle.HORIZON else None,
         "modelTag": model_tag,
         "summary": summary,
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
