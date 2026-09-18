@@ -48,6 +48,21 @@ def make_model() -> HistGradientBoostingRegressor:
     return HistGradientBoostingRegressor(**MODEL_PARAMS)
 
 
+# 学習データの重み。順位の「端」（大きく上がった/下がった銘柄）を重く見る。
+# 実際に使うのはランキングの上位だけで、真ん中の順位を正確に当てる必要は無いため。
+# 2026-09-18 の検証（Bybit 上位8・7日・開始日7通り）: 強さ 0→+2.21%/週 に対し
+# 1:+2.64 / 2:+2.57 / 3:+2.89 / 5:+2.59 / 8:+2.52 と、どの強さでも上回った。
+# 一番良かった 3 ではなく控えめな 2 を採る（良い点だけ拾うと偶然を掴むため）。
+TAIL_WEIGHT = 2.0
+
+
+def fit_model(model, X: np.ndarray, y_rank: np.ndarray):
+    """y_rank は 0〜1 の順位。0.5 から離れるほど重くして学習する。"""
+    weights = 1.0 + TAIL_WEIGHT * np.abs(y_rank - 0.5) * 2.0
+    model.fit(X, y_rank, sample_weight=weights)
+    return model
+
+
 # ---------------------------------------------------------------- 分割
 def walk_forward_splits(dates: np.ndarray, initial_train_days: int,
                         test_window: int, embargo: int):
@@ -190,7 +205,8 @@ def _run_folds(ds: pd.DataFrame, cs_cols: list[str], dates: np.ndarray,
         if len(tr) < 500 or len(te) == 0:
             continue
         model = make_model()
-        model.fit(tr[cs_cols].to_numpy(dtype=float), tr["y_rank"].to_numpy(dtype=float))
+        fit_model(model, tr[cs_cols].to_numpy(dtype=float),
+                  tr["y_rank"].to_numpy(dtype=float))
         cols = ["date", "coin_id", "symbol", "fwd_ret"] + (cs_cols if keep_features else [])
         out = te[cols].copy()
         out["score"] = model.predict(te[cs_cols].to_numpy(dtype=float))

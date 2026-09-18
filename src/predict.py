@@ -19,7 +19,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from backtest import make_model  # noqa: E402
+from backtest import fit_model, make_model  # noqa: E402
 from common import REPORT_DIR, ensure_dirs, setup_logger  # noqa: E402
 from db import connect, init_db  # noqa: E402
 from features import build_dataset  # noqa: E402
@@ -65,13 +65,14 @@ def run_predict(horizon: int, top_n: int, model_tag: str | None,
     X = train[cs_cols].to_numpy(dtype=float)
     y = train["y_rank"].to_numpy(dtype=float)
     model = make_model()
-    model.fit(X, y)
+    fit_model(model, X, y)
 
     target["score"] = model.predict(target[cs_cols].to_numpy(dtype=float))
     target = target.sort_values("score", ascending=False).reset_index(drop=True)
     target["rank"] = np.arange(1, len(target) + 1)
 
-    tag = model_tag or ("gbdt_h%d_v1" % horizon)
+    # v2: 順位の端を重く学習する（backtest.TAIL_WEIGHT）。v1 と成績を分けて追えるようタグを変える
+    tag = model_tag or ("gbdt_h%d_v2" % horizon)
     created = datetime.now(timezone.utc).isoformat(timespec="seconds")
     as_of_str = as_of.strftime("%Y-%m-%d")
 
