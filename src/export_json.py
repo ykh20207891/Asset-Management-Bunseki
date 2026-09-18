@@ -28,6 +28,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from common import REPORT_DIR, ensure_dirs, setup_logger  # noqa: E402
+import cycle  # noqa: E402
 from db import connect, init_db  # noqa: E402
 
 LOG = setup_logger("export_json")
@@ -104,35 +105,6 @@ def compute_bands() -> dict:
         return DEFAULT_BANDS
 
 
-def _latest_monday(conn, horizon: int) -> tuple[str, str] | None:
-    """直近の「月曜日に出した予測」を返す。無ければ最新の予測で代替する。
-
-    データ収集は毎日続けるが、表示するランキングは週1回（月曜）に固定する。
-    毎日順位が入れ替わると、7日後の答え合わせができないため。
-    """
-    row = conn.execute(
-        """
-        SELECT predicted_on, model_tag
-        FROM predictions
-        WHERE horizon_days = ?
-          AND CAST(strftime('%w', predicted_on) AS INTEGER) = 1
-        ORDER BY predicted_on DESC
-        LIMIT 1
-        """,
-        (horizon,),
-    ).fetchone()
-    if row:
-        return row[0], row[1]
-
-    # まだ月曜の予測が無い運用初期は、最新の予測をそのまま使う
-    row = conn.execute(
-        "SELECT predicted_on, model_tag FROM predictions "
-        "WHERE horizon_days = ? ORDER BY predicted_on DESC LIMIT 1",
-        (horizon,),
-    ).fetchone()
-    return (row[0], row[1]) if row else None
-
-
 def _price_on_or_after(conn, coin_id: str, date: str) -> float | None:
     """指定日以降で最も近い日の価格。snapshots に無ければ price_history を見る。"""
     row = conn.execute(
@@ -184,21 +156,14 @@ def _load_meta(conn) -> dict[str, dict]:
 
 
 def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dict | None:
-    """1つ前の月曜予測について、実際にどうなったかを集計する（答え合わせ）。"""
-    row = conn.execute(
-        """
-        SELECT predicted_on, model_tag
-        FROM predictions
-        WHERE horizon_days = ?
-          AND CAST(strftime('%w', predicted_on) AS INTEGER) = 1
-          AND predicted_on < COALESCE(?, '9999-12-31')
-        ORDER BY predicted_on DESC
-        LIMIT 1
-        """,
-        (horizon, current_on),
-    ).fetchone()
+    """1つ前のサイクルの予測について、実際にどうなったかを集計する（答え合わせ）。
+
+    切り替え直後は 1つ前が従来の月曜・7日予測になるので、期間は見つかった予測に合わせる。
+    """
+    row = cycle.latest_cycle(conn, before=current_on)
     if not row:
         return None
+    horizon = row[2]
 
     predicted_on, model_tag = row[0], row[1]
 
@@ -333,12 +298,12 @@ def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dic
 
 def gather_latest(conn, horizon: int, top_n: int) -> dict:
     """表示用の予測（直近の月曜分）を、必要な情報とともに取り出す。"""
-    head = _latest_monday(conn, horizon)
+    head = cycle.latest_cycle(conn)
 
     if not head:
         return {"predictedOn": None, "horizonDays": horizon, "items": []}
 
-    predicted_on, model_tag = head[0], head[1]
+    predicted_on, model_tag, horizon = head[0], head[1], head[2]
 
     # その日の予測対象の総数（順位帯の判定に使う）
     total = conn.execute(
@@ -423,7 +388,12 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
 
     return {
         "predictedOn": predicted_on,
+        # 何日保有する前提の予測か。アプリはこの日数で決済日を決める
         "horizonDays": horizon,
+        # 次にランキングが入れ替わる日
+        "nextUpdateOn": conn.execute(
+            "SELECT date(?, ?)", (predicted_on, f"+{horizon} day")
+        ).fetchone()[0],
         "modelTag": model_tag,
         "summary": summary,
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -441,7 +411,8 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
     }
 
 
-def run_export(out_path: str | None, horizon: int = 7, top_n: int = DEFAULT_TOP_N) -> Path:
+def run_export(out_path: str | None, horizon: int = cycle.HORIZON,
+               top_n: int = DEFAULT_TOP_N) -> Path:
     init_db()
     ensure_dirs()
 

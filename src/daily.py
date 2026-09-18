@@ -62,7 +62,10 @@ def step_bybit_listing():
 
 def step_predict():
     import predict
-    predict.run_predict(horizon=7, top_n=20, model_tag=None, skip_importance=True)
+    import cycle
+    # 2026-09-21 から 5日サイクル。理由と検証結果は cycle.py を参照
+    predict.run_predict(horizon=cycle.HORIZON, top_n=20, model_tag=None,
+                        skip_importance=True)
 
 
 def step_track_performance():

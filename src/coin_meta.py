@@ -97,29 +97,20 @@ def _target_coins(conn, top_n: int) -> list[str]:
     アプリが出すランキングは月曜固定なので、ここも同じ日を対象にしないと
     表示中の銘柄のチェーン/取引所が埋まらない。
     """
-    row = conn.execute(
-        "SELECT predicted_on, model_tag FROM predictions "
-        "WHERE horizon_days = 7 "
-        "  AND CAST(strftime('%w', predicted_on) AS INTEGER) = 1 "
-        "ORDER BY predicted_on DESC LIMIT 1"
-    ).fetchone()
+    import cycle
 
-    if not row:
-        # 運用初期など月曜の予測がまだ無い場合は最新で代替
-        row = conn.execute(
-            "SELECT predicted_on, model_tag FROM predictions "
-            "WHERE horizon_days = 7 ORDER BY predicted_on DESC LIMIT 1"
-        ).fetchone()
+    row = cycle.latest_cycle(conn)
     if not row:
         return []
+    horizon = row[2]
 
     ids = [
         r[0]
         for r in conn.execute(
             "SELECT coin_id FROM predictions "
-            "WHERE horizon_days = 7 AND predicted_on = ? AND model_tag = ? "
+            "WHERE horizon_days = ? AND predicted_on = ? AND model_tag = ? "
             "ORDER BY rank ASC",
-            (row[0], row[1]),
+            (horizon, row[0], row[1]),
         )
     ]
 
