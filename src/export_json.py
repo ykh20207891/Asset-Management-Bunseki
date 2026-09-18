@@ -160,6 +160,15 @@ def _performance_history() -> list:
         return []
 
 
+def _tradable(conn) -> dict[str, str]:
+    """coin_id -> Bybit 上のシンボル。一覧が無ければ空（＝絞り込まない）。"""
+    try:
+        import bybit_listing
+        return bybit_listing.tradable_map(conn)
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def _load_meta(conn) -> dict[str, dict]:
     """coin_meta（チェーン/取引所）を辞書で返す。未取得なら空。"""
     meta: dict[str, dict] = {}
@@ -208,10 +217,15 @@ def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dic
         ) s ON s.coin_id = p.coin_id
         WHERE p.horizon_days = ? AND p.predicted_on = ? AND p.model_tag = ?
         ORDER BY p.rank ASC
-        LIMIT ?
         """,
-        (horizon, predicted_on, model_tag, top_n),
+        (horizon, predicted_on, model_tag),
     ).fetchall()
+
+    # 今週の予測と同じく、Bybit で売買できる銘柄だけを対象にする
+    tradable = _tradable(conn)
+    if tradable:
+        rows = [r for r in rows if r[2] in tradable]
+    rows = rows[:top_n]
 
     meta = _load_meta(conn)
     items = []
@@ -221,8 +235,10 @@ def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dic
     # チェーン別に「上がった数 / 対象数 / 平均騰落率」を集計する
     by_chain: dict[str, dict] = {}
 
-    for r in rows:
-        rank, symbol, coin_id, price_before = r[0], r[1], r[2], r[3]
+    for position, r in enumerate(rows, start=1):
+        model_rank, symbol, coin_id, price_before = r[0], r[1], r[2], r[3]
+        # 絞り込んだ場合は、その中での順位を振り直す
+        rank = position if tradable else model_rank
         price_after = _price_on_or_after(conn, coin_id, target)
 
         change = None
@@ -247,7 +263,9 @@ def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dic
         items.append(
             {
                 "rank": rank,
+                "modelRank": model_rank,
                 "symbol": (symbol or "").upper(),
+                "bybitSymbol": tradable.get(coin_id),
                 "name": r[4] or symbol,
                 "iconUrl": r[5],
                 "priceBefore": price_before,
@@ -318,21 +336,31 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
           AND p.predicted_on = ?
           AND p.model_tag = ?
         ORDER BY p.rank ASC
-        LIMIT ?
         """,
-        (horizon, predicted_on, model_tag, top_n),
+        (horizon, predicted_on, model_tag),
     ).fetchall()
+
+    # 資産管理アプリは Bybit でしか売買しないので、Bybit 現物(USDT)に上場している
+    # 銘柄だけをランキングする。モデルの全体順位は modelRank として残す。
+    tradable = _tradable(conn)
+    if tradable:
+        rows = [r for r in rows if r[4] in tradable]
+    rows = rows[:top_n]
 
     # チェーン/取引所（coin_meta。未取得なら空で出す）
     meta = _load_meta(conn)
 
     items = []
-    for r in rows:
+    for position, r in enumerate(rows, start=1):
+        # 順位帯（過去実績）はモデルの全体順位で判定する
         band_key = _band_key(r[0] or 0, total)
         band = bands.get(band_key, bands.get("overall", {}))
         items.append(
             {
-                "rank": r[0],
+                "rank": position if tradable else r[0],
+                "modelRank": r[0],
+                # Bybit 上のシンボル。BABY→BABY1 のように CoinGecko と違うことがある
+                "bybitSymbol": tradable.get(r[4]),
                 # 順位帯と、その帯の過去実績（7日後に上昇していた割合・平均リターン）
                 "band": band_key,
                 "upRate": band.get("upRate"),
@@ -372,6 +400,9 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
         "summary": summary,
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "universeSize": total,
+        # "bybit" = Bybit 現物(USDT)上場銘柄のみ / "all" = 絞り込みなし（一覧の取得失敗時）
+        "universe": "bybit" if tradable else "all",
+        "tradableCount": len(tradable) if tradable else None,
         # 画面で「実績ではこうだった」と示すための基準値
         "baseline": bands.get("overall", {}),
         # 先週の予測が実際どうなったかの答え合わせ

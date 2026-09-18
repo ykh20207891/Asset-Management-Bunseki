@@ -113,15 +113,26 @@ def _target_coins(conn, top_n: int) -> list[str]:
     if not row:
         return []
 
-    return [
+    ids = [
         r[0]
         for r in conn.execute(
             "SELECT coin_id FROM predictions "
             "WHERE horizon_days = 7 AND predicted_on = ? AND model_tag = ? "
-            "ORDER BY rank ASC LIMIT ?",
-            (row[0], row[1], top_n),
+            "ORDER BY rank ASC",
+            (row[0], row[1]),
         )
     ]
+
+    # 画面に出すのは Bybit 上場銘柄だけなので、メタ情報もその上位を対象にする
+    try:
+        import bybit_listing
+        tradable = bybit_listing.tradable_map(conn)
+    except Exception:  # noqa: BLE001
+        tradable = {}
+    if tradable:
+        ids = [cid for cid in ids if cid in tradable]
+
+    return ids[:top_n]
 
 
 def _pick_exchanges(tickers: list[dict]) -> list[str]:

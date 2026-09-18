@@ -25,7 +25,9 @@ from db import connect, init_db  # noqa: E402
 LOG = setup_logger("track_performance")
 
 HORIZON = 7
-TOP_K = 10
+# 資産管理アプリの自動売買と同じ条件で測る（Bybit 上場銘柄の上位5を等額）。
+# 2026-09-14 までの記録は「全銘柄の上位10」で測っており、条件が違う。
+TOP_K = 5
 INITIAL_TRAIN_DAYS = 180
 TEST_WINDOW = 30
 
@@ -55,6 +57,12 @@ def _ensure_table(conn) -> None:
         )
         """
     )
+    # 測定条件（あとから足した列）。条件が違う回を同じ推移として並べないため
+    for column, ddl in (("top_k", "INTEGER"), ("universe", "TEXT")):
+        try:
+            conn.execute(f"ALTER TABLE performance_log ADD COLUMN {column} {ddl}")
+        except Exception:  # noqa: BLE001
+            pass  # 既にある
     conn.commit()
 
 
@@ -95,12 +103,18 @@ def run(force: bool = False) -> dict | None:
     LOG.info("ウォークフォワード検証を開始します（時間がかかります）")
 
     import backtest
+    import bybit_listing
+
+    with connect() as conn:
+        tradable = set(bybit_listing.tradable_map(conn))
+    universe = "bybit" if tradable else "all"
 
     bt = backtest.run_backtest(
         horizon=HORIZON,
         top_k=TOP_K,
         initial_train_days=INITIAL_TRAIN_DAYS,
         test_window=TEST_WINDOW,
+        universe_ids=tradable or None,
     )
 
     results = bt.get("results") or {}
@@ -151,9 +165,10 @@ def run(force: bool = False) -> dict | None:
               (measured_on, horizon_days, n_folds, n_features, train_rows,
                mean_ic, t_stat, hit_rate, top_k_return, vs_universe,
                best_baseline, best_baseline_return, beats_baseline,
-               detail_json, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+               detail_json, top_k, universe, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
             ON CONFLICT(measured_on) DO UPDATE SET
+              top_k=excluded.top_k, universe=excluded.universe,
               mean_ic=excluded.mean_ic, t_stat=excluded.t_stat,
               hit_rate=excluded.hit_rate, top_k_return=excluded.top_k_return,
               vs_universe=excluded.vs_universe,
@@ -169,6 +184,8 @@ def run(force: bool = False) -> dict | None:
                 row["vs_universe"], row["best_baseline"],
                 row["best_baseline_return"], row["beats_baseline"],
                 json.dumps(_clean_detail(results), ensure_ascii=False, default=str),
+                TOP_K,
+                universe,
             ),
         )
         conn.commit()
@@ -185,9 +202,11 @@ def history(limit: int = 12) -> list[dict]:
     """記録済みの成績推移（新しい順）。"""
     with connect() as conn:
         try:
+            _ensure_table(conn)
             rows = conn.execute(
                 "SELECT measured_on, mean_ic, t_stat, hit_rate, top_k_return, "
-                "vs_universe, best_baseline, best_baseline_return, beats_baseline "
+                "vs_universe, best_baseline, best_baseline_return, beats_baseline, "
+                "top_k, universe "
                 "FROM performance_log ORDER BY measured_on DESC LIMIT ?",
                 (limit,),
             ).fetchall()
@@ -205,6 +224,9 @@ def history(limit: int = 12) -> list[dict]:
             "bestBaseline": r[6],
             "bestBaselineReturn": r[7],
             "beatsBaseline": bool(r[8]),
+            # 測定条件。古い記録は「全銘柄の上位10」
+            "topK": r[9] if r[9] is not None else 10,
+            "universe": r[10] or "all",
         }
         for r in rows
     ]

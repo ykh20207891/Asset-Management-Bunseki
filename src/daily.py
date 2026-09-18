@@ -54,6 +54,12 @@ def step_ai_enrich():
     ai_enrich.run()
 
 
+def step_bybit_listing():
+    """Bybit 現物の上場一覧（3日キャッシュ）。ランキングを売買できる銘柄に絞るのに使う。"""
+    import bybit_listing
+    bybit_listing.run()
+
+
 def step_predict():
     import predict
     predict.run_predict(horizon=7, top_n=20, model_tag=None, skip_importance=True)
@@ -107,6 +113,7 @@ def build_steps(dashboard_out: str | None):
         ("translate", step_translate, False),
         ("icons", step_icons, False),
         ("ai_enrich", step_ai_enrich, False),
+        ("bybit_listing", step_bybit_listing, False),
         ("predict", step_predict, False),
         ("coin_meta", step_coin_meta, False),
         ("track_performance", step_track_performance, False),

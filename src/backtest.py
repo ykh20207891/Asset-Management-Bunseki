@@ -210,7 +210,10 @@ def _run_folds(ds: pd.DataFrame, cs_cols: list[str], dates: np.ndarray,
 
 
 def run_backtest(horizon: int, top_k: int, initial_train_days: int,
-                 test_window: int) -> dict:
+                 test_window: int, universe_ids: set | None = None) -> dict:
+    """universe_ids を渡すと、学習は全銘柄で行ったうえで、成績の評価
+    （IC・上位K銘柄のポートフォリオ）だけをその銘柄集合に限定する。
+    実際に売買できる銘柄（Bybit 上場）だけで戦略を評価するために使う。"""
     ds, cs_cols = build_dataset(horizon=horizon)
     ds = ds.dropna(subset=["y_rank"]).copy()
 
@@ -229,6 +232,14 @@ def run_backtest(horizon: int, top_k: int, initial_train_days: int,
     if oos is None:
         raise RuntimeError("有効な fold がありませんでした。")
     n_folds = oos.attrs["n_folds"]
+
+    if universe_ids:
+        before = len(oos)
+        oos = oos[oos["coin_id"].isin(universe_ids)].copy()
+        LOG.info("評価対象を売買可能な銘柄に限定: %s → %s 行",
+                 format(before, ","), format(len(oos), ","))
+        if oos.empty:
+            raise RuntimeError("売買可能な銘柄に絞ると評価対象が空になりました。")
 
     # ベースライン（クロスセクション順位そのものをスコアとして使う）
     candidates = {"model(GBDT)": "score"}
