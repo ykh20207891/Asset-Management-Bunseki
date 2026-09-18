@@ -25,9 +25,11 @@ from db import connect, init_db  # noqa: E402
 LOG = setup_logger("track_performance")
 
 HORIZON = 7
-# 資産管理アプリの自動売買と同じ条件で測る（Bybit 上場銘柄の上位5を等額）。
+# 資産管理アプリの自動売買と同じ条件で測る（Bybit 上場銘柄の上位8を等額）。
 # 2026-09-14 までの記録は「全銘柄の上位10」で測っており、条件が違う。
-TOP_K = 5
+# 8 にした根拠: Bybit 集合・開始日7通りの検証で、上位5と平均リターンは同じ
+# （+2.26% と +2.21%/週）だが、最悪の経路が −16.8% → −6.6% と大きく改善した。
+TOP_K = 8
 INITIAL_TRAIN_DAYS = 180
 TEST_WINDOW = 30
 

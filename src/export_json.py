@@ -225,6 +225,21 @@ def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dic
     tradable = _tradable(conn)
     if tradable:
         rows = [r for r in rows if r[2] in tradable]
+
+    # 市場平均（その週に売買できた全銘柄の単純平均）。
+    # 戦略の良し悪しは損益の絶対額ではなく「市場平均をどれだけ上回ったか」で見る。
+    # 相場全体が下げた週のマイナスと、銘柄選びの失敗とを区別するための基準。
+    market_changes = []
+    for r in rows:
+        before = r[3]
+        after = _price_on_or_after(conn, r[2], target)
+        if before and after and before > 0:
+            market_changes.append((after - before) / before * 100)
+    market_avg = (
+        round(sum(market_changes) / len(market_changes), 2) if market_changes else None
+    )
+    market_count = len(market_changes)
+
     rows = rows[:top_n]
 
     meta = _load_meta(conn)
@@ -287,6 +302,19 @@ def gather_review(conn, horizon: int, top_n: int, current_on: str | None) -> dic
         "scored": scored,
         "upRate": round(ups / scored, 4) if scored else None,
         "avgChangePct": round(total_ret / scored, 2) if scored else None,
+        # 同じ週の市場平均（売買できた全銘柄）と、その銘柄数
+        "marketChangePct": market_avg,
+        "marketCount": market_count,
+        # 自動売買と同じ「上位8銘柄・等額」だった場合の結果（手数料前）
+        "top8ChangePct": (
+            round(
+                sum(i["changePct"] for i in items[:8] if i["changePct"] is not None)
+                / max(1, sum(1 for i in items[:8] if i["changePct"] is not None)),
+                2,
+            )
+            if any(i["changePct"] is not None for i in items[:8])
+            else None
+        ),
         # チェーン別の成績（上がった数が多い順）
         "byChain": sorted(
             [
