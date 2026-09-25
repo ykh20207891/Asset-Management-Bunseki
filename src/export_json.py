@@ -133,6 +133,59 @@ def _tradable(conn) -> dict[str, str]:
         return {}
 
 
+def gather_short_candidates(conn, horizon: int, predicted_on: str, model_tag: str,
+                            limit: int = 15) -> list[dict]:
+    """ショート（無期限先物の売り）の候補。Bybit で売買でき、先物がある銘柄の
+    うちスコアが最も低いものから順に返す。
+
+    検証（Bybit・5日・v2・開始日5通り）では、下位8の売りは +1.21%/5日、
+    上位8の買いと組み合わせると市場との連動が 0.76 → 0.20 に下がり、
+    相場が下げた回でもプラスになった。アプリ側は模擬で並走させて比較する。
+    """
+    try:
+        import bybit_listing
+        perps = bybit_listing.perp_map(conn)
+        tradable = bybit_listing.tradable_map(conn)
+    except Exception:  # noqa: BLE001
+        return []
+    if not perps or not tradable:
+        return []
+
+    rows = conn.execute(
+        """
+        SELECT p.rank, p.symbol, p.score, p.price_at_pred, p.coin_id, s.name, s.image_url
+        FROM predictions p
+        LEFT JOIN snapshots s ON s.coin_id = p.coin_id AND s.snapshot_date = p.predicted_on
+        WHERE p.horizon_days = ? AND p.predicted_on = ? AND p.model_tag = ?
+        ORDER BY p.rank DESC
+        """,
+        (horizon, predicted_on, model_tag),
+    ).fetchall()
+
+    out = []
+    for r in rows:
+        coin_id = r[4]
+        if coin_id not in tradable or coin_id not in perps:
+            continue
+        out.append(
+            {
+                "rank": len(out) + 1,          # 下から数えた順位（1 = 最もスコアが低い）
+                "modelRank": r[0],
+                "symbol": (r[1] or "").upper(),
+                "bybitSymbol": tradable[coin_id],
+                "perpSymbol": perps[coin_id],
+                "coinId": coin_id,
+                "name": r[5] or r[1],
+                "score": round(r[2], 4) if r[2] is not None else None,
+                "price": r[3],
+                "iconUrl": r[6],
+            }
+        )
+        if len(out) >= limit:
+            break
+    return out
+
+
 def _load_meta(conn) -> dict[str, dict]:
     """coin_meta（チェーン/取引所）を辞書で返す。未取得なら空。"""
     meta: dict[str, dict] = {}
@@ -406,6 +459,8 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
         # 週次検証で記録した成績の推移
         "performance": _performance_history(),
         "items": items,
+        # ショート候補（スコアが最も低い順・先物のある銘柄のみ）
+        "shortItems": gather_short_candidates(conn, horizon, predicted_on, model_tag),
     }
 
 

@@ -17,6 +17,7 @@ CoinGecko の /exchanges/bybit_spot/tickers は CoinGecko の coin_id 付きで�
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import time
 from pathlib import Path
@@ -50,7 +51,37 @@ def _ensure_table(conn) -> None:
         )
         """
     )
+    # data/bybit_meta.json（手元で取得してコミット）から載せる列
+    for column in ("spot_listed_on TEXT", "perp_symbol TEXT", "perp_launched_on TEXT"):
+        try:
+            conn.execute(f"ALTER TABLE bybit_listing ADD COLUMN {column}")
+        except Exception:  # noqa: BLE001
+            pass
     conn.commit()
+
+
+META_PATH = Path(__file__).resolve().parent.parent / "data" / "bybit_meta.json"
+
+
+def apply_meta(conn) -> int:
+    """上場日と先物の情報を bybit_listing に書き込む。JSON が無ければ何もしない。"""
+    if not META_PATH.exists():
+        return 0
+    try:
+        coins = json.loads(META_PATH.read_text(encoding="utf-8")).get("coins", {})
+    except Exception as e:  # noqa: BLE001
+        LOG.warning("bybit_meta.json を読めません: %s", e)
+        return 0
+    n = 0
+    for coin_id, m in coins.items():
+        cur = conn.execute(
+            "UPDATE bybit_listing SET spot_listed_on = ?, perp_symbol = ?, perp_launched_on = ? "
+            "WHERE coin_id = ?",
+            (m.get("spotListedOn"), m.get("perpSymbol"), m.get("perpLaunchedOn"), coin_id),
+        )
+        n += cur.rowcount
+    conn.commit()
+    return n
 
 
 def _is_fresh(conn) -> bool:
@@ -98,6 +129,7 @@ def run(force: bool = False) -> int:
         _ensure_table(conn)
         if not force and _is_fresh(conn):
             LOG.info("Bybit 上場一覧は新しいので取得を省略します")
+            apply_meta(conn)
             return 0
 
     listing = fetch_listing(load_config())
@@ -115,19 +147,51 @@ def run(force: bool = False) -> int:
             [(cid, v["base"], v.get("last")) for cid, v in listing.items()],
         )
         conn.commit()
+        n_meta = apply_meta(conn)
 
-    LOG.info("Bybit 現物(USDT) の上場一覧を更新: %d 銘柄", len(listing))
+    LOG.info("Bybit 現物(USDT) の上場一覧を更新: %d 銘柄（上場日/先物の情報 %d 件）", len(listing), n_meta)
     return len(listing)
 
 
-def tradable_map(conn) -> dict[str, str]:
-    """coin_id -> Bybit 上のシンボル。未取得・取得失敗時は空（＝絞り込まない）。"""
+def tradable_map(conn, on: str | None = None) -> dict[str, str]:
+    """coin_id -> Bybit 上のシンボル。未取得・取得失敗時は空（＝絞り込まない）。
+
+    on（YYYY-MM-DD）を渡すと、その日に既に上場していた銘柄だけを返す。
+    過去検証で「まだ上場していなかった銘柄を買えたことにする」先読みを防ぐ。
+    """
     try:
-        rows = conn.execute("SELECT coin_id, base FROM bybit_listing").fetchall()
+        rows = conn.execute(
+            "SELECT coin_id, base, spot_listed_on FROM bybit_listing"
+        ).fetchall()
     except Exception:  # noqa: BLE001
         return {}
-    listing = {r[0]: r[1] for r in rows}
-    return listing if len(listing) >= MIN_EXPECTED else {}
+    if len(rows) < MIN_EXPECTED:
+        return {}
+    if on is None:
+        return {r[0]: r[1] for r in rows}
+    return {r[0]: r[1] for r in rows if r[2] is None or r[2] <= on}
+
+
+def listing_dates(conn) -> dict[str, str]:
+    """coin_id -> 現物の上場日。時点つきの検証に使う。不明な銘柄は '0000-00-00'（常に含める）。"""
+    try:
+        rows = conn.execute("SELECT coin_id, spot_listed_on FROM bybit_listing").fetchall()
+    except Exception:  # noqa: BLE001
+        return {}
+    if len(rows) < MIN_EXPECTED:
+        return {}
+    return {r[0]: (r[1] or "0000-00-00") for r in rows}
+
+
+def perp_map(conn) -> dict[str, str]:
+    """coin_id -> 無期限先物のシンボル（ショート可能な銘柄）。"""
+    try:
+        rows = conn.execute(
+            "SELECT coin_id, perp_symbol FROM bybit_listing WHERE perp_symbol IS NOT NULL"
+        ).fetchall()
+    except Exception:  # noqa: BLE001
+        return {}
+    return {r[0]: r[1] for r in rows}
 
 
 def main() -> int:

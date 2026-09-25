@@ -167,7 +167,9 @@ def run(force: bool = False) -> dict | None:
 
     with connect() as conn:
         tradable = set(bybit_listing.tradable_map(conn))
-    universe = "bybit" if tradable else "all"
+        listed = bybit_listing.listing_dates(conn)
+    # 上場日が分かっていれば時点つき（その日に上場済みの銘柄だけ）で測る
+    universe = "bybit_pit" if listed else ("bybit" if tradable else "all")
 
     bt = backtest.run_backtest(
         horizon=HORIZON,
@@ -175,6 +177,7 @@ def run(force: bool = False) -> dict | None:
         initial_train_days=INITIAL_TRAIN_DAYS,
         test_window=TEST_WINDOW,
         universe_ids=tradable or None,
+        listed_on=listed or None,
     )
 
     results = bt.get("results") or {}
