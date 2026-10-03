@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -431,7 +432,12 @@ def gather_latest(conn, horizon: int, top_n: int) -> dict:
             "ORDER BY summary_date DESC LIMIT 1"
         ).fetchone()
         if row:
-            summary = {"date": row[0], "text": row[1]}
+            text = row[1] or ""
+            # 以前の整形処理が行頭の西暦を剥がしていた（「2026年10月3日」→「年10月3日」）。
+            # 保存済みの分は、要約の対象日の年を補って出す
+            if row[0] and re.match(r"^年\d{1,2}月", text):
+                text = f"{str(row[0])[:4]}{text}"
+            summary = {"date": row[0], "text": text}
     except Exception:  # noqa: BLE001
         pass  # テーブル未作成（AI未利用）なら単に省略する
 

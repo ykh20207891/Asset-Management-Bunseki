@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -55,6 +56,15 @@ SUMMARY_SYSTEM = (
 )
 
 MAX_SUMMARY_LINES = 3
+
+# 行頭の箇条書き記号・番号（「・」「- 」「1. 」「2) 」など）。
+# 数字そのものを剥がすと「2026年10月3日」が「年10月3日」になるので、
+# 「数字＋区切り記号」の形のときだけ番号とみなす。
+_BULLET_RE = re.compile(r"^\s*(?:[・\-*•●]+|\d{1,2}\s*[.)．、:：])\s*")
+
+
+def clean_summary_line(line: str) -> str:
+    return _BULLET_RE.sub("", line).strip()
 
 
 def _ensure_summary_table(conn) -> None:
@@ -110,7 +120,8 @@ def make_daily_summary(conn, force: bool = False) -> str | None:
         return None
 
     # 指示に反して長く返すことがあるので、こちらで行数を切り詰める
-    lines = [ln.strip(" ・-*0123456789.") for ln in text.splitlines() if ln.strip()]
+    lines = [clean_summary_line(ln) for ln in text.splitlines() if ln.strip()]
+    lines = [ln for ln in lines if ln]
     text = "\n".join(lines[:MAX_SUMMARY_LINES])
     if not text:
         return None
