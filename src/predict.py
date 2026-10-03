@@ -72,7 +72,8 @@ def run_predict(horizon: int, top_n: int, model_tag: str | None,
     target["rank"] = np.arange(1, len(target) + 1)
 
     # v2: 順位の端を重く学習する（backtest.TAIL_WEIGHT）。v1 と成績を分けて追えるようタグを変える
-    tag = model_tag or ("gbdt_h%d_v2" % horizon)
+    # v3: 市場全体の特徴量（mkt_*）を外した（2026-10-03）
+    tag = model_tag or ("gbdt_h%d_v3" % horizon)
     created = datetime.now(timezone.utc).isoformat(timespec="seconds")
     as_of_str = as_of.strftime("%Y-%m-%d")
 

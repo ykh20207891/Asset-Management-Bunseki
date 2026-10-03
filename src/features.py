@@ -258,18 +258,12 @@ def build_features(panel: pd.DataFrame, horizon: int = 7,
             feats["exret_%d" % n] = feats["ret_%d" % n].sub(btc_ret, axis=0)
         btc_ret1 = btc_log.diff()
         feats["corr_btc_60"] = ret1.rolling(60, min_periods=30).corr(btc_ret1)
-        feats["mkt_btc_ret_7"] = pd.DataFrame(
-            np.repeat(btc_log.diff(7).to_numpy()[:, None], px.shape[1], axis=1),
-            index=px.index, columns=px.columns)
-        feats["mkt_btc_vol_30"] = pd.DataFrame(
-            np.repeat(btc_ret1.rolling(30, min_periods=15).std().to_numpy()[:, None],
-                      px.shape[1], axis=1),
-            index=px.index, columns=px.columns)
 
-    breadth = (logpx.diff(7) > 0).sum(axis=1) / logpx.diff(7).notna().sum(axis=1)
-    feats["mkt_breadth_7"] = pd.DataFrame(
-        np.repeat(breadth.to_numpy()[:, None], px.shape[1], axis=1),
-        index=px.index, columns=px.columns)
+    # 市場全体の地合い（BTC の 7 日騰落・BTC の変動率・上昇銘柄の割合）は使わない。
+    # 全銘柄で同じ値なので、日ごとの順位化（cross_sectional_normalize）で情報が消え、
+    # 「その日の銘柄数」しか表さないノイズになっていた。順位化せず元の値で入れると成績が下がり、
+    # 外すと上がった（2026-10-03 検証・Bybit 時点つき上位8・5日・乱数 5 通りの平均:
+    # IC 0.078→0.082、上位8 +2.55%→+3.04%/5日。5 通りすべてで同等以上）。
 
     # --- ニュース特徴量（データが十分たまっている場合のみ） ---
     if include_news:
