@@ -24,6 +24,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    outputs:
+      alert: ${{ steps.alert.outputs.alert }}
     steps:
       - uses: actions/checkout@v4
 
@@ -106,9 +108,20 @@ jobs:
           gh release upload "$DATA_TAG" crypto.db.gz icons.tar.gz raw.tar.gz --clobber
 
       - name: ダッシュボードを Pages 用に受け渡し
+        # 予測 JSON が無い（書き出しに失敗した）なら公開しない＝前回の公開分を残す
+        if: hashFiles('site/prediction.json') != ''
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
+      - name: 失敗の印を確認
+        id: alert
+        if: always()
+        run: |
+          if [ -f logs/pipeline_alert.txt ]; then
+            echo "alert=$(tr '\n' ' ' < logs/pipeline_alert.txt)" >> "$GITHUB_OUTPUT"
+            cat logs/pipeline_alert.txt
+          fi
 
       - name: ログを残す（失敗時の調査用）
         if: always()
@@ -128,3 +141,14 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # 入れ替え日に予測・公開が失敗したら、データの保存と公開を済ませた後で
+  # ワークフローを「失敗」にする（GitHub から失敗の通知が届く）
+  alert:
+    needs: [run, deploy]
+    if: always() && needs.run.outputs.alert != ''
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::error::${{ needs.run.outputs.alert }}"
+          exit 1

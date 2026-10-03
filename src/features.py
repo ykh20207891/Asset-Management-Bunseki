@@ -187,8 +187,18 @@ def _news_features(px: pd.DataFrame, min_news_days: int) -> dict[str, pd.DataFra
 LOG_MSG: list[str] = []
 
 
+# ニュース特徴量は既定で使わない（明示的に有効にしたときだけ）。
+# 以前は蓄積が 60 日に達すると自動で有効になったが、それでは
+#   - 同じモデル名のまま特徴量が変わり、成績の比較ができなくなる
+#   - ニュースの日付（UTC の 1 日分）が価格の時刻（00:00 台）より後の記事を含み、先読みになる
+#   - 収集を始める前の期間が 0 で埋まり、学習時と予測時で値の性質が違う
+# ため、1 日ずらし・期間の連続性を確かめ・検証してから、モデル名を変えて有効にすること。
+NEWS_FEATURES_ENABLED = False
+
+
 def build_features(panel: pd.DataFrame, horizon: int = 7,
-                   include_news: bool = True, min_news_days: int = 60) -> pd.DataFrame:
+                   include_news: bool = NEWS_FEATURES_ENABLED,
+                   min_news_days: int = 60) -> pd.DataFrame:
     """ワイド表ベースで特徴量と目的変数を作り、ロング形式で返す。
 
     include_news=True でも、ニュースの蓄積日数が min_news_days に満たなければ
@@ -352,7 +362,7 @@ def cross_sectional_normalize(df: pd.DataFrame, feature_cols: list[str],
 
 
 def build_dataset(horizon: int = 7, universe_cfg: dict | None = None,
-                  include_news: bool = True, min_news_days: int = 60):
+                  include_news: bool = NEWS_FEATURES_ENABLED, min_news_days: int = 60):
     """パネル読み込み → 特徴量 → ユニバース → 正規化 を通しで実行する。"""
     panel = load_panel()
     feat = build_features(panel, horizon=horizon,

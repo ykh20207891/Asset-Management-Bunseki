@@ -25,6 +25,7 @@ from db import connect, init_db  # noqa: E402
 LOG = setup_logger("track_performance")
 
 import cycle  # noqa: E402
+import numpy as np  # noqa: E402
 
 HORIZON = cycle.HORIZON
 # 資産管理アプリの自動売買と同じ条件で測る（Bybit 上場銘柄の上位8を等額）。
@@ -84,9 +85,13 @@ def compute_band_stats(oos) -> dict:
     df["rank"] = df.groupby("date")["score"].rank(ascending=False, method="first")
     df["pct"] = df["rank"] / df.groupby("date")["score"].transform("size")
 
+    # fwd_ret は対数リターン。平均は実際の騰落率（expm1）で取る
+    # （対数のまま平均すると、値動きの大きい暗号資産では実際より低く出る）
+    df["simple_ret"] = np.expm1(df["fwd_ret"])
+
     bands = {}
     for lo, hi, key in BAND_EDGES:
-        part = df[(df["pct"] > lo) & (df["pct"] <= hi)]["fwd_ret"]
+        part = df[(df["pct"] > lo) & (df["pct"] <= hi)]["simple_ret"]
         if len(part) == 0:
             continue
         bands[key] = {
@@ -95,8 +100,8 @@ def compute_band_stats(oos) -> dict:
             "samples": int(len(part)),
         }
     bands["overall"] = {
-        "upRate": round(float((df["fwd_ret"] > 0).mean()), 4),
-        "avgReturn": round(float(df["fwd_ret"].mean()), 5),
+        "upRate": round(float((df["simple_ret"] > 0).mean()), 4),
+        "avgReturn": round(float(df["simple_ret"].mean()), 5),
         "samples": int(len(df)),
         "periods": int(df["date"].nunique()),
     }

@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import sys
 import time
 import traceback
@@ -131,14 +132,27 @@ def main() -> int:
                    help="ダッシュボードの出力先（既定 reports/dashboard.html）")
     p.add_argument("--skip", action="append", default=[],
                    help="飛ばすステップ名（複数指定可）")
+    p.add_argument("--force", action="store_true",
+                   help="本日分の収集・予測が済んでいても、やり直す")
     args = p.parse_args()
+
+    import cycle
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    skip = set(args.skip)
+
+    # 1 日に 2 回走ることがある（Worker からの即時起動＋GitHub の定時実行）。
+    # 2 回目が入れ替え日の収集・予測をやり直すと、自動売買が買った後でランキングが
+    # 入れ替わってしまうので、本日分が済んでいれば収集と予測は飛ばす（公開は行う）
+    if not args.force and _already_predicted(today):
+        LOG.info("本日 %s の収集と予測は済んでいるので、上書きしないよう飛ばします（--force でやり直し）", today)
+        skip |= {"collect", "predict", "coin_meta"}
 
     steps = build_steps(args.dashboard_out)
     results: list[tuple[str, str, float, str]] = []
     fatal = False
 
     for name, fn, critical in steps:
-        if name in args.skip:
+        if name in skip:
             results.append((name, "skip", 0.0, ""))
             continue
         LOG.info("--- %s 開始 ---", name)
@@ -164,7 +178,40 @@ def main() -> int:
     ng = [r for r in results if r[1] == "NG"]
     LOG.info(" 失敗 %d / %d ステップ", len(ng), len(results))
 
+    # 入れ替え日に予測・公開が失敗したら、ワークフローの最後で「失敗」にして知らせる。
+    # ここで止めると収集したデータの保存や前回分の公開まで止まるので、印を残すだけにする
+    ng_names = {r[0] for r in ng}
+    alerts = []
+    if cycle.is_cycle_day(today) and ng_names & {"predict", "export_json"}:
+        alerts.append("入れ替え日 %s の予測または公開が失敗しました: %s" % (today, ", ".join(sorted(ng_names))))
+    if "export_json" in ng_names and not alerts:
+        alerts.append("予測 JSON の書き出しが失敗しました（前回の公開分が残ります）")
+    if alerts:
+        alert_path = Path("logs") / "pipeline_alert.txt"
+        alert_path.parent.mkdir(parents=True, exist_ok=True)
+        alert_path.write_text("\n".join(alerts) + "\n", encoding="utf-8")
+        for a in alerts:
+            LOG.error(a)
+
     return 1 if fatal else 0
+
+
+def _already_predicted(today: str) -> bool:
+    """本日の価格と予測が DB に既にあるか。"""
+    try:
+        import cycle
+        from db import connect
+        with connect() as conn:
+            snap = conn.execute(
+                "SELECT 1 FROM snapshots WHERE snapshot_date = ? LIMIT 1", (today,)
+            ).fetchone()
+            pred = conn.execute(
+                "SELECT 1 FROM predictions WHERE predicted_on = ? AND horizon_days = ? LIMIT 1",
+                (today, cycle.HORIZON),
+            ).fetchone()
+        return bool(snap and pred)
+    except Exception:  # noqa: BLE001
+        return False
 
 
 if __name__ == "__main__":

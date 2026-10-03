@@ -171,7 +171,7 @@ def format_report(df: pd.DataFrame, as_of, horizon: int, top_n: int,
 
 def main() -> int:
     p = argparse.ArgumentParser(description="ランキング予測の実行")
-    p.add_argument("--horizon", type=int, default=7)
+    p.add_argument("--horizon", type=int, default=5)
     p.add_argument("--top-n", type=int, default=20)
     p.add_argument("--model-tag", type=str, default=None)
     p.add_argument("--skip-importance", action="store_true")

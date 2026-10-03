@@ -62,7 +62,7 @@ DEFAULT_BANDS_BY_HORIZON = {
         "overall": {"upRate": 0.461, "avgReturn": -0.00163},
     },
 }
-DEFAULT_BANDS = DEFAULT_BANDS_BY_HORIZON[7]
+DEFAULT_BANDS = DEFAULT_BANDS_BY_HORIZON.get(cycle.HORIZON, DEFAULT_BANDS_BY_HORIZON[7])
 
 
 def _band_key(rank: int, total: int) -> str:
@@ -86,11 +86,21 @@ def _band_key(rank: int, total: int) -> str:
 def compute_bands(conn, horizon: int) -> dict:
     """毎週の検証が DB に保存した実績を使い、無ければ期間に合った既定値を使う。"""
     try:
+        # 最新の Bybit の検証を使う。同じ日なら時点つき（bybit_pit）を優先。
+        # 以前は universe='bybit' を常に優先していたため、時点つきに切り替えた後も
+        # 9/21 の古い行に固定されていた（band_stats の主キーが (horizon, universe) のため残る）
         row = conn.execute(
             "SELECT bands_json FROM band_stats WHERE horizon_days = ? "
-            "ORDER BY (universe = 'bybit') DESC, measured_on DESC LIMIT 1",
+            "AND universe IN ('bybit_pit', 'bybit') "
+            "ORDER BY measured_on DESC, (universe = 'bybit_pit') DESC LIMIT 1",
             (horizon,),
         ).fetchone()
+        if not row:
+            row = conn.execute(
+                "SELECT bands_json FROM band_stats WHERE horizon_days = ? "
+                "ORDER BY measured_on DESC LIMIT 1",
+                (horizon,),
+            ).fetchone()
         if row:
             return json.loads(row[0])
     except Exception:  # noqa: BLE001
@@ -99,19 +109,22 @@ def compute_bands(conn, horizon: int) -> dict:
 
 
 def _price_on_or_after(conn, coin_id: str, date: str) -> float | None:
-    """指定日以降で最も近い日の価格。snapshots に無ければ price_history を見る。"""
+    """指定日（無ければ翌日まで）の価格。snapshots に無ければ price_history を見る。
+
+    それより後の日で代用すると保有期間が長くなり、答え合わせが別の条件になるので使わない。
+    """
     row = conn.execute(
         "SELECT price FROM snapshots WHERE coin_id = ? AND snapshot_date >= ? "
-        "ORDER BY snapshot_date ASC LIMIT 1",
-        (coin_id, date),
+        "AND snapshot_date <= date(?, '+1 day') ORDER BY snapshot_date ASC LIMIT 1",
+        (coin_id, date, date),
     ).fetchone()
     if row and row[0] is not None:
         return float(row[0])
 
     row = conn.execute(
         "SELECT price FROM price_history WHERE coin_id = ? AND date >= ? "
-        "ORDER BY date ASC LIMIT 1",
-        (coin_id, date),
+        "AND date <= date(?, '+1 day') ORDER BY date ASC LIMIT 1",
+        (coin_id, date, date),
     ).fetchone()
     return float(row[0]) if row and row[0] is not None else None
 
@@ -126,12 +139,16 @@ def _performance_history() -> list:
 
 
 def _tradable(conn) -> dict[str, str]:
-    """coin_id -> Bybit 上のシンボル。一覧が無ければ空（＝絞り込まない）。"""
-    try:
-        import bybit_listing
-        return bybit_listing.tradable_map(conn)
-    except Exception:  # noqa: BLE001
-        return {}
+    """coin_id -> Bybit 上のシンボル。
+
+    取れなかったときに「絞り込まない（全銘柄）」で公開すると、自動売買が Bybit に無い
+    銘柄を上位として扱ってしまう。失敗として止め、前回の公開分をそのまま残す。
+    """
+    import bybit_listing
+    tradable = bybit_listing.tradable_map(conn)
+    if not tradable:
+        raise RuntimeError("Bybit の上場一覧が空です（全銘柄で公開しないよう中止）")
+    return tradable
 
 
 def gather_short_candidates(conn, horizon: int, predicted_on: str, model_tag: str,
@@ -497,7 +514,7 @@ def run_export(out_path: str | None, horizon: int = cycle.HORIZON,
 def main() -> int:
     p = argparse.ArgumentParser(description="ランキング予測を JSON で書き出す")
     p.add_argument("--out", default=None, help="出力先（既定: reports/prediction.json）")
-    p.add_argument("--horizon", type=int, default=7)
+    p.add_argument("--horizon", type=int, default=cycle.HORIZON)
     p.add_argument("--top", type=int, default=DEFAULT_TOP_N)
     args = p.parse_args()
 

@@ -30,6 +30,14 @@ CYCLE_DAY_SQL = (
 LEGACY_DAY_SQL = "CAST(strftime('%w', predicted_on) AS INTEGER) = 1"
 
 
+def is_cycle_day(date_iso: str) -> bool:
+    """その日（UTC の YYYY-MM-DD）が 5 日サイクルの入れ替え日か。"""
+    from datetime import date
+    d = date.fromisoformat(date_iso)
+    a = date.fromisoformat(ANCHOR)
+    return d >= a and (d - a).days % HORIZON == 0
+
+
 def latest_cycle(conn, before: str | None = None):
     """直近のサイクル日の予測 (predicted_on, model_tag, horizon) を返す。
 
