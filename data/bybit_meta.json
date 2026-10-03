@@ -1,2375 +1,2763 @@
 {
- "updatedAt": "2026-09-25",
+ "updatedAt": "2026-10-03",
  "coins": {
   "bitcoin": {
    "base": "BTC",
    "spotListedOn": "2021-07-05",
    "perpSymbol": "BTCUSDT",
-   "perpLaunchedOn": "2020-03-15"
+   "perpLaunchedOn": "2020-03-15",
+   "perpMultiplier": 1
   },
   "ethereum": {
    "base": "ETH",
    "spotListedOn": "2021-07-05",
    "perpSymbol": "ETHUSDT",
-   "perpLaunchedOn": "2021-03-15"
+   "perpLaunchedOn": "2021-03-15",
+   "perpMultiplier": 1
   },
   "usd-coin": {
    "base": "USDC",
    "spotListedOn": "2021-10-22",
    "perpSymbol": "USDCUSDT",
-   "perpLaunchedOn": "2022-06-28"
+   "perpLaunchedOn": "2022-06-28",
+   "perpMultiplier": 1
   },
   "solana": {
    "base": "SOL",
    "spotListedOn": "2021-10-21",
    "perpSymbol": "SOLUSDT",
-   "perpLaunchedOn": "2021-10-15"
-  },
-  "hyperliquid": {
-   "base": "HYPE",
-   "spotListedOn": "2025-07-11",
-   "perpSymbol": "HYPEUSDT",
-   "perpLaunchedOn": "2024-12-04"
+   "perpLaunchedOn": "2021-10-15",
+   "perpMultiplier": 1
   },
   "near": {
    "base": "NEAR",
    "spotListedOn": "2022-03-11",
    "perpSymbol": "NEARUSDT",
-   "perpLaunchedOn": "2021-10-11"
+   "perpLaunchedOn": "2021-10-11",
+   "perpMultiplier": 1
+  },
+  "hyperliquid": {
+   "base": "HYPE",
+   "spotListedOn": "2025-07-11",
+   "perpSymbol": "HYPEUSDT",
+   "perpLaunchedOn": "2024-12-04",
+   "perpMultiplier": 1
   },
   "ripple": {
    "base": "XRP",
    "spotListedOn": "2021-07-20",
    "perpSymbol": "XRPUSDT",
-   "perpLaunchedOn": "2021-05-13"
+   "perpLaunchedOn": "2021-05-13",
+   "perpMultiplier": 1
   },
   "ethena": {
    "base": "ENA",
    "spotListedOn": "2024-04-02",
    "perpSymbol": "ENAUSDT",
-   "perpLaunchedOn": "2024-04-02"
-  },
-  "uniswap": {
-   "base": "UNI",
-   "spotListedOn": "2021-09-22",
-   "perpSymbol": "UNIUSDT",
-   "perpLaunchedOn": "2021-11-30"
-  },
-  "aave": {
-   "base": "AAVE",
-   "spotListedOn": "2021-09-23",
-   "perpSymbol": "AAVEUSDT",
-   "perpLaunchedOn": "2021-05-13"
-  },
-  "chainlink": {
-   "base": "LINK",
-   "spotListedOn": "2021-09-22",
-   "perpSymbol": "LINKUSDT",
-   "perpLaunchedOn": "2018-01-01"
-  },
-  "worldcoin-wld": {
-   "base": "WLD",
-   "spotListedOn": "2023-07-24",
-   "perpSymbol": "WLDUSDT",
-   "perpLaunchedOn": "2023-07-24"
-  },
-  "lighter": {
-   "base": "LIT",
-   "spotListedOn": "2026-01-15",
-   "perpSymbol": "LITUSDT",
-   "perpLaunchedOn": "2025-12-30"
-  },
-  "dogecoin": {
-   "base": "DOGE",
-   "spotListedOn": "2021-08-31",
-   "perpSymbol": "DOGEUSDT",
-   "perpLaunchedOn": "2021-06-02"
-  },
-  "mantle": {
-   "base": "MNT",
-   "spotListedOn": "2023-07-17",
-   "perpSymbol": "MNTUSDT",
-   "perpLaunchedOn": "2023-10-02"
-  },
-  "arbitrum": {
-   "base": "ARB",
-   "spotListedOn": "2023-03-23",
-   "perpSymbol": "ARBUSDT",
-   "perpLaunchedOn": "2023-03-23"
-  },
-  "ondo-finance": {
-   "base": "ONDO",
-   "spotListedOn": "2024-01-18",
-   "perpSymbol": "ONDOUSDT",
-   "perpLaunchedOn": "2024-01-22"
-  },
-  "sui": {
-   "base": "SUI",
-   "spotListedOn": "2023-05-03",
-   "perpSymbol": "SUIUSDT",
-   "perpLaunchedOn": "2023-05-02"
-  },
-  "avalanche-2": {
-   "base": "AVAX",
-   "spotListedOn": "2021-11-12",
-   "perpSymbol": "AVAXUSDT",
-   "perpLaunchedOn": "2021-09-15"
-  },
-  "cardano": {
-   "base": "ADA",
-   "spotListedOn": "2021-10-21",
-   "perpSymbol": "ADAUSDT",
-   "perpLaunchedOn": "2021-01-15"
-  },
-  "tether-gold": {
-   "base": "XAUT",
-   "spotListedOn": "2025-04-11",
-   "perpSymbol": "XAUTUSDT",
-   "perpLaunchedOn": "2025-04-03"
-  },
-  "aster-2": {
-   "base": "ASTER",
-   "spotListedOn": "2025-09-21",
-   "perpSymbol": "ASTERUSDT",
-   "perpLaunchedOn": "2025-09-19"
-  },
-  "venice-token": {
-   "base": "VVV",
-   "spotListedOn": "2025-03-21",
-   "perpSymbol": "VVVUSDT",
-   "perpLaunchedOn": "2025-01-28"
-  },
-  "binancecoin": {
-   "base": "BNB",
-   "spotListedOn": "2022-03-10",
-   "perpSymbol": "BNBUSDT",
-   "perpLaunchedOn": "2021-06-29"
-  },
-  "flock-2": {
-   "base": "FLOCK",
-   "spotListedOn": "2024-12-31",
-   "perpSymbol": "FLOCKUSDT",
-   "perpLaunchedOn": "2025-01-09"
-  },
-  "pump-fun": {
-   "base": "PUMP",
-   "spotListedOn": "2025-07-14",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "litecoin": {
-   "base": "LTC",
-   "spotListedOn": "2021-08-31",
-   "perpSymbol": "LTCUSDT",
-   "perpLaunchedOn": "2018-01-01"
-  },
-  "pepe": {
-   "base": "PEPE",
-   "spotListedOn": "2023-05-06",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "canton-network": {
-   "base": "CC",
-   "spotListedOn": "2025-11-10",
-   "perpSymbol": "CCUSDT",
-   "perpLaunchedOn": "2025-10-31"
-  },
-  "usd1-wlfi": {
-   "base": "USD1",
-   "spotListedOn": "2025-07-09",
-   "perpSymbol": "USD1USDT",
-   "perpLaunchedOn": "2025-07-16"
-  },
-  "zignaly": {
-   "base": "ZIG",
-   "spotListedOn": "2023-12-08",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "injective-protocol": {
-   "base": "INJ",
-   "spotListedOn": "2022-09-16",
-   "perpSymbol": "INJUSDT",
-   "perpLaunchedOn": "2022-08-17"
-  },
-  "monad": {
-   "base": "MON",
-   "spotListedOn": "2025-11-24",
-   "perpSymbol": "MONUSDT",
-   "perpLaunchedOn": "2025-11-24"
-  },
-  "kiichain": {
-   "base": "KII",
-   "spotListedOn": "2026-08-14",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "bedrock-token": {
-   "base": "BR",
-   "spotListedOn": "2025-03-20",
-   "perpSymbol": "BRUSDT",
-   "perpLaunchedOn": "2025-03-20"
-  },
-  "official-trump": {
-   "base": "TRUMP",
-   "spotListedOn": "2025-01-18",
-   "perpSymbol": "TRUMPUSDT",
-   "perpLaunchedOn": "2025-01-18"
-  },
-  "the-open-network": {
-   "base": "GRAM",
-   "spotListedOn": "2022-12-21",
-   "perpSymbol": "GRAMUSDT",
-   "perpLaunchedOn": "2026-06-22"
-  },
-  "aptos": {
-   "base": "APT",
-   "spotListedOn": "2022-10-19",
-   "perpSymbol": "APTUSDT",
-   "perpLaunchedOn": "2022-10-18"
-  },
-  "plasma": {
-   "base": "XPL",
-   "spotListedOn": "2025-09-25",
-   "perpSymbol": "XPLUSDT",
-   "perpLaunchedOn": "2025-08-22"
-  },
-  "stellar": {
-   "base": "XLM",
-   "spotListedOn": "2021-09-06",
-   "perpSymbol": "XLMUSDT",
-   "perpLaunchedOn": "2021-08-12"
-  },
-  "aerodrome-finance": {
-   "base": "AERO",
-   "spotListedOn": "2024-12-13",
-   "perpSymbol": "AEROUSDT",
-   "perpLaunchedOn": "2024-07-15"
-  },
-  "chip-2": {
-   "base": "CHIP",
-   "spotListedOn": "2026-04-21",
-   "perpSymbol": "CHIPUSDT",
-   "perpLaunchedOn": "2026-04-16"
-  },
-  "sky": {
-   "base": "SKY",
-   "spotListedOn": "2025-09-04",
-   "perpSymbol": "SKYUSDT",
-   "perpLaunchedOn": "2025-08-11"
-  },
-  "starknet": {
-   "base": "STRK",
-   "spotListedOn": "2024-02-20",
-   "perpSymbol": "STRKUSDT",
-   "perpLaunchedOn": "2024-02-20"
-  },
-  "curve-dao-token": {
-   "base": "CRV",
-   "spotListedOn": "2021-10-16",
-   "perpSymbol": "CRVUSDT",
-   "perpLaunchedOn": "2021-10-25"
-  },
-  "polygon-ecosystem-token": {
-   "base": "POL",
-   "spotListedOn": "2023-10-25",
-   "perpSymbol": "POLUSDT",
-   "perpLaunchedOn": "2024-09-05"
-  },
-  "jupiter-exchange-solana": {
-   "base": "JUP",
-   "spotListedOn": "2024-01-31",
-   "perpSymbol": "JUPUSDT",
-   "perpLaunchedOn": "2024-01-31"
-  },
-  "polkadot": {
-   "base": "DOT",
-   "spotListedOn": "2021-08-31",
-   "perpSymbol": "DOTUSDT",
-   "perpLaunchedOn": "2021-03-18"
-  },
-  "bitcoin-cash": {
-   "base": "BCH",
-   "spotListedOn": "2021-10-10",
-   "perpSymbol": "BCHUSDT",
-   "perpLaunchedOn": "2018-01-01"
-  },
-  "ethena-usde": {
-   "base": "USDE",
-   "spotListedOn": "2024-04-02",
-   "perpSymbol": "USDEUSDT",
-   "perpLaunchedOn": "2024-08-07"
-  },
-  "fetch-ai": {
-   "base": "FET",
-   "spotListedOn": "2023-10-03",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "staked-ether": {
-   "base": "STETH",
-   "spotListedOn": "2021-11-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "ripple-usd": {
-   "base": "RLUSD",
-   "spotListedOn": "2025-09-26",
-   "perpSymbol": "RLUSDUSDT",
-   "perpLaunchedOn": "2025-09-26"
-  },
-  "pudgy-penguins": {
-   "base": "PENGU",
-   "spotListedOn": "2024-12-17",
-   "perpSymbol": "PENGUUSDT",
-   "perpLaunchedOn": "2024-12-17"
-  },
-  "ether-fi": {
-   "base": "ETHFI",
-   "spotListedOn": "2024-03-18",
-   "perpSymbol": "ETHFIUSDT",
-   "perpLaunchedOn": "2024-03-18"
-  },
-  "shiba-inu": {
-   "base": "SHIB",
-   "spotListedOn": "2021-12-06",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "optimism": {
-   "base": "OP",
-   "spotListedOn": "2022-05-31",
-   "perpSymbol": "OPUSDT",
-   "perpLaunchedOn": "2022-06-01"
-  },
-  "drift-protocol": {
-   "base": "DRIFT",
-   "spotListedOn": "2024-05-16",
-   "perpSymbol": "DRIFTUSDT",
-   "perpLaunchedOn": "2024-05-21"
-  },
-  "virtual-protocol": {
-   "base": "VIRTUAL",
-   "spotListedOn": "2024-11-20",
-   "perpSymbol": "VIRTUALUSDT",
-   "perpLaunchedOn": "2024-11-01"
-  },
-  "hedera-hashgraph": {
-   "base": "HBAR",
-   "spotListedOn": "2021-12-29",
-   "perpSymbol": "HBARUSDT",
-   "perpLaunchedOn": "2021-10-25"
-  },
-  "meteora": {
-   "base": "MET",
-   "spotListedOn": "2025-10-23",
-   "perpSymbol": "METUSDT",
-   "perpLaunchedOn": "2025-10-10"
-  },
-  "layerzero": {
-   "base": "ZRO",
-   "spotListedOn": "2024-06-20",
-   "perpSymbol": "ZROUSDT",
-   "perpLaunchedOn": "2024-06-20"
-  },
-  "render-token": {
-   "base": "RENDER",
-   "spotListedOn": "2024-07-31",
-   "perpSymbol": "RENDERUSDT",
-   "perpLaunchedOn": "2024-07-26"
-  },
-  "eigenlayer": {
-   "base": "EIGEN",
-   "spotListedOn": "2024-10-01",
-   "perpSymbol": "EIGENUSDT",
-   "perpLaunchedOn": "2024-08-06"
-  },
-  "circle-xstock": {
-   "base": "CRCLX",
-   "spotListedOn": "2025-07-01",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "midnight-3": {
-   "base": "NIGHT",
-   "spotListedOn": "2025-12-09",
-   "perpSymbol": "NIGHTUSDT",
-   "perpLaunchedOn": "2025-12-09"
-  },
-  "dogwifcoin": {
-   "base": "WIF",
-   "spotListedOn": "2024-04-29",
-   "perpSymbol": "WIFUSDT",
-   "perpLaunchedOn": "2024-01-11"
-  },
-  "filecoin": {
-   "base": "FIL",
-   "spotListedOn": "2021-10-21",
-   "perpSymbol": "FILUSDT",
-   "perpLaunchedOn": "2021-06-29"
-  },
-  "kaspa": {
-   "base": "KAS",
-   "spotListedOn": "2023-09-07",
-   "perpSymbol": "KASUSDT",
-   "perpLaunchedOn": "2023-08-04"
-  },
-  "bonk": {
-   "base": "BONK",
-   "spotListedOn": "2023-01-04",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "tron": {
-   "base": "TRX",
-   "spotListedOn": "2022-02-21",
-   "perpSymbol": "TRXUSDT",
-   "perpLaunchedOn": "2021-08-12"
-  },
-  "pieverse": {
-   "base": "PIEVERSE",
-   "spotListedOn": "2025-11-14",
-   "perpSymbol": "PIEVERSEUSDT",
-   "perpLaunchedOn": "2025-11-14"
-  },
-  "grass": {
-   "base": "GRASS",
-   "spotListedOn": "2024-10-28",
-   "perpSymbol": "GRASSUSDT",
-   "perpLaunchedOn": "2024-10-15"
-  },
-  "world-liberty-financial": {
-   "base": "WLFI",
-   "spotListedOn": "2025-09-01",
-   "perpSymbol": "WLFIUSDT",
-   "perpLaunchedOn": "2025-08-23"
-  },
-  "spacex-xstocks": {
-   "base": "SPCXX",
-   "spotListedOn": "2026-06-12",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "lido-dao": {
-   "base": "LDO",
-   "spotListedOn": "2021-12-03",
-   "perpSymbol": "LDOUSDT",
-   "perpLaunchedOn": "2022-07-20"
-  },
-  "cap-4": {
-   "base": "CAP",
-   "spotListedOn": "2026-06-26",
-   "perpSymbol": "CAPUSDT",
-   "perpLaunchedOn": "2026-06-29"
-  },
-  "gala": {
-   "base": "GALA",
-   "spotListedOn": "2021-11-24",
-   "perpSymbol": "GALAUSDT",
-   "perpLaunchedOn": "2021-11-09"
-  },
-  "zencash": {
-   "base": "ZEN",
-   "spotListedOn": "2021-12-16",
-   "perpSymbol": "ZENUSDT",
-   "perpLaunchedOn": "2021-11-26"
-  },
-  "spx6900": {
-   "base": "SPX",
-   "spotListedOn": "2024-11-21",
-   "perpSymbol": "SPXUSDT",
-   "perpLaunchedOn": "2024-10-29"
-  },
-  "pendle": {
-   "base": "PENDLE",
-   "spotListedOn": "2023-07-03",
-   "perpSymbol": "PENDLEUSDT",
-   "perpLaunchedOn": "2023-07-05"
-  },
-  "celestia": {
-   "base": "TIA",
-   "spotListedOn": "2023-10-31",
-   "perpSymbol": "TIAUSDT",
-   "perpLaunchedOn": "2023-10-31"
-  },
-  "internet-computer": {
-   "base": "ICP",
-   "spotListedOn": "2021-10-10",
-   "perpSymbol": "ICPUSDT",
-   "perpLaunchedOn": "2021-09-15"
-  },
-  "seeker": {
-   "base": "SKR",
-   "spotListedOn": "2026-01-21",
-   "perpSymbol": "SKRUSDT",
-   "perpLaunchedOn": "2026-01-20"
-  },
-  "g-token": {
-   "base": "G",
-   "spotListedOn": "2024-08-06",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "block-street": {
-   "base": "BSB",
-   "spotListedOn": "2026-03-04",
-   "perpSymbol": "BSBUSDT",
-   "perpLaunchedOn": "2026-03-26"
-  },
-  "zama": {
-   "base": "ZAMA",
-   "spotListedOn": "2026-02-02",
-   "perpSymbol": "ZAMAUSDT",
-   "perpLaunchedOn": "2026-01-09"
-  },
-  "plume": {
-   "base": "PLUME",
-   "spotListedOn": "2025-01-21",
-   "perpSymbol": "PLUMEUSDT",
-   "perpLaunchedOn": "2025-01-24"
-  },
-  "apex-token-2": {
-   "base": "APEX",
-   "spotListedOn": "2022-04-27",
-   "perpSymbol": "APEXUSDT",
-   "perpLaunchedOn": "2025-09-28"
-  },
-  "zksync": {
-   "base": "ZK",
-   "spotListedOn": "2024-06-17",
-   "perpSymbol": "ZKUSDT",
-   "perpLaunchedOn": "2024-06-20"
-  },
-  "coinbase-xstock": {
-   "base": "COINX",
-   "spotListedOn": "2025-06-30",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "nvidia-xstock": {
-   "base": "NVDAX",
-   "spotListedOn": "2025-06-30",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "sonic-3": {
-   "base": "S",
-   "spotListedOn": "2025-01-15",
-   "perpSymbol": "SUSDT",
-   "perpLaunchedOn": "2025-01-15"
-  },
-  "cosmos": {
-   "base": "ATOM",
-   "spotListedOn": "2021-11-12",
-   "perpSymbol": "ATOMUSDT",
-   "perpLaunchedOn": "2021-10-11"
-  },
-  "sei-network": {
-   "base": "SEI",
-   "spotListedOn": "2023-08-15",
-   "perpSymbol": "SEIUSDT",
-   "perpLaunchedOn": "2023-08-16"
-  },
-  "helium": {
-   "base": "HNT",
-   "spotListedOn": "2022-01-06",
-   "perpSymbol": "HNTUSDT",
-   "perpLaunchedOn": "2022-01-24"
-  },
-  "babylon": {
-   "base": "BABY1",
-   "spotListedOn": "2025-04-10",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "peanut-the-squirrel": {
-   "base": "PNUT",
-   "spotListedOn": "2024-11-22",
-   "perpSymbol": "PNUTUSDT",
-   "perpLaunchedOn": "2024-11-11"
-  },
-  "centrifuge-2": {
-   "base": "CFG",
-   "spotListedOn": "2025-08-26",
-   "perpSymbol": "CFGUSDT",
-   "perpLaunchedOn": "2026-03-17"
-  },
-  "vethor-token": {
-   "base": "VTHO",
-   "spotListedOn": "2025-04-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "morpho": {
-   "base": "MORPHO",
-   "spotListedOn": "2024-11-21",
-   "perpSymbol": "MORPHOUSDT",
-   "perpLaunchedOn": "2024-11-22"
-  },
-  "decentraland": {
-   "base": "MANA",
-   "spotListedOn": "2021-09-30",
-   "perpSymbol": "MANAUSDT",
-   "perpLaunchedOn": "2021-11-08"
-  },
-  "billions-network": {
-   "base": "BILL",
-   "spotListedOn": "2026-05-04",
-   "perpSymbol": "BILLUSDT",
-   "perpLaunchedOn": "2026-05-06"
-  },
-  "edgex": {
-   "base": "EDGE",
-   "spotListedOn": "2026-03-31",
-   "perpSymbol": "EDGEUSDT",
-   "perpLaunchedOn": "2026-03-20"
-  },
-  "algorand": {
-   "base": "ALGO",
-   "spotListedOn": "2021-11-12",
-   "perpSymbol": "ALGOUSDT",
-   "perpLaunchedOn": "2021-09-23"
-  },
-  "concierge-io": {
-   "base": "AVA",
-   "spotListedOn": "2021-11-18",
-   "perpSymbol": "AVAUSDT",
-   "perpLaunchedOn": "2024-12-16"
-  },
-  "humanity": {
-   "base": "H",
-   "spotListedOn": "2025-06-25",
-   "perpSymbol": "HUSDT",
-   "perpLaunchedOn": "2025-06-25"
-  },
-  "pancakeswap-token": {
-   "base": "CAKE",
-   "spotListedOn": "2021-11-24",
-   "perpSymbol": "CAKEUSDT",
-   "perpLaunchedOn": "2023-11-03"
-  },
-  "falcon-finance-ff": {
-   "base": "FF",
-   "spotListedOn": "2025-09-29",
-   "perpSymbol": "FFUSDT",
-   "perpLaunchedOn": "2025-09-29"
-  },
-  "tac": {
-   "base": "TAC",
-   "spotListedOn": "2025-07-15",
-   "perpSymbol": "TACUSDT",
-   "perpLaunchedOn": "2025-07-15"
-  },
-  "suins-token": {
-   "base": "NS",
-   "spotListedOn": "2024-11-14",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "megaeth": {
-   "base": "MEGA",
-   "spotListedOn": "2026-04-30",
-   "perpSymbol": "MEGAUSDT",
-   "perpLaunchedOn": "2025-10-23"
-  },
-  "dydx": {
-   "base": "DYDX",
-   "spotListedOn": "2021-09-28",
-   "perpSymbol": "DYDXUSDT",
-   "perpLaunchedOn": "2021-10-11"
-  },
-  "arcium": {
-   "base": "ARX",
-   "spotListedOn": "2026-06-22",
-   "perpSymbol": "ARXUSDT",
-   "perpLaunchedOn": "2026-06-23"
-  },
-  "pyth-network": {
-   "base": "PYTH",
-   "spotListedOn": "2023-11-20",
-   "perpSymbol": "PYTHUSDT",
-   "perpLaunchedOn": "2023-11-21"
-  },
-  "aztec": {
-   "base": "AZTEC",
-   "spotListedOn": "2026-02-12",
-   "perpSymbol": "AZTECUSDT",
-   "perpLaunchedOn": "2026-02-12"
-  },
-  "grove-2": {
-   "base": "GROVE",
-   "spotListedOn": "2026-07-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "stable-2": {
-   "base": "STABLE",
-   "spotListedOn": "2025-12-08",
-   "perpSymbol": "STABLEUSDT",
-   "perpLaunchedOn": "2025-11-06"
-  },
-  "zora": {
-   "base": "ZORA",
-   "spotListedOn": "2025-04-23",
-   "perpSymbol": "ZORAUSDT",
-   "perpLaunchedOn": "2025-04-25"
-  },
-  "xdce-crowd-sale": {
-   "base": "XDC",
-   "spotListedOn": "2021-12-30",
-   "perpSymbol": "XDCUSDT",
-   "perpLaunchedOn": "2025-02-10"
-  },
-  "blockstack": {
-   "base": "STX",
-   "spotListedOn": "2022-03-17",
-   "perpSymbol": "STXUSDT",
-   "perpLaunchedOn": "2021-11-30"
-  },
-  "meta-xstock": {
-   "base": "METAX",
-   "spotListedOn": "2025-07-02",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "opinion": {
-   "base": "OPN",
-   "spotListedOn": "2026-03-05",
-   "perpSymbol": "OPNUSDT",
-   "perpLaunchedOn": "2026-02-11"
-  },
-  "sentient": {
-   "base": "SENT",
-   "spotListedOn": "2026-01-22",
-   "perpSymbol": "SENTUSDT",
-   "perpLaunchedOn": "2025-11-15"
-  },
-  "arweave": {
-   "base": "AR",
-   "spotListedOn": "2022-08-05",
-   "perpSymbol": "ARUSDT",
-   "perpLaunchedOn": "2021-12-20"
-  },
-  "vaulta": {
-   "base": "A",
-   "spotListedOn": "2025-05-28",
-   "perpSymbol": "AUSDT",
-   "perpLaunchedOn": "2025-05-28"
-  },
-  "kamino": {
-   "base": "KMNO",
-   "spotListedOn": "2024-04-30",
-   "perpSymbol": "KMNOUSDT",
-   "perpLaunchedOn": "2024-10-09"
-  },
-  "flare-networks": {
-   "base": "FLR",
-   "spotListedOn": "2023-01-10",
-   "perpSymbol": "FLRUSDT",
-   "perpLaunchedOn": "2023-03-16"
-  },
-  "sushi": {
-   "base": "SUSHI",
-   "spotListedOn": "2021-09-22",
-   "perpSymbol": "SUSHIUSDT",
-   "perpLaunchedOn": "2021-11-30"
-  },
-  "jito-governance-token": {
-   "base": "JTO",
-   "spotListedOn": "2023-12-07",
-   "perpSymbol": "JTOUSDT",
-   "perpLaunchedOn": "2023-12-07"
-  },
-  "elsa": {
-   "base": "ELSA",
-   "spotListedOn": "2026-01-20",
-   "perpSymbol": "ELSAUSDT",
-   "perpLaunchedOn": "2026-01-22"
-  },
-  "deep": {
-   "base": "DEEP",
-   "spotListedOn": "2024-10-14",
-   "perpSymbol": "DEEPUSDT",
-   "perpLaunchedOn": "2024-10-17"
-  },
-  "paypal-usd": {
-   "base": "PYUSD",
-   "spotListedOn": "2023-09-20",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "mog-coin": {
-   "base": "MOG",
-   "spotListedOn": "2024-06-04",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "aethir": {
-   "base": "ATH",
-   "spotListedOn": "2024-06-12",
-   "perpSymbol": "ATHUSDT",
-   "perpLaunchedOn": "2024-06-13"
-  },
-  "particle-network": {
-   "base": "PARTI",
-   "spotListedOn": "2025-03-25",
-   "perpSymbol": "PARTIUSDT",
-   "perpLaunchedOn": "2025-03-25"
-  },
-  "ethereum-classic": {
-   "base": "ETC",
-   "spotListedOn": "2022-07-28",
-   "perpSymbol": "ETCUSDT",
-   "perpLaunchedOn": "2021-06-29"
-  },
-  "theta-token": {
-   "base": "THETA",
-   "spotListedOn": "2021-12-16",
-   "perpSymbol": "THETAUSDT",
-   "perpLaunchedOn": "2021-08-12"
-  },
-  "kaia": {
-   "base": "KAIA",
-   "spotListedOn": "2024-11-01",
-   "perpSymbol": "KAIAUSDT",
-   "perpLaunchedOn": "2024-11-01"
-  },
-  "book-of-meme": {
-   "base": "BOME",
-   "spotListedOn": "2024-03-16",
-   "perpSymbol": "BOMEUSDT",
-   "perpLaunchedOn": "2024-03-15"
-  },
-  "chiliz": {
-   "base": "CHZ",
-   "spotListedOn": "2021-09-30",
-   "perpSymbol": "CHZUSDT",
-   "perpLaunchedOn": "2021-10-12"
-  },
-  "b3": {
-   "base": "B3",
-   "spotListedOn": "2025-02-10",
-   "perpSymbol": "B3USDT",
-   "perpLaunchedOn": "2025-02-12"
-  },
-  "mina-protocol": {
-   "base": "MINA",
-   "spotListedOn": "2022-03-31",
-   "perpSymbol": "MINAUSDT",
-   "perpLaunchedOn": "2022-04-06"
-  },
-  "enso": {
-   "base": "ENSO",
-   "spotListedOn": "2025-10-14",
-   "perpSymbol": "ENSOUSDT",
-   "perpLaunchedOn": "2025-10-14"
-  },
-  "io": {
-   "base": "IO",
-   "spotListedOn": "2024-06-11",
-   "perpSymbol": "IOUSDT",
-   "perpLaunchedOn": "2024-06-11"
-  },
-  "anime": {
-   "base": "ANIME",
-   "spotListedOn": "2025-01-23",
-   "perpSymbol": "ANIMEUSDT",
-   "perpLaunchedOn": "2025-01-23"
-  },
-  "walrus-2": {
-   "base": "WAL",
-   "spotListedOn": "2025-03-27",
-   "perpSymbol": "WALUSDT",
-   "perpLaunchedOn": "2025-03-27"
-  },
-  "sign-global": {
-   "base": "SIGN",
-   "spotListedOn": "2025-04-28",
-   "perpSymbol": "SIGNUSDT",
-   "perpLaunchedOn": "2025-04-28"
-  },
-  "portal-2": {
-   "base": "PORTAL",
-   "spotListedOn": "2024-02-29",
-   "perpSymbol": "PORTALUSDT",
-   "perpLaunchedOn": "2024-03-01"
-  },
-  "robinhood-xstock": {
-   "base": "HOODX",
-   "spotListedOn": "2025-07-02",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "lava-network": {
-   "base": "LAVA",
-   "spotListedOn": "2025-01-09",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "wormhole": {
-   "base": "W",
-   "spotListedOn": "2024-04-03",
-   "perpSymbol": "WUSDT",
-   "perpLaunchedOn": "2024-04-03"
-  },
-  "zerebro": {
-   "base": "ZEREBRO",
-   "spotListedOn": "2024-12-11",
-   "perpSymbol": "ZEREBROUSDT",
-   "perpLaunchedOn": "2024-12-30"
-  },
-  "corn-3": {
-   "base": "CORN",
-   "spotListedOn": "2025-03-28",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "clearpool": {
-   "base": "CPOOL",
-   "spotListedOn": "2024-02-21",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "tezos": {
-   "base": "XTZ",
-   "spotListedOn": "2021-10-10",
-   "perpSymbol": "XTZUSDT",
-   "perpLaunchedOn": "2018-01-01"
-  },
-  "spark-2": {
-   "base": "SPK",
-   "spotListedOn": "2025-06-17",
-   "perpSymbol": "SPKUSDT",
-   "perpLaunchedOn": "2025-06-17"
-  },
-  "succinct": {
-   "base": "PROVE",
-   "spotListedOn": "2025-09-08",
-   "perpSymbol": "PROVEUSDT",
-   "perpLaunchedOn": "2025-08-05"
-  },
-  "lagrange": {
-   "base": "LA",
-   "spotListedOn": "2025-06-04",
-   "perpSymbol": "LAUSDT",
-   "perpLaunchedOn": "2025-06-05"
-  },
-  "zero-gravity": {
-   "base": "0G",
-   "spotListedOn": "2025-09-23",
-   "perpSymbol": "0GUSDT",
-   "perpLaunchedOn": "2025-09-18"
-  },
-  "sosovalue": {
-   "base": "SOSO",
-   "spotListedOn": "2025-01-24",
-   "perpSymbol": "SOSOUSDT",
-   "perpLaunchedOn": "2025-06-26"
-  },
-  "alphabet-xstock": {
-   "base": "GOOGLX",
-   "spotListedOn": "2025-07-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "apple-xstock": {
-   "base": "AAPLX",
-   "spotListedOn": "2025-07-01",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "anoma": {
-   "base": "XAN",
-   "spotListedOn": "2025-09-29",
-   "perpSymbol": "XANUSDT",
-   "perpLaunchedOn": "2025-09-29"
-  },
-  "velo": {
-   "base": "VELO",
-   "spotListedOn": "2023-05-30",
-   "perpSymbol": "VELOUSDT",
-   "perpLaunchedOn": "2024-05-20"
-  },
-  "opengradient": {
-   "base": "OPG",
-   "spotListedOn": "2026-04-21",
-   "perpSymbol": "OPGUSDT",
-   "perpLaunchedOn": "2026-04-23"
-  },
-  "popcat": {
-   "base": "POPCAT",
-   "spotListedOn": "2024-06-21",
-   "perpSymbol": "POPCATUSDT",
-   "perpLaunchedOn": "2024-03-28"
-  },
-  "goplus-security": {
-   "base": "GPS",
-   "spotListedOn": "2025-01-16",
-   "perpSymbol": "GPSUSDT",
-   "perpLaunchedOn": "2025-02-18"
+   "perpLaunchedOn": "2024-04-02",
+   "perpMultiplier": 1
   },
   "quant-network": {
    "base": "QNT",
    "spotListedOn": "2021-10-22",
    "perpSymbol": "QNTUSDT",
-   "perpLaunchedOn": "2023-06-19"
-  },
-  "berachain-bera": {
-   "base": "BERA",
-   "spotListedOn": "2025-02-06",
-   "perpSymbol": "BERAUSDT",
-   "perpLaunchedOn": "2025-02-06"
-  },
-  "linea": {
-   "base": "LINEA",
-   "spotListedOn": "2025-09-10",
-   "perpSymbol": "LINEAUSDT",
-   "perpLaunchedOn": "2025-09-01"
-  },
-  "tesla-xstock": {
-   "base": "TSLAX",
-   "spotListedOn": "2025-07-08",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "altlayer": {
-   "base": "ALT",
-   "spotListedOn": "2024-02-19",
-   "perpSymbol": "ALTUSDT",
-   "perpLaunchedOn": "2024-01-25"
-  },
-  "apecoin": {
-   "base": "APE",
-   "spotListedOn": "2022-03-17",
-   "perpSymbol": "APEUSDT",
-   "perpLaunchedOn": "2022-03-18"
-  },
-  "casper-network": {
-   "base": "CSPR",
-   "spotListedOn": "2024-02-22",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "kusama": {
-   "base": "KSM",
-   "spotListedOn": "2021-10-10",
-   "perpSymbol": "KSMUSDT",
-   "perpLaunchedOn": "2021-10-12"
-  },
-  "synfutures": {
-   "base": "F",
-   "spotListedOn": "2024-12-06",
-   "perpSymbol": "FUSDT",
-   "perpLaunchedOn": "2024-12-06"
-  },
-  "axie-infinity": {
-   "base": "AXS",
-   "spotListedOn": "2021-09-30",
-   "perpSymbol": "AXSUSDT",
-   "perpLaunchedOn": "2021-08-12"
-  },
-  "delysium": {
-   "base": "AGI",
-   "spotListedOn": "2023-04-11",
-   "perpSymbol": "AGIUSDT",
-   "perpLaunchedOn": "2023-11-17"
-  },
-  "solstice": {
-   "base": "SLX",
-   "spotListedOn": "2026-06-22",
-   "perpSymbol": "SLXUSDT",
-   "perpLaunchedOn": "2026-06-01"
-  },
-  "towns": {
-   "base": "TOWNS",
-   "spotListedOn": "2025-08-05",
-   "perpSymbol": "TOWNSUSDT",
-   "perpLaunchedOn": "2025-08-05"
-  },
-  "1inch": {
-   "base": "1INCH",
-   "spotListedOn": "2021-12-02",
-   "perpSymbol": "1INCHUSDT",
-   "perpLaunchedOn": "2021-12-06"
-  },
-  "thorchain": {
-   "base": "RUNE",
-   "spotListedOn": "2021-12-21",
-   "perpSymbol": "RUNEUSDT",
-   "perpLaunchedOn": "2021-11-29"
-  },
-  "floki": {
-   "base": "FLOKI",
-   "spotListedOn": "2022-07-26",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "somnia": {
-   "base": "SOMI",
-   "spotListedOn": "2025-09-02",
-   "perpSymbol": "SOMIUSDT",
-   "perpLaunchedOn": "2025-09-02"
-  },
-  "based-one": {
-   "base": "BASED",
-   "spotListedOn": "2026-03-30",
-   "perpSymbol": "BASEDUSDT",
-   "perpLaunchedOn": "2026-03-30"
-  },
-  "initia": {
-   "base": "INIT",
-   "spotListedOn": "2025-04-24",
-   "perpSymbol": "INITUSDT",
-   "perpLaunchedOn": "2025-04-14"
-  },
-  "trust-wallet-token": {
-   "base": "TWT",
-   "spotListedOn": "2022-11-17",
-   "perpSymbol": "TWTUSDT",
-   "perpLaunchedOn": "2022-11-17"
-  },
-  "wrapped-bitcoin": {
-   "base": "WBTC",
-   "spotListedOn": "2022-04-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "momentum-3": {
-   "base": "MMT",
-   "spotListedOn": "2025-11-04",
-   "perpSymbol": "MMTUSDT",
-   "perpLaunchedOn": "2025-10-27"
-  },
-  "redstone-oracles": {
-   "base": "RED",
-   "spotListedOn": "2025-03-06",
-   "perpSymbol": "REDUSDT",
-   "perpLaunchedOn": "2025-02-26"
-  },
-  "havven": {
-   "base": "SNX",
-   "spotListedOn": "2021-12-01",
-   "perpSymbol": "SNXUSDT",
-   "perpLaunchedOn": "2021-12-13"
-  },
-  "notcoin": {
-   "base": "NOT",
-   "spotListedOn": "2024-05-16",
-   "perpSymbol": "NOTUSDT",
-   "perpLaunchedOn": "2024-05-16"
-  },
-  "ethereum-name-service": {
-   "base": "ENS",
-   "spotListedOn": "2021-11-09",
-   "perpSymbol": "ENSUSDT",
-   "perpLaunchedOn": "2021-11-12"
-  },
-  "oasis-network": {
-   "base": "ROSE",
-   "spotListedOn": "2022-08-11",
-   "perpSymbol": "ROSEUSDT",
-   "perpLaunchedOn": "2022-01-14"
-  },
-  "moonbirds": {
-   "base": "BIRB",
-   "spotListedOn": "2026-01-28",
-   "perpSymbol": "BIRBUSDT",
-   "perpLaunchedOn": "2026-01-28"
-  },
-  "waves": {
-   "base": "WAVES",
-   "spotListedOn": "2021-10-29",
-   "perpSymbol": "WAVESUSDT",
-   "perpLaunchedOn": "2022-01-05"
-  },
-  "doodles": {
-   "base": "DOOD",
-   "spotListedOn": "2025-05-09",
-   "perpSymbol": "DOODUSDT",
-   "perpLaunchedOn": "2025-05-09"
-  },
-  "robo-token-2": {
-   "base": "ROBO",
-   "spotListedOn": "2026-02-27",
-   "perpSymbol": "ROBOUSDT",
-   "perpLaunchedOn": "2026-02-25"
-  },
-  "verona": {
-   "base": "VERONA",
-   "spotListedOn": "2026-06-24",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "based-brett": {
-   "base": "BRETT",
-   "spotListedOn": "2024-04-18",
-   "perpSymbol": "BRETTUSDT",
-   "perpLaunchedOn": "2024-04-26"
-  },
-  "amazon-xstock": {
-   "base": "AMZNX",
-   "spotListedOn": "2025-07-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "medieval-empires": {
-   "base": "MEE",
-   "spotListedOn": "2022-12-19",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "bubblemaps": {
-   "base": "BMT",
-   "spotListedOn": "2025-03-11",
-   "perpSymbol": "BMTUSDT",
-   "perpLaunchedOn": "2025-03-13"
-  },
-  "gaib": {
-   "base": "GAIB",
-   "spotListedOn": "2025-11-19",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "jasmycoin": {
-   "base": "JASMY",
-   "spotListedOn": "2021-11-24",
-   "perpSymbol": "JASMYUSDT",
-   "perpLaunchedOn": "2022-01-19"
-  },
-  "aurora-near": {
-   "base": "AURORA",
-   "spotListedOn": "2024-06-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "mocaverse": {
-   "base": "MOCA",
-   "spotListedOn": "2024-07-11",
-   "perpSymbol": "MOCAUSDT",
-   "perpLaunchedOn": "2024-07-12"
-  },
-  "immutable-x": {
-   "base": "IMX",
-   "spotListedOn": "2021-11-05",
-   "perpSymbol": "IMXUSDT",
-   "perpLaunchedOn": "2021-11-24"
-  },
-  "axelar": {
-   "base": "AXL",
-   "spotListedOn": "2023-04-06",
-   "perpSymbol": "AXLUSDT",
-   "perpLaunchedOn": "2023-12-07"
-  },
-  "tria": {
-   "base": "TRIA",
-   "spotListedOn": "2026-02-03",
-   "perpSymbol": "TRIAUSDT",
-   "perpLaunchedOn": "2026-02-05"
-  },
-  "alchemy-pay": {
-   "base": "ACH",
-   "spotListedOn": "2022-02-17",
-   "perpSymbol": "ACHUSDT",
-   "perpLaunchedOn": "2022-04-08"
-  },
-  "zetachain": {
-   "base": "ZETA",
-   "spotListedOn": "2024-02-01",
-   "perpSymbol": "ZETAUSDT",
-   "perpLaunchedOn": "2024-02-01"
-  },
-  "creditcoin-2": {
-   "base": "CTC",
-   "spotListedOn": "2022-05-13",
-   "perpSymbol": "CTCUSDT",
-   "perpLaunchedOn": "2022-05-17"
-  },
-  "boundless": {
-   "base": "ZKC",
-   "spotListedOn": "2025-09-15",
-   "perpSymbol": "ZKCUSDT",
-   "perpLaunchedOn": "2025-09-15"
-  },
-  "elrond-erd-2": {
-   "base": "EGLD",
-   "spotListedOn": "2021-12-21",
-   "perpSymbol": "EGLDUSDT",
-   "perpLaunchedOn": "2021-11-22"
-  },
-  "trusta-ai": {
-   "base": "TA",
-   "spotListedOn": "2025-07-21",
-   "perpSymbol": "TAUSDT",
-   "perpLaunchedOn": "2025-07-21"
-  },
-  "capybobo": {
-   "base": "PYBOBO",
-   "spotListedOn": "2026-01-26",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "chill-guy": {
-   "base": "CHILLGUY",
-   "spotListedOn": "2024-11-26",
-   "perpSymbol": "CHILLGUYUSDT",
-   "perpLaunchedOn": "2024-11-21"
-  },
-  "movement": {
-   "base": "MOVE",
-   "spotListedOn": "2024-12-09",
-   "perpSymbol": "MOVEUSDT",
-   "perpLaunchedOn": "2024-12-09"
-  },
-  "the-sandbox": {
-   "base": "SAND",
-   "spotListedOn": "2021-11-02",
-   "perpSymbol": "SANDUSDT",
-   "perpLaunchedOn": "2021-11-01"
-  },
-  "cyberconnect": {
-   "base": "CYBER",
-   "spotListedOn": "2023-08-15",
-   "perpSymbol": "CYBERUSDT",
-   "perpLaunchedOn": "2023-08-15"
-  },
-  "compound-governance-token": {
-   "base": "COMP",
-   "spotListedOn": "2021-09-23",
-   "perpSymbol": "COMPUSDT",
-   "perpLaunchedOn": "2021-08-12"
-  },
-  "home": {
-   "base": "HOME",
-   "spotListedOn": "2025-06-10",
-   "perpSymbol": "HOMEUSDT",
-   "perpLaunchedOn": "2025-06-10"
-  },
-  "puffer-finance": {
-   "base": "PUFFER",
-   "spotListedOn": "2024-10-14",
-   "perpSymbol": "PUFFERUSDT",
-   "perpLaunchedOn": "2024-10-14"
-  },
-  "impossible-cloud-network-token": {
-   "base": "ICNT",
-   "spotListedOn": "2025-07-03",
-   "perpSymbol": "ICNTUSDT",
-   "perpLaunchedOn": "2025-07-03"
-  },
-  "safe": {
-   "base": "SAFE",
-   "spotListedOn": "2024-04-23",
-   "perpSymbol": "SAFEUSDT",
-   "perpLaunchedOn": "2024-04-29"
-  },
-  "navi": {
-   "base": "NAVX",
-   "spotListedOn": "2024-10-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "coredaoorg": {
-   "base": "CORE",
-   "spotListedOn": "2023-02-08",
-   "perpSymbol": "COREUSDT",
-   "perpLaunchedOn": "2023-02-09"
-  },
-  "resolv": {
-   "base": "RESOLV",
-   "spotListedOn": "2025-06-10",
-   "perpSymbol": "RESOLVUSDT",
-   "perpLaunchedOn": "2025-06-10"
-  },
-  "vechain": {
-   "base": "VET",
-   "spotListedOn": "2025-04-14",
-   "perpSymbol": "VETUSDT",
-   "perpLaunchedOn": "2021-10-25"
-  },
-  "bybit-staked-sol": {
-   "base": "BBSOL",
-   "spotListedOn": "2024-10-10",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "vana": {
-   "base": "VANA",
-   "spotListedOn": "2024-12-16",
-   "perpSymbol": "VANAUSDT",
-   "perpLaunchedOn": "2024-12-16"
-  },
-  "moonbeam": {
-   "base": "GLMR",
-   "spotListedOn": "2022-04-06",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "lombard-protocol": {
-   "base": "BARD",
-   "spotListedOn": "2025-09-18",
-   "perpSymbol": "BARDUSDT",
-   "perpLaunchedOn": "2025-09-16"
-  },
-  "sahara-ai": {
-   "base": "SAHARA",
-   "spotListedOn": "2025-06-26",
-   "perpSymbol": "SAHARAUSDT",
-   "perpLaunchedOn": "2025-06-20"
-  },
-  "the-graph": {
-   "base": "GRT",
-   "spotListedOn": "2021-10-22",
-   "perpSymbol": "GRTUSDT",
-   "perpLaunchedOn": "2021-12-06"
-  },
-  "holoworld": {
-   "base": "HOLO",
-   "spotListedOn": "2025-09-11",
-   "perpSymbol": "HOLOUSDT",
-   "perpLaunchedOn": "2025-09-11"
-  },
-  "taiko": {
-   "base": "TAIKO",
-   "spotListedOn": "2024-06-05",
-   "perpSymbol": "TAIKOUSDT",
-   "perpLaunchedOn": "2024-06-05"
-  },
-  "rats": {
-   "base": "RATS",
-   "spotListedOn": "2024-01-08",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "arkham": {
-   "base": "ARKM",
-   "spotListedOn": "2023-07-18",
-   "perpSymbol": "ARKMUSDT",
-   "perpLaunchedOn": "2023-07-28"
-  },
-  "flow": {
-   "base": "FLOW",
-   "spotListedOn": "2022-03-17",
-   "perpSymbol": "FLOWUSDT",
-   "perpLaunchedOn": "2021-11-25"
-  },
-  "solv-protocol": {
-   "base": "SOLV",
-   "spotListedOn": "2025-01-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "treehouse": {
-   "base": "TREE",
-   "spotListedOn": "2025-07-29",
-   "perpSymbol": "TREEUSDT",
-   "perpLaunchedOn": "2025-07-29"
-  },
-  "avantis": {
-   "base": "AVNT",
-   "spotListedOn": "2025-09-09",
-   "perpSymbol": "AVNTUSDT",
-   "perpLaunchedOn": "2025-09-09"
-  },
-  "magic-eden": {
-   "base": "ME",
-   "spotListedOn": "2024-12-10",
-   "perpSymbol": "MEUSDT",
-   "perpLaunchedOn": "2024-11-25"
-  },
-  "celo": {
-   "base": "CELO",
-   "spotListedOn": "2022-04-13",
-   "perpSymbol": "CELOUSDT",
-   "perpLaunchedOn": "2022-01-05"
-  },
-  "merlin-chain": {
-   "base": "MERL",
-   "spotListedOn": "2024-04-19",
-   "perpSymbol": "MERLUSDT",
-   "perpLaunchedOn": "2024-04-19"
-  },
-  "biconomy": {
-   "base": "BICO",
-   "spotListedOn": "2021-12-01",
-   "perpSymbol": "BICOUSDT",
-   "perpLaunchedOn": "2021-12-02"
-  },
-  "neiro-3": {
-   "base": "NEIROCTO",
-   "spotListedOn": "2024-11-20",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "dymension": {
-   "base": "DYM",
-   "spotListedOn": "2024-02-06",
-   "perpSymbol": "DYMUSDT",
-   "perpLaunchedOn": "2024-02-07"
-  },
-  "constitutiondao": {
-   "base": "PEOPLE",
-   "spotListedOn": "2022-11-15",
-   "perpSymbol": "PEOPLEUSDT",
-   "perpLaunchedOn": "2021-12-29"
-  },
-  "nexo": {
-   "base": "NEXO",
-   "spotListedOn": "2021-12-02",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "usa": {
-   "base": "USAT",
-   "spotListedOn": "2026-01-27",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "goatseus-maximus": {
-   "base": "GOAT",
-   "spotListedOn": "2024-11-13",
-   "perpSymbol": "GOATUSDT",
-   "perpLaunchedOn": "2024-10-22"
-  },
-  "heroes-of-mavia": {
-   "base": "MAVIA",
-   "spotListedOn": "2024-02-06",
-   "perpSymbol": "MAVIAUSDT",
-   "perpLaunchedOn": "2024-02-07"
-  },
-  "nexpace": {
-   "base": "NXPC",
-   "spotListedOn": "2025-05-15",
-   "perpSymbol": "NXPCUSDT",
-   "perpLaunchedOn": "2025-05-15"
-  },
-  "instadapp": {
-   "base": "FLUID",
-   "spotListedOn": "2024-12-18",
-   "perpSymbol": "FLUIDUSDT",
-   "perpLaunchedOn": "2025-09-24"
-  },
-  "kava": {
-   "base": "KAVA",
-   "spotListedOn": "2023-08-25",
-   "perpSymbol": "KAVAUSDT",
-   "perpLaunchedOn": "2022-01-10"
-  },
-  "fluent-network": {
-   "base": "BLEND",
-   "spotListedOn": "2026-04-24",
-   "perpSymbol": "BLENDUSDT",
-   "perpLaunchedOn": "2026-04-29"
-  },
-  "doublezero": {
-   "base": "2Z",
-   "spotListedOn": "2025-10-02",
-   "perpSymbol": "2ZUSDT",
-   "perpLaunchedOn": "2025-10-02"
-  },
-  "access-protocol": {
-   "base": "ACS",
-   "spotListedOn": "2023-02-15",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "comedian": {
-   "base": "BAN",
-   "spotListedOn": "2024-11-18",
-   "perpSymbol": "BANUSDT",
-   "perpLaunchedOn": "2024-11-18"
-  },
-  "yearn-finance": {
-   "base": "YFI",
-   "spotListedOn": "2021-09-22",
-   "perpSymbol": "YFIUSDT",
-   "perpLaunchedOn": "2021-12-08"
-  },
-  "orbiter-finance": {
-   "base": "OBT",
-   "spotListedOn": "2025-01-20",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "basic-attention-token": {
-   "base": "BAT",
-   "spotListedOn": "2021-10-19",
-   "perpSymbol": "BATUSDT",
-   "perpLaunchedOn": "2021-11-24"
-  },
-  "orderly-network": {
-   "base": "ORDER",
-   "spotListedOn": "2024-08-26",
-   "perpSymbol": "ORDERUSDT",
-   "perpLaunchedOn": "2024-08-27"
-  },
-  "avalon-2": {
-   "base": "AVL",
-   "spotListedOn": "2025-02-12",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "limewire-token": {
-   "base": "LMWR",
-   "spotListedOn": "2023-05-16",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "toshi": {
-   "base": "TOSHI",
-   "spotListedOn": "2025-01-14",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "ordinals": {
-   "base": "ORDI",
-   "spotListedOn": "2023-08-17",
-   "perpSymbol": "ORDIUSDT",
-   "perpLaunchedOn": "2023-05-22"
-  },
-  "mind-network": {
-   "base": "FHE",
-   "spotListedOn": "2025-04-10",
-   "perpSymbol": "FHEUSDT",
-   "perpLaunchedOn": "2026-01-07"
-  },
-  "dogs-2": {
-   "base": "DOGS",
-   "spotListedOn": "2024-08-26",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "blur": {
-   "base": "BLUR",
-   "spotListedOn": "2023-02-14",
-   "perpSymbol": "BLURUSDT",
-   "perpLaunchedOn": "2023-02-15"
-  },
-  "icon": {
-   "base": "ICX",
-   "spotListedOn": "2022-01-06",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "marblex": {
-   "base": "MBX",
-   "spotListedOn": "2023-03-31",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "vooi": {
-   "base": "VOOI",
-   "spotListedOn": "2025-12-18",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "xai-blockchain": {
-   "base": "XAI",
-   "spotListedOn": "2024-01-09",
-   "perpSymbol": "XAIUSDT",
-   "perpLaunchedOn": "2024-01-10"
-  },
-  "hyperlane": {
-   "base": "HYPER",
-   "spotListedOn": "2025-04-22",
-   "perpSymbol": "HYPERUSDT",
-   "perpLaunchedOn": "2025-04-22"
-  },
-  "aioz-network": {
-   "base": "AIOZ",
-   "spotListedOn": "2024-01-03",
-   "perpSymbol": "AIOZUSDT",
-   "perpLaunchedOn": "2024-06-13"
-  },
-  "cat-in-a-dogs-world": {
-   "base": "MEW",
-   "spotListedOn": "2024-04-19",
-   "perpSymbol": "MEWUSDT",
-   "perpLaunchedOn": "2024-04-23"
-  },
-  "hamster-kombat": {
-   "base": "HMSTR",
-   "spotListedOn": "2024-09-26",
-   "perpSymbol": "HMSTRUSDT",
-   "perpLaunchedOn": "2024-09-11"
-  },
-  "huma-finance": {
-   "base": "HUMA",
-   "spotListedOn": "2025-05-26",
-   "perpSymbol": "HUMAUSDT",
-   "perpLaunchedOn": "2025-05-26"
-  },
-  "humidifi": {
-   "base": "WET",
-   "spotListedOn": "2025-12-09",
-   "perpSymbol": "WETUSDT",
-   "perpLaunchedOn": "2025-12-04"
-  },
-  "just": {
-   "base": "JST",
-   "spotListedOn": "2022-02-21",
-   "perpSymbol": "JSTUSDT",
-   "perpLaunchedOn": "2022-02-18"
-  },
-  "blast": {
-   "base": "BLAST",
-   "spotListedOn": "2024-06-26",
-   "perpSymbol": "BLASTUSDT",
-   "perpLaunchedOn": "2024-06-27"
-  },
-  "ravencoin": {
-   "base": "RVN",
-   "spotListedOn": "2021-12-21",
-   "perpSymbol": "RVNUSDT",
-   "perpLaunchedOn": "2022-01-06"
-  },
-  "apenft": {
-   "base": "NFT",
-   "spotListedOn": "2022-02-21",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "adventure-gold": {
-   "base": "AGLD",
-   "spotListedOn": "2021-10-19",
-   "perpSymbol": "AGLDUSDT",
-   "perpLaunchedOn": "2022-04-22"
-  },
-  "telcoin": {
-   "base": "TEL",
-   "spotListedOn": "2021-12-01",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "fight-2": {
-   "base": "FIGHT",
-   "spotListedOn": "2026-01-22",
-   "perpSymbol": "FIGHTUSDT",
-   "perpLaunchedOn": "2026-01-23"
-  },
-  "nym": {
-   "base": "NYM",
-   "spotListedOn": "2023-07-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "newton-protocol": {
-   "base": "NEWT",
-   "spotListedOn": "2025-06-24",
-   "perpSymbol": "NEWTUSDT",
-   "perpLaunchedOn": "2025-06-20"
-  },
-  "tensor": {
-   "base": "TNSR",
-   "spotListedOn": "2024-04-09",
-   "perpSymbol": "TNSRUSDT",
-   "perpLaunchedOn": "2024-04-09"
-  },
-  "enjincoin": {
-   "base": "ENJ",
-   "spotListedOn": "2021-11-09",
-   "perpSymbol": "ENJUSDT",
-   "perpLaunchedOn": "2021-10-31"
-  },
-  "beam-2": {
-   "base": "BEAM",
-   "spotListedOn": "2023-10-26",
-   "perpSymbol": "BEAMUSDT",
-   "perpLaunchedOn": "2023-11-14"
-  },
-  "connect-token-wct": {
-   "base": "WCT",
-   "spotListedOn": "2025-04-15",
-   "perpSymbol": "WCTUSDT",
-   "perpLaunchedOn": "2025-04-15"
-  },
-  "subsquid": {
-   "base": "SQD",
-   "spotListedOn": "2024-05-17",
-   "perpSymbol": "SQDUSDT",
-   "perpLaunchedOn": "2025-06-11"
-  },
-  "scroll": {
-   "base": "SCR",
-   "spotListedOn": "2024-10-22",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "roam-token": {
-   "base": "ROAM",
-   "spotListedOn": "2025-03-06",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "alchemist-ai": {
-   "base": "ALCH",
-   "spotListedOn": "2024-12-26",
-   "perpSymbol": "ALCHUSDT",
-   "perpLaunchedOn": "2025-01-07"
-  },
-  "space-and-time": {
-   "base": "SXT",
-   "spotListedOn": "2025-05-08",
-   "perpSymbol": "SXTUSDT",
-   "perpLaunchedOn": "2025-05-03"
-  },
-  "catizen": {
-   "base": "CATI",
-   "spotListedOn": "2024-09-20",
-   "perpSymbol": "CATIUSDT",
-   "perpLaunchedOn": "2024-09-09"
-  },
-  "carv": {
-   "base": "CARV",
-   "spotListedOn": "2024-10-10",
-   "perpSymbol": "CARVUSDT",
-   "perpLaunchedOn": "2024-10-16"
-  },
-  "manta-network": {
-   "base": "MANTA",
+   "perpLaunchedOn": "2023-06-19",
+   "perpMultiplier": 1
+  },
+  "ondo-finance": {
+   "base": "ONDO",
    "spotListedOn": "2024-01-18",
-   "perpSymbol": "MANTAUSDT",
-   "perpLaunchedOn": "2024-01-18"
+   "perpSymbol": "ONDOUSDT",
+   "perpLaunchedOn": "2024-01-22",
+   "perpMultiplier": 1
   },
-  "loopring": {
-   "base": "LRC",
-   "spotListedOn": "2021-12-03",
-   "perpSymbol": "LRCUSDT",
-   "perpLaunchedOn": "2021-11-11"
+  "monad": {
+   "base": "MON",
+   "spotListedOn": "2025-11-24",
+   "perpSymbol": "MONUSDT",
+   "perpLaunchedOn": "2025-11-24",
+   "perpMultiplier": 1
   },
-  "memecoin-2": {
-   "base": "MEME",
-   "spotListedOn": "2023-11-03",
-   "perpSymbol": "MEMEUSDT",
-   "perpLaunchedOn": "2023-11-03"
+  "sui": {
+   "base": "SUI",
+   "spotListedOn": "2023-05-03",
+   "perpSymbol": "SUIUSDT",
+   "perpLaunchedOn": "2023-05-02",
+   "perpMultiplier": 1
   },
-  "space-id": {
-   "base": "ID",
-   "spotListedOn": "2023-03-22",
-   "perpSymbol": "IDUSDT",
-   "perpLaunchedOn": "2023-03-24"
-  },
-  "diam": {
-   "base": "DIAM",
-   "spotListedOn": "2025-02-12",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "zkpass": {
-   "base": "ZKP",
-   "spotListedOn": "2025-12-19",
-   "perpSymbol": "ZKPUSDT",
-   "perpLaunchedOn": "2025-12-22"
-  },
-  "sonic-svm": {
-   "base": "SONIC",
-   "spotListedOn": "2025-01-07",
-   "perpSymbol": "SONICUSDT",
-   "perpLaunchedOn": "2025-01-07"
-  },
-  "cookie": {
-   "base": "COOKIE",
-   "spotListedOn": "2024-06-13",
-   "perpSymbol": "COOKIEUSDT",
-   "perpLaunchedOn": "2025-01-07"
-  },
-  "zerobase": {
-   "base": "ZBT",
-   "spotListedOn": "2025-10-17",
-   "perpSymbol": "ZBTUSDT",
-   "perpLaunchedOn": "2025-10-17"
-  },
-  "mantra": {
-   "base": "MANTRA",
-   "spotListedOn": "2026-03-04",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "gmx": {
-   "base": "GMX",
-   "spotListedOn": "2022-03-08",
-   "perpSymbol": "GMXUSDT",
-   "perpLaunchedOn": "2022-10-10"
-  },
-  "sundog": {
-   "base": "SUNDOG",
-   "spotListedOn": "2024-09-11",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "mask-network": {
-   "base": "MASK",
-   "spotListedOn": "2022-11-03",
-   "perpSymbol": "MASKUSDT",
-   "perpLaunchedOn": "2021-12-02"
-  },
-  "caldera": {
-   "base": "ERA",
-   "spotListedOn": "2025-07-17",
-   "perpSymbol": "ERAUSDT",
-   "perpLaunchedOn": "2025-07-17"
-  },
-  "recall": {
-   "base": "RECALL",
-   "spotListedOn": "2025-10-15",
-   "perpSymbol": "RECALLUSDT",
-   "perpLaunchedOn": "2025-10-15"
-  },
-  "eesee": {
-   "base": "ESE",
-   "spotListedOn": "2024-04-11",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "aixbt": {
-   "base": "AIXBT",
-   "spotListedOn": "2025-01-10",
-   "perpSymbol": "AIXBTUSDT",
-   "perpLaunchedOn": "2024-12-20"
-  },
-  "ondo-us-dollar-yield": {
-   "base": "USDY",
-   "spotListedOn": "2024-01-18",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "bouncebit": {
-   "base": "BB",
-   "spotListedOn": "2024-05-13",
-   "perpSymbol": "BBUSDT",
-   "perpLaunchedOn": "2024-05-14"
-  },
-  "supra": {
-   "base": "SUPRA",
-   "spotListedOn": "2024-11-27",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "siacoin": {
-   "base": "SC",
-   "spotListedOn": "2022-03-31",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "polyhedra-network": {
-   "base": "ZKJ",
-   "spotListedOn": "2024-03-19",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "kucoin-shares": {
-   "base": "KCS",
-   "spotListedOn": "2023-11-30",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "stepn": {
-   "base": "GMT",
-   "spotListedOn": "2022-04-08",
-   "perpSymbol": "GMTUSDT",
-   "perpLaunchedOn": "2022-03-19"
-  },
-  "baby-doge-coin": {
-   "base": "BABYDOGE",
-   "spotListedOn": "2023-04-04",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "bittorrent": {
-   "base": "BTT",
-   "spotListedOn": "2022-02-21",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "hashflow": {
-   "base": "HFT",
-   "spotListedOn": "2022-11-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "manchester-city-fan-token": {
-   "base": "CITY",
-   "spotListedOn": "2022-08-18",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "degen-base": {
-   "base": "DEGEN",
-   "spotListedOn": "2024-03-28",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "qtum": {
-   "base": "QTUM",
-   "spotListedOn": "2021-12-16",
-   "perpSymbol": "QTUMUSDT",
-   "perpLaunchedOn": "2021-12-13"
-  },
-  "zentry": {
-   "base": "ZENT",
-   "spotListedOn": "2024-04-30",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "sanctum-2": {
-   "base": "CLOUD",
-   "spotListedOn": "2024-07-18",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "sun-token": {
-   "base": "SUN",
-   "spotListedOn": "2022-02-21",
-   "perpSymbol": "SUNUSDT",
-   "perpLaunchedOn": "2022-02-18"
-  },
-  "major": {
-   "base": "MAJOR",
-   "spotListedOn": "2024-11-28",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "neon": {
-   "base": "NEON",
-   "spotListedOn": "2023-07-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "yield-basis": {
-   "base": "YB",
-   "spotListedOn": "2025-10-15",
-   "perpSymbol": "YBUSDT",
-   "perpLaunchedOn": "2025-10-11"
-  },
-  "ankr": {
-   "base": "ANKR",
-   "spotListedOn": "2021-10-16",
-   "perpSymbol": "ANKRUSDT",
-   "perpLaunchedOn": "2021-11-24"
-  },
-  "wemix-token": {
-   "base": "WEMIX",
-   "spotListedOn": "2021-11-29",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "ancient8": {
-   "base": "A8",
-   "spotListedOn": "2024-07-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "layer3": {
-   "base": "L3",
-   "spotListedOn": "2024-07-30",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "terra-luna": {
-   "base": "LUNC",
-   "spotListedOn": "2021-10-27",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "paris-saint-germain-fan-token": {
-   "base": "PSG",
-   "spotListedOn": "2022-08-16",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "juventus-fan-token": {
-   "base": "JUV",
-   "spotListedOn": "2022-08-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "brevis": {
-   "base": "BREV",
-   "spotListedOn": "2026-01-06",
-   "perpSymbol": "BREVUSDT",
-   "perpLaunchedOn": "2025-12-30"
-  },
-  "aevo-exchange": {
-   "base": "AEVO",
-   "spotListedOn": "2024-03-13",
-   "perpSymbol": "AEVOUSDT",
-   "perpLaunchedOn": "2024-03-13"
-  },
-  "ssv-network": {
-   "base": "SSV",
-   "spotListedOn": "2023-01-20",
-   "perpSymbol": "SSVUSDT",
-   "perpLaunchedOn": "2023-03-01"
-  },
-  "swell-network": {
-   "base": "SWELL",
-   "spotListedOn": "2024-11-07",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "scor": {
-   "base": "SCOR",
-   "spotListedOn": "2025-12-17",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "0x": {
-   "base": "ZRX",
-   "spotListedOn": "2021-10-19",
-   "perpSymbol": "ZRXUSDT",
-   "perpLaunchedOn": "2022-03-28"
-  },
-  "solayer": {
-   "base": "LAYER",
-   "spotListedOn": "2025-02-11",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
-  },
-  "fogo": {
-   "base": "FOGO",
+  "lighter": {
+   "base": "LIT",
    "spotListedOn": "2026-01-15",
-   "perpSymbol": "FOGOUSDT",
-   "perpLaunchedOn": "2026-01-11"
+   "perpSymbol": "LITUSDT",
+   "perpLaunchedOn": "2025-12-30",
+   "perpMultiplier": 1
   },
-  "stader": {
-   "base": "SD",
-   "spotListedOn": "2022-03-15",
+  "chainlink": {
+   "base": "LINK",
+   "spotListedOn": "2021-09-22",
+   "perpSymbol": "LINKUSDT",
+   "perpLaunchedOn": "2018-01-01",
+   "perpMultiplier": 1
+  },
+  "dogecoin": {
+   "base": "DOGE",
+   "spotListedOn": "2021-08-31",
+   "perpSymbol": "DOGEUSDT",
+   "perpLaunchedOn": "2021-06-02",
+   "perpMultiplier": 1
+  },
+  "aave": {
+   "base": "AAVE",
+   "spotListedOn": "2021-09-23",
+   "perpSymbol": "AAVEUSDT",
+   "perpLaunchedOn": "2021-05-13",
+   "perpMultiplier": 1
+  },
+  "pump-fun": {
+   "base": "PUMP",
+   "spotListedOn": "2025-07-14",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "wax": {
-   "base": "WAXP",
-   "spotListedOn": "2022-08-11",
-   "perpSymbol": "WAXPUSDT",
-   "perpLaunchedOn": "2023-10-10"
+  "worldcoin-wld": {
+   "base": "WLD",
+   "spotListedOn": "2023-07-24",
+   "perpSymbol": "WLDUSDT",
+   "perpLaunchedOn": "2023-07-24",
+   "perpMultiplier": 1
   },
-  "bitkub-coin": {
-   "base": "KUB",
-   "spotListedOn": "2023-12-13",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
+  "ripple-usd": {
+   "base": "RLUSD",
+   "spotListedOn": "2025-09-26",
+   "perpSymbol": "RLUSDUSDT",
+   "perpLaunchedOn": "2025-09-26",
+   "perpMultiplier": 1
   },
-  "boba-network": {
-   "base": "BOBA",
-   "spotListedOn": "2021-11-22",
-   "perpSymbol": "BOBAUSDT",
-   "perpLaunchedOn": "2022-04-06"
+  "tether-gold": {
+   "base": "XAUT",
+   "spotListedOn": "2025-04-11",
+   "perpSymbol": "XAUTUSDT",
+   "perpLaunchedOn": "2025-04-03",
+   "perpMultiplier": 1
   },
-  "chaingpt": {
-   "base": "CGPT",
-   "spotListedOn": "2023-04-10",
-   "perpSymbol": "CGPTUSDT",
-   "perpLaunchedOn": "2025-01-10"
+  "avalanche-2": {
+   "base": "AVAX",
+   "spotListedOn": "2021-11-12",
+   "perpSymbol": "AVAXUSDT",
+   "perpLaunchedOn": "2021-09-15",
+   "perpMultiplier": 1
   },
-  "terra-luna-2": {
-   "base": "LUNA",
-   "spotListedOn": "2022-05-28",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
+  "mantle": {
+   "base": "MNT",
+   "spotListedOn": "2023-07-17",
+   "perpSymbol": "MNTUSDT",
+   "perpLaunchedOn": "2023-10-02",
+   "perpMultiplier": 1
+  },
+  "midnight-3": {
+   "base": "NIGHT",
+   "spotListedOn": "2025-12-09",
+   "perpSymbol": "NIGHTUSDT",
+   "perpLaunchedOn": "2025-12-09",
+   "perpMultiplier": 1
+  },
+  "aster-2": {
+   "base": "ASTER",
+   "spotListedOn": "2025-09-21",
+   "perpSymbol": "ASTERUSDT",
+   "perpLaunchedOn": "2025-09-19",
+   "perpMultiplier": 1
+  },
+  "hedera-hashgraph": {
+   "base": "HBAR",
+   "spotListedOn": "2021-12-29",
+   "perpSymbol": "HBARUSDT",
+   "perpLaunchedOn": "2021-10-25",
+   "perpMultiplier": 1
+  },
+  "cardano": {
+   "base": "ADA",
+   "spotListedOn": "2021-10-21",
+   "perpSymbol": "ADAUSDT",
+   "perpLaunchedOn": "2021-01-15",
+   "perpMultiplier": 1
+  },
+  "plasma": {
+   "base": "XPL",
+   "spotListedOn": "2025-09-25",
+   "perpSymbol": "XPLUSDT",
+   "perpLaunchedOn": "2025-08-22",
+   "perpMultiplier": 1
+  },
+  "pepe": {
+   "base": "PEPE",
+   "spotListedOn": "2023-05-06",
+   "perpSymbol": "1000PEPEUSDT",
+   "perpLaunchedOn": "2023-05-03",
+   "perpMultiplier": 1000
+  },
+  "the-open-network": {
+   "base": "GRAM",
+   "spotListedOn": "2022-12-21",
+   "perpSymbol": "GRAMUSDT",
+   "perpLaunchedOn": "2026-06-22",
+   "perpMultiplier": 1
+  },
+  "litecoin": {
+   "base": "LTC",
+   "spotListedOn": "2021-08-31",
+   "perpSymbol": "LTCUSDT",
+   "perpLaunchedOn": "2018-01-01",
+   "perpMultiplier": 1
   },
   "moonriver": {
    "base": "MOVR",
    "spotListedOn": "2022-04-06",
    "perpSymbol": "MOVRUSDT",
-   "perpLaunchedOn": "2023-11-23"
+   "perpLaunchedOn": "2023-11-23",
+   "perpMultiplier": 1
   },
-  "mx-token": {
-   "base": "MX",
-   "spotListedOn": "2021-12-17",
+  "grass": {
+   "base": "GRASS",
+   "spotListedOn": "2024-10-28",
+   "perpSymbol": "GRASSUSDT",
+   "perpLaunchedOn": "2024-10-15",
+   "perpMultiplier": 1
+  },
+  "official-trump": {
+   "base": "TRUMP",
+   "spotListedOn": "2025-01-18",
+   "perpSymbol": "TRUMPUSDT",
+   "perpLaunchedOn": "2025-01-18",
+   "perpMultiplier": 1
+  },
+  "stellar": {
+   "base": "XLM",
+   "spotListedOn": "2021-09-06",
+   "perpSymbol": "XLMUSDT",
+   "perpLaunchedOn": "2021-08-12",
+   "perpMultiplier": 1
+  },
+  "pudgy-penguins": {
+   "base": "PENGU",
+   "spotListedOn": "2024-12-17",
+   "perpSymbol": "PENGUUSDT",
+   "perpLaunchedOn": "2024-12-17",
+   "perpMultiplier": 1
+  },
+  "canton-network": {
+   "base": "CC",
+   "spotListedOn": "2025-11-10",
+   "perpSymbol": "CCUSDT",
+   "perpLaunchedOn": "2025-10-31",
+   "perpMultiplier": 1
+  },
+  "layerzero": {
+   "base": "ZRO",
+   "spotListedOn": "2024-06-20",
+   "perpSymbol": "ZROUSDT",
+   "perpLaunchedOn": "2024-06-20",
+   "perpMultiplier": 1
+  },
+  "cap-4": {
+   "base": "CAP",
+   "spotListedOn": "2026-06-26",
+   "perpSymbol": "CAPUSDT",
+   "perpLaunchedOn": "2026-06-29",
+   "perpMultiplier": 1
+  },
+  "binancecoin": {
+   "base": "BNB",
+   "spotListedOn": "2022-03-10",
+   "perpSymbol": "BNBUSDT",
+   "perpLaunchedOn": "2021-06-29",
+   "perpMultiplier": 1
+  },
+  "uniswap": {
+   "base": "UNI",
+   "spotListedOn": "2021-09-22",
+   "perpSymbol": "UNIUSDT",
+   "perpLaunchedOn": "2021-11-30",
+   "perpMultiplier": 1
+  },
+  "zignaly": {
+   "base": "ZIG",
+   "spotListedOn": "2023-12-08",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "aerodrome-finance": {
+   "base": "AERO",
+   "spotListedOn": "2024-12-13",
+   "perpSymbol": "AEROUSDT",
+   "perpLaunchedOn": "2024-07-15",
+   "perpMultiplier": 1
+  },
+  "injective-protocol": {
+   "base": "INJ",
+   "spotListedOn": "2022-09-16",
+   "perpSymbol": "INJUSDT",
+   "perpLaunchedOn": "2022-08-17",
+   "perpMultiplier": 1
+  },
+  "arbitrum": {
+   "base": "ARB",
+   "spotListedOn": "2023-03-23",
+   "perpSymbol": "ARBUSDT",
+   "perpLaunchedOn": "2023-03-23",
+   "perpMultiplier": 1
+  },
+  "ethena-usde": {
+   "base": "USDE",
+   "spotListedOn": "2024-04-02",
+   "perpSymbol": "USDEUSDT",
+   "perpLaunchedOn": "2024-08-07",
+   "perpMultiplier": 1
+  },
+  "usd1-wlfi": {
+   "base": "USD1",
+   "spotListedOn": "2025-07-09",
+   "perpSymbol": "USD1USDT",
+   "perpLaunchedOn": "2025-07-16",
+   "perpMultiplier": 1
+  },
+  "venice-token": {
+   "base": "VVV",
+   "spotListedOn": "2025-03-21",
+   "perpSymbol": "VVVUSDT",
+   "perpLaunchedOn": "2025-01-28",
+   "perpMultiplier": 1
+  },
+  "flock-2": {
+   "base": "FLOCK",
+   "spotListedOn": "2024-12-31",
+   "perpSymbol": "FLOCKUSDT",
+   "perpLaunchedOn": "2025-01-09",
+   "perpMultiplier": 1
+  },
+  "jupiter-exchange-solana": {
+   "base": "JUP",
+   "spotListedOn": "2024-01-31",
+   "perpSymbol": "JUPUSDT",
+   "perpLaunchedOn": "2024-01-31",
+   "perpMultiplier": 1
+  },
+  "tron": {
+   "base": "TRX",
+   "spotListedOn": "2022-02-21",
+   "perpSymbol": "TRXUSDT",
+   "perpLaunchedOn": "2021-08-12",
+   "perpMultiplier": 1
+  },
+  "lido-dao": {
+   "base": "LDO",
+   "spotListedOn": "2021-12-03",
+   "perpSymbol": "LDOUSDT",
+   "perpLaunchedOn": "2022-07-20",
+   "perpMultiplier": 1
+  },
+  "world-liberty-financial": {
+   "base": "WLFI",
+   "spotListedOn": "2025-09-01",
+   "perpSymbol": "WLFIUSDT",
+   "perpLaunchedOn": "2025-08-23",
+   "perpMultiplier": 1
+  },
+  "polygon-ecosystem-token": {
+   "base": "POL",
+   "spotListedOn": "2023-10-25",
+   "perpSymbol": "POLUSDT",
+   "perpLaunchedOn": "2024-09-05",
+   "perpMultiplier": 1
+  },
+  "curve-dao-token": {
+   "base": "CRV",
+   "spotListedOn": "2021-10-16",
+   "perpSymbol": "CRVUSDT",
+   "perpLaunchedOn": "2021-10-25",
+   "perpMultiplier": 1
+  },
+  "solstice": {
+   "base": "SLX",
+   "spotListedOn": "2026-06-22",
+   "perpSymbol": "SLXUSDT",
+   "perpLaunchedOn": "2026-06-01",
+   "perpMultiplier": 1
+  },
+  "plume": {
+   "base": "PLUME",
+   "spotListedOn": "2025-01-21",
+   "perpSymbol": "PLUMEUSDT",
+   "perpLaunchedOn": "2025-01-24",
+   "perpMultiplier": 1
+  },
+  "virtual-protocol": {
+   "base": "VIRTUAL",
+   "spotListedOn": "2024-11-20",
+   "perpSymbol": "VIRTUALUSDT",
+   "perpLaunchedOn": "2024-11-01",
+   "perpMultiplier": 1
+  },
+  "dogwifcoin": {
+   "base": "WIF",
+   "spotListedOn": "2024-04-29",
+   "perpSymbol": "WIFUSDT",
+   "perpLaunchedOn": "2024-01-11",
+   "perpMultiplier": 1
+  },
+  "pons": {
+   "base": "PONS",
+   "spotListedOn": "2026-09-22",
+   "perpSymbol": "PONSUSDT",
+   "perpLaunchedOn": "2026-08-31",
+   "perpMultiplier": 1
+  },
+  "spx6900": {
+   "base": "SPX",
+   "spotListedOn": "2024-11-21",
+   "perpSymbol": "SPXUSDT",
+   "perpLaunchedOn": "2024-10-29",
+   "perpMultiplier": 1
+  },
+  "kiichain": {
+   "base": "KII",
+   "spotListedOn": "2026-08-14",
+   "perpSymbol": "KIIUSDT",
+   "perpLaunchedOn": "2026-09-28",
+   "perpMultiplier": 1
+  },
+  "bonk": {
+   "base": "BONK",
+   "spotListedOn": "2023-01-04",
+   "perpSymbol": "1000BONKUSDT",
+   "perpLaunchedOn": "2023-01-06",
+   "perpMultiplier": 1000
+  },
+  "internet-computer": {
+   "base": "ICP",
+   "spotListedOn": "2021-10-10",
+   "perpSymbol": "ICPUSDT",
+   "perpLaunchedOn": "2021-09-15",
+   "perpMultiplier": 1
+  },
+  "polkadot": {
+   "base": "DOT",
+   "spotListedOn": "2021-08-31",
+   "perpSymbol": "DOTUSDT",
+   "perpLaunchedOn": "2021-03-18",
+   "perpMultiplier": 1
+  },
+  "apex-token-2": {
+   "base": "APEX",
+   "spotListedOn": "2022-04-27",
+   "perpSymbol": "APEXUSDT",
+   "perpLaunchedOn": "2025-09-28",
+   "perpMultiplier": 1
+  },
+  "starknet": {
+   "base": "STRK",
+   "spotListedOn": "2024-02-20",
+   "perpSymbol": "STRKUSDT",
+   "perpLaunchedOn": "2024-02-20",
+   "perpMultiplier": 1
+  },
+  "somnia": {
+   "base": "SOMI",
+   "spotListedOn": "2025-09-02",
+   "perpSymbol": "SOMIUSDT",
+   "perpLaunchedOn": "2025-09-02",
+   "perpMultiplier": 1
+  },
+  "kaspa": {
+   "base": "KAS",
+   "spotListedOn": "2023-09-07",
+   "perpSymbol": "KASUSDT",
+   "perpLaunchedOn": "2023-08-04",
+   "perpMultiplier": 1
+  },
+  "aptos": {
+   "base": "APT",
+   "spotListedOn": "2022-10-19",
+   "perpSymbol": "APTUSDT",
+   "perpLaunchedOn": "2022-10-18",
+   "perpMultiplier": 1
+  },
+  "spacex-xstocks": {
+   "base": "SPCXX",
+   "spotListedOn": "2026-06-12",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "shiba-inu": {
+   "base": "SHIB",
+   "spotListedOn": "2021-12-06",
+   "perpSymbol": "SHIB1000USDT",
+   "perpLaunchedOn": "2021-10-20",
+   "perpMultiplier": 1000
+  },
+  "sky": {
+   "base": "SKY",
+   "spotListedOn": "2025-09-04",
+   "perpSymbol": "SKYUSDT",
+   "perpLaunchedOn": "2025-08-11",
+   "perpMultiplier": 1
+  },
+  "cat-in-a-dogs-world": {
+   "base": "MEW",
+   "spotListedOn": "2024-04-19",
+   "perpSymbol": "MEWUSDT",
+   "perpLaunchedOn": "2024-04-23",
+   "perpMultiplier": 1
+  },
+  "opinion": {
+   "base": "OPN",
+   "spotListedOn": "2026-03-05",
+   "perpSymbol": "OPNUSDT",
+   "perpLaunchedOn": "2026-02-11",
+   "perpMultiplier": 1
+  },
+  "blockstack": {
+   "base": "STX",
+   "spotListedOn": "2022-03-17",
+   "perpSymbol": "STXUSDT",
+   "perpLaunchedOn": "2021-11-30",
+   "perpMultiplier": 1
+  },
+  "sei-network": {
+   "base": "SEI",
+   "spotListedOn": "2023-08-15",
+   "perpSymbol": "SEIUSDT",
+   "perpLaunchedOn": "2023-08-16",
+   "perpMultiplier": 1
+  },
+  "fetch-ai": {
+   "base": "FET",
+   "spotListedOn": "2023-10-03",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "bedrock-token": {
+   "base": "BR",
+   "spotListedOn": "2025-03-20",
+   "perpSymbol": "BRUSDT",
+   "perpLaunchedOn": "2025-03-20",
+   "perpMultiplier": 1
+  },
+  "bitcoin-cash": {
+   "base": "BCH",
+   "spotListedOn": "2021-10-10",
+   "perpSymbol": "BCHUSDT",
+   "perpLaunchedOn": "2018-01-01",
+   "perpMultiplier": 1
+  },
+  "xdce-crowd-sale": {
+   "base": "XDC",
+   "spotListedOn": "2021-12-30",
+   "perpSymbol": "XDCUSDT",
+   "perpLaunchedOn": "2025-02-10",
+   "perpMultiplier": 1
+  },
+  "algorand": {
+   "base": "ALGO",
+   "spotListedOn": "2021-11-12",
+   "perpSymbol": "ALGOUSDT",
+   "perpLaunchedOn": "2021-09-23",
+   "perpMultiplier": 1
+  },
+  "arcium": {
+   "base": "ARX",
+   "spotListedOn": "2026-06-22",
+   "perpSymbol": "ARXUSDT",
+   "perpLaunchedOn": "2026-06-23",
+   "perpMultiplier": 1
+  },
+  "ether-fi": {
+   "base": "ETHFI",
+   "spotListedOn": "2024-03-18",
+   "perpSymbol": "ETHFIUSDT",
+   "perpLaunchedOn": "2024-03-18",
+   "perpMultiplier": 1
+  },
+  "berachain-bera": {
+   "base": "BERA",
+   "spotListedOn": "2025-02-06",
+   "perpSymbol": "BERAUSDT",
+   "perpLaunchedOn": "2025-02-06",
+   "perpMultiplier": 1
+  },
+  "optimism": {
+   "base": "OP",
+   "spotListedOn": "2022-05-31",
+   "perpSymbol": "OPUSDT",
+   "perpLaunchedOn": "2022-06-01",
+   "perpMultiplier": 1
+  },
+  "filecoin": {
+   "base": "FIL",
+   "spotListedOn": "2021-10-21",
+   "perpSymbol": "FILUSDT",
+   "perpLaunchedOn": "2021-06-29",
+   "perpMultiplier": 1
+  },
+  "doublezero": {
+   "base": "2Z",
+   "spotListedOn": "2025-10-02",
+   "perpSymbol": "2ZUSDT",
+   "perpLaunchedOn": "2025-10-02",
+   "perpMultiplier": 1
+  },
+  "falcon-finance-ff": {
+   "base": "FF",
+   "spotListedOn": "2025-09-29",
+   "perpSymbol": "FFUSDT",
+   "perpLaunchedOn": "2025-09-29",
+   "perpMultiplier": 1
+  },
+  "eigenlayer": {
+   "base": "EIGEN",
+   "spotListedOn": "2024-10-01",
+   "perpSymbol": "EIGENUSDT",
+   "perpLaunchedOn": "2024-08-06",
+   "perpMultiplier": 1
+  },
+  "grove-2": {
+   "base": "GROVE",
+   "spotListedOn": "2026-07-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "megaeth": {
+   "base": "MEGA",
+   "spotListedOn": "2026-04-30",
+   "perpSymbol": "MEGAUSDT",
+   "perpLaunchedOn": "2025-10-23",
+   "perpMultiplier": 1
+  },
+  "decentraland": {
+   "base": "MANA",
+   "spotListedOn": "2021-09-30",
+   "perpSymbol": "MANAUSDT",
+   "perpLaunchedOn": "2021-11-08",
+   "perpMultiplier": 1
+  },
+  "zetachain": {
+   "base": "ZETA",
+   "spotListedOn": "2024-02-01",
+   "perpSymbol": "ZETAUSDT",
+   "perpLaunchedOn": "2024-02-01",
+   "perpMultiplier": 1
+  },
+  "staked-ether": {
+   "base": "STETH",
+   "spotListedOn": "2021-11-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "deep": {
+   "base": "DEEP",
+   "spotListedOn": "2024-10-14",
+   "perpSymbol": "DEEPUSDT",
+   "perpLaunchedOn": "2024-10-17",
+   "perpMultiplier": 1
+  },
+  "kaia": {
+   "base": "KAIA",
+   "spotListedOn": "2024-11-01",
+   "perpSymbol": "KAIAUSDT",
+   "perpLaunchedOn": "2024-11-01",
+   "perpMultiplier": 1
+  },
+  "moonbeam": {
+   "base": "GLMR",
+   "spotListedOn": "2022-04-06",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "zencash": {
+   "base": "ZEN",
+   "spotListedOn": "2021-12-16",
+   "perpSymbol": "ZENUSDT",
+   "perpLaunchedOn": "2021-11-26",
+   "perpMultiplier": 1
+  },
+  "circle-xstock": {
+   "base": "CRCLX",
+   "spotListedOn": "2025-07-01",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "ethereum-classic": {
+   "base": "ETC",
+   "spotListedOn": "2022-07-28",
+   "perpSymbol": "ETCUSDT",
+   "perpLaunchedOn": "2021-06-29",
+   "perpMultiplier": 1
+  },
+  "jito-governance-token": {
+   "base": "JTO",
+   "spotListedOn": "2023-12-07",
+   "perpSymbol": "JTOUSDT",
+   "perpLaunchedOn": "2023-12-07",
+   "perpMultiplier": 1
+  },
+  "render-token": {
+   "base": "RENDER",
+   "spotListedOn": "2024-07-31",
+   "perpSymbol": "RENDERUSDT",
+   "perpLaunchedOn": "2024-07-26",
+   "perpMultiplier": 1
+  },
+  "blur": {
+   "base": "BLUR",
+   "spotListedOn": "2023-02-14",
+   "perpSymbol": "BLURUSDT",
+   "perpLaunchedOn": "2023-02-15",
+   "perpMultiplier": 1
+  },
+  "zero-gravity": {
+   "base": "0G",
+   "spotListedOn": "2025-09-23",
+   "perpSymbol": "0GUSDT",
+   "perpLaunchedOn": "2025-09-18",
+   "perpMultiplier": 1
+  },
+  "initia": {
+   "base": "INIT",
+   "spotListedOn": "2025-04-24",
+   "perpSymbol": "INITUSDT",
+   "perpLaunchedOn": "2025-04-14",
+   "perpMultiplier": 1
+  },
+  "tria": {
+   "base": "TRIA",
+   "spotListedOn": "2026-02-03",
+   "perpSymbol": "TRIAUSDT",
+   "perpLaunchedOn": "2026-02-05",
+   "perpMultiplier": 1
+  },
+  "helium": {
+   "base": "HNT",
+   "spotListedOn": "2022-01-06",
+   "perpSymbol": "HNTUSDT",
+   "perpLaunchedOn": "2022-01-24",
+   "perpMultiplier": 1
+  },
+  "centrifuge-2": {
+   "base": "CFG",
+   "spotListedOn": "2025-08-26",
+   "perpSymbol": "CFGUSDT",
+   "perpLaunchedOn": "2026-03-17",
+   "perpMultiplier": 1
+  },
+  "chip-2": {
+   "base": "CHIP",
+   "spotListedOn": "2026-04-21",
+   "perpSymbol": "CHIPUSDT",
+   "perpLaunchedOn": "2026-04-16",
+   "perpMultiplier": 1
+  },
+  "meteora": {
+   "base": "MET",
+   "spotListedOn": "2025-10-23",
+   "perpSymbol": "METUSDT",
+   "perpLaunchedOn": "2025-10-10",
+   "perpMultiplier": 1
+  },
+  "zksync": {
+   "base": "ZK",
+   "spotListedOn": "2024-06-17",
+   "perpSymbol": "ZKUSDT",
+   "perpLaunchedOn": "2024-06-20",
+   "perpMultiplier": 1
+  },
+  "celestia": {
+   "base": "TIA",
+   "spotListedOn": "2023-10-31",
+   "perpSymbol": "TIAUSDT",
+   "perpLaunchedOn": "2023-10-31",
+   "perpMultiplier": 1
+  },
+  "mina-protocol": {
+   "base": "MINA",
+   "spotListedOn": "2022-03-31",
+   "perpSymbol": "MINAUSDT",
+   "perpLaunchedOn": "2022-04-06",
+   "perpMultiplier": 1
+  },
+  "sonic-3": {
+   "base": "S",
+   "spotListedOn": "2025-01-15",
+   "perpSymbol": "SUSDT",
+   "perpLaunchedOn": "2025-01-15",
+   "perpMultiplier": 1
+  },
+  "humanity": {
+   "base": "H",
+   "spotListedOn": "2025-06-25",
+   "perpSymbol": "HUSDT",
+   "perpLaunchedOn": "2025-06-25",
+   "perpMultiplier": 1
+  },
+  "safe": {
+   "base": "SAFE",
+   "spotListedOn": "2024-04-23",
+   "perpSymbol": "SAFEUSDT",
+   "perpLaunchedOn": "2024-04-29",
+   "perpMultiplier": 1
+  },
+  "kamino": {
+   "base": "KMNO",
+   "spotListedOn": "2024-04-30",
+   "perpSymbol": "KMNOUSDT",
+   "perpLaunchedOn": "2024-10-09",
+   "perpMultiplier": 1
+  },
+  "cyberconnect": {
+   "base": "CYBER",
+   "spotListedOn": "2023-08-15",
+   "perpSymbol": "CYBERUSDT",
+   "perpLaunchedOn": "2023-08-15",
+   "perpMultiplier": 1
+  },
+  "cookie": {
+   "base": "COOKIE",
+   "spotListedOn": "2024-06-13",
+   "perpSymbol": "COOKIEUSDT",
+   "perpLaunchedOn": "2025-01-07",
+   "perpMultiplier": 1
+  },
+  "zama": {
+   "base": "ZAMA",
+   "spotListedOn": "2026-02-02",
+   "perpSymbol": "ZAMAUSDT",
+   "perpLaunchedOn": "2026-01-09",
+   "perpMultiplier": 1
+  },
+  "waves": {
+   "base": "WAVES",
+   "spotListedOn": "2021-10-29",
+   "perpSymbol": "WAVESUSDT",
+   "perpLaunchedOn": "2022-01-05",
+   "perpMultiplier": 1
+  },
+  "thorchain": {
+   "base": "RUNE",
+   "spotListedOn": "2021-12-21",
+   "perpSymbol": "RUNEUSDT",
+   "perpLaunchedOn": "2021-11-29",
+   "perpMultiplier": 1
+  },
+  "aztec": {
+   "base": "AZTEC",
+   "spotListedOn": "2026-02-12",
+   "perpSymbol": "AZTECUSDT",
+   "perpLaunchedOn": "2026-02-12",
+   "perpMultiplier": 1
+  },
+  "coinbase-xstock": {
+   "base": "COINX",
+   "spotListedOn": "2025-06-30",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "huma-finance": {
+   "base": "HUMA",
+   "spotListedOn": "2025-05-26",
+   "perpSymbol": "HUMAUSDT",
+   "perpLaunchedOn": "2025-05-26",
+   "perpMultiplier": 1
+  },
+  "gala": {
+   "base": "GALA",
+   "spotListedOn": "2021-11-24",
+   "perpSymbol": "GALAUSDT",
+   "perpLaunchedOn": "2021-11-09",
+   "perpMultiplier": 1
+  },
+  "flare-networks": {
+   "base": "FLR",
+   "spotListedOn": "2023-01-10",
+   "perpSymbol": "FLRUSDT",
+   "perpLaunchedOn": "2023-03-16",
+   "perpMultiplier": 1
+  },
+  "zora": {
+   "base": "ZORA",
+   "spotListedOn": "2025-04-23",
+   "perpSymbol": "ZORAUSDT",
+   "perpLaunchedOn": "2025-04-25",
+   "perpMultiplier": 1
+  },
+  "pendle": {
+   "base": "PENDLE",
+   "spotListedOn": "2023-07-03",
+   "perpSymbol": "PENDLEUSDT",
+   "perpLaunchedOn": "2023-07-05",
+   "perpMultiplier": 1
+  },
+  "cosmos": {
+   "base": "ATOM",
+   "spotListedOn": "2021-11-12",
+   "perpSymbol": "ATOMUSDT",
+   "perpLaunchedOn": "2021-10-11",
+   "perpMultiplier": 1
+  },
+  "tac": {
+   "base": "TAC",
+   "spotListedOn": "2025-07-15",
+   "perpSymbol": "TACUSDT",
+   "perpLaunchedOn": "2025-07-15",
+   "perpMultiplier": 1
+  },
+  "wormhole": {
+   "base": "W",
+   "spotListedOn": "2024-04-03",
+   "perpSymbol": "WUSDT",
+   "perpLaunchedOn": "2024-04-03",
+   "perpMultiplier": 1
+  },
+  "dydx": {
+   "base": "DYDX",
+   "spotListedOn": "2021-09-28",
+   "perpSymbol": "DYDXUSDT",
+   "perpLaunchedOn": "2021-10-11",
+   "perpMultiplier": 1
+  },
+  "lagrange": {
+   "base": "LA",
+   "spotListedOn": "2025-06-04",
+   "perpSymbol": "LAUSDT",
+   "perpLaunchedOn": "2025-06-05",
+   "perpMultiplier": 1
+  },
+  "compound-governance-token": {
+   "base": "COMP",
+   "spotListedOn": "2021-09-23",
+   "perpSymbol": "COMPUSDT",
+   "perpLaunchedOn": "2021-08-12",
+   "perpMultiplier": 1
+  },
+  "meta-xstock": {
+   "base": "METAX",
+   "spotListedOn": "2025-07-02",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "creditcoin-2": {
+   "base": "CTC",
+   "spotListedOn": "2022-05-13",
+   "perpSymbol": "CTCUSDT",
+   "perpLaunchedOn": "2022-05-17",
+   "perpMultiplier": 1
+  },
+  "yearn-finance": {
+   "base": "YFI",
+   "spotListedOn": "2021-09-22",
+   "perpSymbol": "YFIUSDT",
+   "perpLaunchedOn": "2021-12-08",
+   "perpMultiplier": 1
+  },
+  "spark-2": {
+   "base": "SPK",
+   "spotListedOn": "2025-06-17",
+   "perpSymbol": "SPKUSDT",
+   "perpLaunchedOn": "2025-06-17",
+   "perpMultiplier": 1
+  },
+  "neon": {
+   "base": "NEON",
+   "spotListedOn": "2023-07-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "block-street": {
+   "base": "BSB",
+   "spotListedOn": "2026-03-04",
+   "perpSymbol": "BSBUSDT",
+   "perpLaunchedOn": "2026-03-26",
+   "perpMultiplier": 1
+  },
+  "pancakeswap-token": {
+   "base": "CAKE",
+   "spotListedOn": "2021-11-24",
+   "perpSymbol": "CAKEUSDT",
+   "perpLaunchedOn": "2023-11-03",
+   "perpMultiplier": 1
+  },
+  "sushi": {
+   "base": "SUSHI",
+   "spotListedOn": "2021-09-22",
+   "perpSymbol": "SUSHIUSDT",
+   "perpLaunchedOn": "2021-11-30",
+   "perpMultiplier": 1
+  },
+  "arweave": {
+   "base": "AR",
+   "spotListedOn": "2022-08-05",
+   "perpSymbol": "ARUSDT",
+   "perpLaunchedOn": "2021-12-20",
+   "perpMultiplier": 1
+  },
+  "pyth-network": {
+   "base": "PYTH",
+   "spotListedOn": "2023-11-20",
+   "perpSymbol": "PYTHUSDT",
+   "perpLaunchedOn": "2023-11-21",
+   "perpMultiplier": 1
+  },
+  "redstone-oracles": {
+   "base": "RED",
+   "spotListedOn": "2025-03-06",
+   "perpSymbol": "REDUSDT",
+   "perpLaunchedOn": "2025-02-26",
+   "perpMultiplier": 1
+  },
+  "billions-network": {
+   "base": "BILL",
+   "spotListedOn": "2026-05-04",
+   "perpSymbol": "BILLUSDT",
+   "perpLaunchedOn": "2026-05-06",
+   "perpMultiplier": 1
+  },
+  "vaulta": {
+   "base": "A",
+   "spotListedOn": "2025-05-28",
+   "perpSymbol": "AUSDT",
+   "perpLaunchedOn": "2025-05-28",
+   "perpMultiplier": 1
+  },
+  "pieverse": {
+   "base": "PIEVERSE",
+   "spotListedOn": "2025-11-14",
+   "perpSymbol": "PIEVERSEUSDT",
+   "perpLaunchedOn": "2025-11-14",
+   "perpMultiplier": 1
+  },
+  "sentient": {
+   "base": "SENT",
+   "spotListedOn": "2026-01-22",
+   "perpSymbol": "SENTUSDT",
+   "perpLaunchedOn": "2025-11-15",
+   "perpMultiplier": 1
+  },
+  "vethor-token": {
+   "base": "VTHO",
+   "spotListedOn": "2025-04-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "morpho": {
+   "base": "MORPHO",
+   "spotListedOn": "2024-11-21",
+   "perpSymbol": "MORPHOUSDT",
+   "perpLaunchedOn": "2024-11-22",
+   "perpMultiplier": 1
+  },
+  "aethir": {
+   "base": "ATH",
+   "spotListedOn": "2024-06-12",
+   "perpSymbol": "ATHUSDT",
+   "perpLaunchedOn": "2024-06-13",
+   "perpMultiplier": 1
+  },
+  "alphabet-xstock": {
+   "base": "GOOGLX",
+   "spotListedOn": "2025-07-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "capybobo": {
+   "base": "PYBOBO",
+   "spotListedOn": "2026-01-26",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "edgex": {
+   "base": "EDGE",
+   "spotListedOn": "2026-03-31",
+   "perpSymbol": "EDGEUSDT",
+   "perpLaunchedOn": "2026-03-20",
+   "perpMultiplier": 1
+  },
+  "toshi": {
+   "base": "TOSHI",
+   "spotListedOn": "2025-01-14",
+   "perpSymbol": "1000TOSHIUSDT",
+   "perpLaunchedOn": "2024-12-05",
+   "perpMultiplier": 1000
+  },
+  "avantis": {
+   "base": "AVNT",
+   "spotListedOn": "2025-09-09",
+   "perpSymbol": "AVNTUSDT",
+   "perpLaunchedOn": "2025-09-09",
+   "perpMultiplier": 1
+  },
+  "apecoin": {
+   "base": "APE",
+   "spotListedOn": "2022-03-17",
+   "perpSymbol": "APEUSDT",
+   "perpLaunchedOn": "2022-03-18",
+   "perpMultiplier": 1
+  },
+  "ethereum-name-service": {
+   "base": "ENS",
+   "spotListedOn": "2021-11-09",
+   "perpSymbol": "ENSUSDT",
+   "perpLaunchedOn": "2021-11-12",
+   "perpMultiplier": 1
+  },
+  "paypal-usd": {
+   "base": "PYUSD",
+   "spotListedOn": "2023-09-20",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "the-graph": {
+   "base": "GRT",
+   "spotListedOn": "2021-10-22",
+   "perpSymbol": "GRTUSDT",
+   "perpLaunchedOn": "2021-12-06",
+   "perpMultiplier": 1
+  },
+  "tesla-xstock": {
+   "base": "TSLAX",
+   "spotListedOn": "2025-07-08",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "lava-network": {
+   "base": "LAVA",
+   "spotListedOn": "2025-01-09",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "chiliz": {
+   "base": "CHZ",
+   "spotListedOn": "2021-09-30",
+   "perpSymbol": "CHZUSDT",
+   "perpLaunchedOn": "2021-10-12",
+   "perpMultiplier": 1
+  },
+  "corn-3": {
+   "base": "CORN",
+   "spotListedOn": "2025-03-28",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "coredaoorg": {
+   "base": "CORE",
+   "spotListedOn": "2023-02-08",
+   "perpSymbol": "COREUSDT",
+   "perpLaunchedOn": "2023-02-09",
+   "perpMultiplier": 1
+  },
+  "doodles": {
+   "base": "DOOD",
+   "spotListedOn": "2025-05-09",
+   "perpSymbol": "DOODUSDT",
+   "perpLaunchedOn": "2025-05-09",
+   "perpMultiplier": 1
+  },
+  "beam-2": {
+   "base": "BEAM",
+   "spotListedOn": "2023-10-26",
+   "perpSymbol": "BEAMUSDT",
+   "perpLaunchedOn": "2023-11-14",
+   "perpMultiplier": 1
+  },
+  "merlin-chain": {
+   "base": "MERL",
+   "spotListedOn": "2024-04-19",
+   "perpSymbol": "MERLUSDT",
+   "perpLaunchedOn": "2024-04-19",
+   "perpMultiplier": 1
+  },
+  "robo-token-2": {
+   "base": "ROBO",
+   "spotListedOn": "2026-02-27",
+   "perpSymbol": "ROBOUSDT",
+   "perpLaunchedOn": "2026-02-25",
+   "perpMultiplier": 1
+  },
+  "ordinals": {
+   "base": "ORDI",
+   "spotListedOn": "2023-08-17",
+   "perpSymbol": "ORDIUSDT",
+   "perpLaunchedOn": "2023-05-22",
+   "perpMultiplier": 1
+  },
+  "io": {
+   "base": "IO",
+   "spotListedOn": "2024-06-11",
+   "perpSymbol": "IOUSDT",
+   "perpLaunchedOn": "2024-06-11",
+   "perpMultiplier": 1
+  },
+  "velo": {
+   "base": "VELO",
+   "spotListedOn": "2023-05-30",
+   "perpSymbol": "VELOUSDT",
+   "perpLaunchedOn": "2024-05-20",
+   "perpMultiplier": 1
+  },
+  "home": {
+   "base": "HOME",
+   "spotListedOn": "2025-06-10",
+   "perpSymbol": "HOMEUSDT",
+   "perpLaunchedOn": "2025-06-10",
+   "perpMultiplier": 1
+  },
+  "aioz-network": {
+   "base": "AIOZ",
+   "spotListedOn": "2024-01-03",
+   "perpSymbol": "AIOZUSDT",
+   "perpLaunchedOn": "2024-06-13",
+   "perpMultiplier": 1
+  },
+  "b3": {
+   "base": "B3",
+   "spotListedOn": "2025-02-10",
+   "perpSymbol": "B3USDT",
+   "perpLaunchedOn": "2025-02-12",
+   "perpMultiplier": 1
   },
   "nomina": {
    "base": "NOM",
    "spotListedOn": "2025-10-01",
    "perpSymbol": "NOMUSDT",
-   "perpLaunchedOn": "2025-10-01"
+   "perpLaunchedOn": "2025-10-01",
+   "perpMultiplier": 1
   },
-  "coin98": {
-   "base": "C98",
-   "spotListedOn": "2021-11-23",
-   "perpSymbol": "C98USDT",
-   "perpLaunchedOn": "2021-10-25"
+  "magic-eden": {
+   "base": "ME",
+   "spotListedOn": "2024-12-10",
+   "perpSymbol": "MEUSDT",
+   "perpLaunchedOn": "2024-11-25",
+   "perpMultiplier": 1
   },
-  "simon-s-cat": {
-   "base": "CAT",
-   "spotListedOn": "2025-07-23",
+  "movement": {
+   "base": "MOVE",
+   "spotListedOn": "2024-12-09",
+   "perpSymbol": "MOVEUSDT",
+   "perpLaunchedOn": "2024-12-09",
+   "perpMultiplier": 1
+  },
+  "nvidia-xstock": {
+   "base": "NVDAX",
+   "spotListedOn": "2025-06-30",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "tomochain": {
-   "base": "VIC",
-   "spotListedOn": "2024-01-10",
+  "opengradient": {
+   "base": "OPG",
+   "spotListedOn": "2026-04-21",
+   "perpSymbol": "OPGUSDT",
+   "perpLaunchedOn": "2026-04-23",
+   "perpMultiplier": 1
+  },
+  "clearpool": {
+   "base": "CPOOL",
+   "spotListedOn": "2024-02-21",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "woo-network": {
-   "base": "WOO",
-   "spotListedOn": "2021-11-10",
-   "perpSymbol": "WOOUSDT",
-   "perpLaunchedOn": "2021-11-09"
+  "seeker": {
+   "base": "SKR",
+   "spotListedOn": "2026-01-21",
+   "perpSymbol": "SKRUSDT",
+   "perpLaunchedOn": "2026-01-20",
+   "perpMultiplier": 1
   },
-  "echelon-prime": {
-   "base": "PRIME",
-   "spotListedOn": "2023-03-01",
+  "celo": {
+   "base": "CELO",
+   "spotListedOn": "2022-04-13",
+   "perpSymbol": "CELOUSDT",
+   "perpLaunchedOn": "2022-01-05",
+   "perpMultiplier": 1
+  },
+  "trust-wallet-token": {
+   "base": "TWT",
+   "spotListedOn": "2022-11-17",
+   "perpSymbol": "TWTUSDT",
+   "perpLaunchedOn": "2022-11-17",
+   "perpMultiplier": 1
+  },
+  "tezos": {
+   "base": "XTZ",
+   "spotListedOn": "2021-10-10",
+   "perpSymbol": "XTZUSDT",
+   "perpLaunchedOn": "2018-01-01",
+   "perpMultiplier": 1
+  },
+  "popcat": {
+   "base": "POPCAT",
+   "spotListedOn": "2024-06-21",
+   "perpSymbol": "POPCATUSDT",
+   "perpLaunchedOn": "2024-03-28",
+   "perpMultiplier": 1
+  },
+  "stable-2": {
+   "base": "STABLE",
+   "spotListedOn": "2025-12-08",
+   "perpSymbol": "STABLEUSDT",
+   "perpLaunchedOn": "2025-11-06",
+   "perpMultiplier": 1
+  },
+  "succinct": {
+   "base": "PROVE",
+   "spotListedOn": "2025-09-08",
+   "perpSymbol": "PROVEUSDT",
+   "perpLaunchedOn": "2025-08-05",
+   "perpMultiplier": 1
+  },
+  "kava": {
+   "base": "KAVA",
+   "spotListedOn": "2023-08-25",
+   "perpSymbol": "KAVAUSDT",
+   "perpLaunchedOn": "2022-01-10",
+   "perpMultiplier": 1
+  },
+  "lombard-protocol": {
+   "base": "BARD",
+   "spotListedOn": "2025-09-18",
+   "perpSymbol": "BARDUSDT",
+   "perpLaunchedOn": "2025-09-16",
+   "perpMultiplier": 1
+  },
+  "altlayer": {
+   "base": "ALT",
+   "spotListedOn": "2024-02-19",
+   "perpSymbol": "ALTUSDT",
+   "perpLaunchedOn": "2024-01-25",
+   "perpMultiplier": 1
+  },
+  "axelar": {
+   "base": "AXL",
+   "spotListedOn": "2023-04-06",
+   "perpSymbol": "AXLUSDT",
+   "perpLaunchedOn": "2023-12-07",
+   "perpMultiplier": 1
+  },
+  "resolv": {
+   "base": "RESOLV",
+   "spotListedOn": "2025-06-10",
+   "perpSymbol": "RESOLVUSDT",
+   "perpLaunchedOn": "2025-06-10",
+   "perpMultiplier": 1
+  },
+  "anoma": {
+   "base": "XAN",
+   "spotListedOn": "2025-09-29",
+   "perpSymbol": "XANUSDT",
+   "perpLaunchedOn": "2025-09-29",
+   "perpMultiplier": 1
+  },
+  "subsquid": {
+   "base": "SQD",
+   "spotListedOn": "2024-05-17",
+   "perpSymbol": "SQDUSDT",
+   "perpLaunchedOn": "2025-06-11",
+   "perpMultiplier": 1
+  },
+  "scroll": {
+   "base": "SCR",
+   "spotListedOn": "2024-10-22",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "zilliqa": {
-   "base": "ZIL",
-   "spotListedOn": "2021-12-29",
-   "perpSymbol": "ZILUSDT",
-   "perpLaunchedOn": "2022-01-29"
+  "vechain": {
+   "base": "VET",
+   "spotListedOn": "2025-04-14",
+   "perpSymbol": "VETUSDT",
+   "perpLaunchedOn": "2021-10-25",
+   "perpMultiplier": 1
   },
-  "debridge": {
-   "base": "DBR",
-   "spotListedOn": "2024-10-17",
-   "perpSymbol": "DBRUSDT",
-   "perpLaunchedOn": "2024-10-17"
+  "mog-coin": {
+   "base": "MOG",
+   "spotListedOn": "2024-06-04",
+   "perpSymbol": "1000000MOGUSDT",
+   "perpLaunchedOn": "2024-05-16",
+   "perpMultiplier": 1000000
   },
-  "usds": {
-   "base": "USDS",
-   "spotListedOn": "2026-04-29",
+  "arkham": {
+   "base": "ARKM",
+   "spotListedOn": "2023-07-18",
+   "perpSymbol": "ARKMUSDT",
+   "perpLaunchedOn": "2023-07-28",
+   "perpMultiplier": 1
+  },
+  "aurora-near": {
+   "base": "AURORA",
+   "spotListedOn": "2024-06-07",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "sats-ordinals": {
-   "base": "SATS",
-   "spotListedOn": "2024-01-08",
+  "xai-blockchain": {
+   "base": "XAI",
+   "spotListedOn": "2024-01-09",
+   "perpSymbol": "XAIUSDT",
+   "perpLaunchedOn": "2024-01-10",
+   "perpMultiplier": 1
+  },
+  "drift-protocol": {
+   "base": "DRIFT",
+   "spotListedOn": "2024-05-16",
+   "perpSymbol": "DRIFTUSDT",
+   "perpLaunchedOn": "2024-05-21",
+   "perpMultiplier": 1
+  },
+  "based-one": {
+   "base": "BASED",
+   "spotListedOn": "2026-03-30",
+   "perpSymbol": "BASEDUSDT",
+   "perpLaunchedOn": "2026-03-30",
+   "perpMultiplier": 1
+  },
+  "peanut-the-squirrel": {
+   "base": "PNUT",
+   "spotListedOn": "2024-11-22",
+   "perpSymbol": "PNUTUSDT",
+   "perpLaunchedOn": "2024-11-11",
+   "perpMultiplier": 1
+  },
+  "elsa": {
+   "base": "ELSA",
+   "spotListedOn": "2026-01-20",
+   "perpSymbol": "ELSAUSDT",
+   "perpLaunchedOn": "2026-01-22",
+   "perpMultiplier": 1
+  },
+  "particle-network": {
+   "base": "PARTI",
+   "spotListedOn": "2025-03-25",
+   "perpSymbol": "PARTIUSDT",
+   "perpLaunchedOn": "2025-03-25",
+   "perpMultiplier": 1
+  },
+  "towns": {
+   "base": "TOWNS",
+   "spotListedOn": "2025-08-05",
+   "perpSymbol": "TOWNSUSDT",
+   "perpLaunchedOn": "2025-08-05",
+   "perpMultiplier": 1
+  },
+  "ancient8": {
+   "base": "A8",
+   "spotListedOn": "2024-07-17",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "terrausd": {
-   "base": "USTC",
-   "spotListedOn": "2022-03-11",
-   "perpSymbol": "USTCUSDT",
-   "perpLaunchedOn": "2023-11-27"
+  "oasis-network": {
+   "base": "ROSE",
+   "spotListedOn": "2022-08-11",
+   "perpSymbol": "ROSEUSDT",
+   "perpLaunchedOn": "2022-01-14",
+   "perpMultiplier": 1
   },
-  "magiccraft": {
-   "base": "MCRT",
-   "spotListedOn": "2022-10-28",
+  "jasmycoin": {
+   "base": "JASMY",
+   "spotListedOn": "2021-11-24",
+   "perpSymbol": "JASMYUSDT",
+   "perpLaunchedOn": "2022-01-19",
+   "perpMultiplier": 1
+  },
+  "robinhood-xstock": {
+   "base": "HOODX",
+   "spotListedOn": "2025-07-02",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "haedal": {
-   "base": "HAEDAL",
-   "spotListedOn": "2025-04-29",
-   "perpSymbol": "HAEDALUSDT",
-   "perpLaunchedOn": "2025-04-30"
+  "theta-token": {
+   "base": "THETA",
+   "spotListedOn": "2021-12-16",
+   "perpSymbol": "THETAUSDT",
+   "perpLaunchedOn": "2021-08-12",
+   "perpMultiplier": 1
   },
-  "dolomite": {
-   "base": "DOLO",
-   "spotListedOn": "2025-04-24",
-   "perpSymbol": "DOLOUSDT",
-   "perpLaunchedOn": "2025-07-28"
+  "mocaverse": {
+   "base": "MOCA",
+   "spotListedOn": "2024-07-11",
+   "perpSymbol": "MOCAUSDT",
+   "perpLaunchedOn": "2024-07-12",
+   "perpMultiplier": 1
   },
-  "grvt": {
-   "base": "GRVT",
-   "spotListedOn": "2026-07-30",
-   "perpSymbol": "GRVTUSDT",
-   "perpLaunchedOn": "2026-07-31"
+  "sign-global": {
+   "base": "SIGN",
+   "spotListedOn": "2025-04-28",
+   "perpSymbol": "SIGNUSDT",
+   "perpLaunchedOn": "2025-04-28",
+   "perpMultiplier": 1
   },
-  "ftx-token": {
-   "base": "FTT",
-   "spotListedOn": "2021-11-09",
+  "comedian": {
+   "base": "BAN",
+   "spotListedOn": "2024-11-18",
+   "perpSymbol": "BANUSDT",
+   "perpLaunchedOn": "2024-11-18",
+   "perpMultiplier": 1
+  },
+  "linea": {
+   "base": "LINEA",
+   "spotListedOn": "2025-09-10",
+   "perpSymbol": "LINEAUSDT",
+   "perpLaunchedOn": "2025-09-01",
+   "perpMultiplier": 1
+  },
+  "goplus-security": {
+   "base": "GPS",
+   "spotListedOn": "2025-01-16",
+   "perpSymbol": "GPSUSDT",
+   "perpLaunchedOn": "2025-02-18",
+   "perpMultiplier": 1
+  },
+  "sosovalue": {
+   "base": "SOSO",
+   "spotListedOn": "2025-01-24",
+   "perpSymbol": "SOSOUSDT",
+   "perpLaunchedOn": "2025-06-26",
+   "perpMultiplier": 1
+  },
+  "sonic-svm": {
+   "base": "SONIC",
+   "spotListedOn": "2025-01-07",
+   "perpSymbol": "SONICUSDT",
+   "perpLaunchedOn": "2025-01-07",
+   "perpMultiplier": 1
+  },
+  "1inch": {
+   "base": "1INCH",
+   "spotListedOn": "2021-12-02",
+   "perpSymbol": "1INCHUSDT",
+   "perpLaunchedOn": "2021-12-06",
+   "perpMultiplier": 1
+  },
+  "polyhedra-network": {
+   "base": "ZKJ",
+   "spotListedOn": "2024-03-19",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "babylon": {
+   "base": "BABY1",
+   "spotListedOn": "2025-04-10",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "impossible-cloud-network-token": {
+   "base": "ICNT",
+   "spotListedOn": "2025-07-03",
+   "perpSymbol": "ICNTUSDT",
+   "perpLaunchedOn": "2025-07-03",
+   "perpMultiplier": 1
+  },
+  "holoworld": {
+   "base": "HOLO",
+   "spotListedOn": "2025-09-11",
+   "perpSymbol": "HOLOUSDT",
+   "perpLaunchedOn": "2025-09-11",
+   "perpMultiplier": 1
+  },
+  "space-and-time": {
+   "base": "SXT",
+   "spotListedOn": "2025-05-08",
+   "perpSymbol": "SXTUSDT",
+   "perpLaunchedOn": "2025-05-03",
+   "perpMultiplier": 1
+  },
+  "casper-network": {
+   "base": "CSPR",
+   "spotListedOn": "2024-02-22",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "telcoin-2": {
+   "base": "TEL",
+   "spotListedOn": "2021-12-01",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "kusama": {
+   "base": "KSM",
+   "spotListedOn": "2021-10-10",
+   "perpSymbol": "KSMUSDT",
+   "perpLaunchedOn": "2021-10-12",
+   "perpMultiplier": 1
+  },
+  "alchemist-ai": {
+   "base": "ALCH",
+   "spotListedOn": "2024-12-26",
+   "perpSymbol": "ALCHUSDT",
+   "perpLaunchedOn": "2025-01-07",
+   "perpMultiplier": 1
+  },
+  "the-sandbox": {
+   "base": "SAND",
+   "spotListedOn": "2021-11-02",
+   "perpSymbol": "SANDUSDT",
+   "perpLaunchedOn": "2021-11-01",
+   "perpMultiplier": 1
+  },
+  "puffer-finance": {
+   "base": "PUFFER",
+   "spotListedOn": "2024-10-14",
+   "perpSymbol": "PUFFERUSDT",
+   "perpLaunchedOn": "2024-10-14",
+   "perpMultiplier": 1
+  },
+  "instadapp": {
+   "base": "FLUID",
+   "spotListedOn": "2024-12-18",
+   "perpSymbol": "FLUIDUSDT",
+   "perpLaunchedOn": "2025-09-24",
+   "perpMultiplier": 1
+  },
+  "apple-xstock": {
+   "base": "AAPLX",
+   "spotListedOn": "2025-07-01",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "elrond-erd-2": {
+   "base": "EGLD",
+   "spotListedOn": "2021-12-21",
+   "perpSymbol": "EGLDUSDT",
+   "perpLaunchedOn": "2021-11-22",
+   "perpMultiplier": 1
+  },
+  "carv": {
+   "base": "CARV",
+   "spotListedOn": "2024-10-10",
+   "perpSymbol": "CARVUSDT",
+   "perpLaunchedOn": "2024-10-16",
+   "perpMultiplier": 1
+  },
+  "gaib": {
+   "base": "GAIB",
+   "spotListedOn": "2025-11-19",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "basic-attention-token": {
+   "base": "BAT",
+   "spotListedOn": "2021-10-19",
+   "perpSymbol": "BATUSDT",
+   "perpLaunchedOn": "2021-11-24",
+   "perpMultiplier": 1
+  },
+  "walrus-2": {
+   "base": "WAL",
+   "spotListedOn": "2025-03-27",
+   "perpSymbol": "WALUSDT",
+   "perpLaunchedOn": "2025-03-27",
+   "perpMultiplier": 1
+  },
+  "swell-network": {
+   "base": "SWELL",
+   "spotListedOn": "2024-11-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "just": {
+   "base": "JST",
+   "spotListedOn": "2022-02-21",
+   "perpSymbol": "JSTUSDT",
+   "perpLaunchedOn": "2022-02-18",
+   "perpMultiplier": 1
+  },
+  "moonbirds": {
+   "base": "BIRB",
+   "spotListedOn": "2026-01-28",
+   "perpSymbol": "BIRBUSDT",
+   "perpLaunchedOn": "2026-01-28",
+   "perpMultiplier": 1
+  },
+  "constitutiondao": {
+   "base": "PEOPLE",
+   "spotListedOn": "2022-11-15",
+   "perpSymbol": "PEOPLEUSDT",
+   "perpLaunchedOn": "2021-12-29",
+   "perpMultiplier": 1
+  },
+  "synfutures": {
+   "base": "F",
+   "spotListedOn": "2024-12-06",
+   "perpSymbol": "FUSDT",
+   "perpLaunchedOn": "2024-12-06",
+   "perpMultiplier": 1
+  },
+  "blast": {
+   "base": "BLAST",
+   "spotListedOn": "2024-06-26",
+   "perpSymbol": "BLASTUSDT",
+   "perpLaunchedOn": "2024-06-27",
+   "perpMultiplier": 1
   },
   "avail": {
    "base": "AVAIL",
    "spotListedOn": "2024-07-23",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "magic": {
-   "base": "MAGIC",
-   "spotListedOn": "2022-12-12",
-   "perpSymbol": "MAGICUSDT",
-   "perpLaunchedOn": "2022-12-13"
+  "momentum-3": {
+   "base": "MMT",
+   "spotListedOn": "2025-11-04",
+   "perpSymbol": "MMTUSDT",
+   "perpLaunchedOn": "2025-10-27",
+   "perpMultiplier": 1
+  },
+  "axie-infinity": {
+   "base": "AXS",
+   "spotListedOn": "2021-09-30",
+   "perpSymbol": "AXSUSDT",
+   "perpLaunchedOn": "2021-08-12",
+   "perpMultiplier": 1
+  },
+  "loopring": {
+   "base": "LRC",
+   "spotListedOn": "2021-12-03",
+   "perpSymbol": "LRCUSDT",
+   "perpLaunchedOn": "2021-11-11",
+   "perpMultiplier": 1
+  },
+  "nym": {
+   "base": "NYM",
+   "spotListedOn": "2023-07-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "amazon-xstock": {
+   "base": "AMZNX",
+   "spotListedOn": "2025-07-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "enso": {
+   "base": "ENSO",
+   "spotListedOn": "2025-10-14",
+   "perpSymbol": "ENSOUSDT",
+   "perpLaunchedOn": "2025-10-14",
+   "perpMultiplier": 1
+  },
+  "based-brett": {
+   "base": "BRETT",
+   "spotListedOn": "2024-04-18",
+   "perpSymbol": "BRETTUSDT",
+   "perpLaunchedOn": "2024-04-26",
+   "perpMultiplier": 1
+  },
+  "notcoin": {
+   "base": "NOT",
+   "spotListedOn": "2024-05-16",
+   "perpSymbol": "NOTUSDT",
+   "perpLaunchedOn": "2024-05-16",
+   "perpMultiplier": 1
+  },
+  "orderly-network": {
+   "base": "ORDER",
+   "spotListedOn": "2024-08-26",
+   "perpSymbol": "ORDERUSDT",
+   "perpLaunchedOn": "2024-08-27",
+   "perpMultiplier": 1
+  },
+  "havven": {
+   "base": "SNX",
+   "spotListedOn": "2021-12-01",
+   "perpSymbol": "SNXUSDT",
+   "perpLaunchedOn": "2021-12-13",
+   "perpMultiplier": 1
+  },
+  "fogo": {
+   "base": "FOGO",
+   "spotListedOn": "2026-01-15",
+   "perpSymbol": "FOGOUSDT",
+   "perpLaunchedOn": "2026-01-11",
+   "perpMultiplier": 1
   },
   "usdtb": {
    "base": "USDTB",
    "spotListedOn": "2025-03-04",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "metaplex": {
-   "base": "MPLX",
-   "spotListedOn": "2022-09-20",
+  "fluent-network": {
+   "base": "BLEND",
+   "spotListedOn": "2026-04-24",
+   "perpSymbol": "BLENDUSDT",
+   "perpLaunchedOn": "2026-04-29",
+   "perpMultiplier": 1
+  },
+  "roam-token": {
+   "base": "ROAM",
+   "spotListedOn": "2025-03-06",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "mcdonald-s-xstock": {
-   "base": "MCDX",
-   "spotListedOn": "2025-07-08",
+  "biconomy": {
+   "base": "BICO",
+   "spotListedOn": "2021-12-01",
+   "perpSymbol": "BICOUSDT",
+   "perpLaunchedOn": "2021-12-02",
+   "perpMultiplier": 1
+  },
+  "flow": {
+   "base": "FLOW",
+   "spotListedOn": "2022-03-17",
+   "perpSymbol": "FLOWUSDT",
+   "perpLaunchedOn": "2021-11-25",
+   "perpMultiplier": 1
+  },
+  "taiko": {
+   "base": "TAIKO",
+   "spotListedOn": "2024-06-05",
+   "perpSymbol": "TAIKOUSDT",
+   "perpLaunchedOn": "2024-06-05",
+   "perpMultiplier": 1
+  },
+  "fight-2": {
+   "base": "FIGHT",
+   "spotListedOn": "2026-01-22",
+   "perpSymbol": "FIGHTUSDT",
+   "perpLaunchedOn": "2026-01-23",
+   "perpMultiplier": 1
+  },
+  "gmx": {
+   "base": "GMX",
+   "spotListedOn": "2022-03-08",
+   "perpSymbol": "GMXUSDT",
+   "perpLaunchedOn": "2022-10-10",
+   "perpMultiplier": 1
+  },
+  "adventure-gold": {
+   "base": "AGLD",
+   "spotListedOn": "2021-10-19",
+   "perpSymbol": "AGLDUSDT",
+   "perpLaunchedOn": "2022-04-22",
+   "perpMultiplier": 1
+  },
+  "sahara-ai": {
+   "base": "SAHARA",
+   "spotListedOn": "2025-06-26",
+   "perpSymbol": "SAHARAUSDT",
+   "perpLaunchedOn": "2025-06-20",
+   "perpMultiplier": 1
+  },
+  "floki": {
+   "base": "FLOKI",
+   "spotListedOn": "2022-07-26",
+   "perpSymbol": "1000FLOKIUSDT",
+   "perpLaunchedOn": "2023-02-24",
+   "perpMultiplier": 1000
+  },
+  "alchemy-pay": {
+   "base": "ACH",
+   "spotListedOn": "2022-02-17",
+   "perpSymbol": "ACHUSDT",
+   "perpLaunchedOn": "2022-04-08",
+   "perpMultiplier": 1
+  },
+  "nexo": {
+   "base": "NEXO",
+   "spotListedOn": "2021-12-02",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "rocket-pool": {
-   "base": "RPL",
-   "spotListedOn": "2023-01-19",
-   "perpSymbol": "RPLUSDT",
-   "perpLaunchedOn": "2023-03-01"
-  },
-  "bonfida": {
-   "base": "FIDA",
-   "spotListedOn": "2022-03-23",
-   "perpSymbol": "FIDAUSDT",
-   "perpLaunchedOn": "2024-09-25"
-  },
-  "mantle-staked-ether": {
-   "base": "METH",
-   "spotListedOn": "2023-12-08",
+  "diam": {
+   "base": "DIAM",
+   "spotListedOn": "2025-02-12",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "bella-protocol": {
-   "base": "BEL",
-   "spotListedOn": "2022-06-16",
-   "perpSymbol": "BELUSDT",
-   "perpLaunchedOn": "2022-06-17"
+  "nexpace": {
+   "base": "NXPC",
+   "spotListedOn": "2025-05-15",
+   "perpSymbol": "NXPCUSDT",
+   "perpLaunchedOn": "2025-05-15",
+   "perpMultiplier": 1
   },
-  "forta": {
-   "base": "FORT",
-   "spotListedOn": "2022-06-15",
+  "bybit-staked-sol": {
+   "base": "BBSOL",
+   "spotListedOn": "2024-10-10",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
-  "ethereum-pow-iou": {
-   "base": "ETHW",
-   "spotListedOn": "2022-09-15",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
+  "humidifi": {
+   "base": "WET",
+   "spotListedOn": "2025-12-09",
+   "perpSymbol": "WETUSDT",
+   "perpLaunchedOn": "2025-12-04",
+   "perpMultiplier": 1
   },
-  "htx-dao": {
-   "base": "HTX",
-   "spotListedOn": "2024-02-19",
-   "perpSymbol": null,
-   "perpLaunchedOn": null
+  "bubblemaps": {
+   "base": "BMT",
+   "spotListedOn": "2025-03-11",
+   "perpSymbol": "BMTUSDT",
+   "perpLaunchedOn": "2025-03-13",
+   "perpMultiplier": 1
+  },
+  "chill-guy": {
+   "base": "CHILLGUY",
+   "spotListedOn": "2024-11-26",
+   "perpSymbol": "CHILLGUYUSDT",
+   "perpLaunchedOn": "2024-11-21",
+   "perpMultiplier": 1
+  },
+  "vana": {
+   "base": "VANA",
+   "spotListedOn": "2024-12-16",
+   "perpSymbol": "VANAUSDT",
+   "perpLaunchedOn": "2024-12-16",
+   "perpMultiplier": 1
   },
   "uma": {
    "base": "UMA",
    "spotListedOn": "2021-12-02",
    "perpSymbol": "UMAUSDT",
-   "perpLaunchedOn": "2023-06-08"
+   "perpLaunchedOn": "2023-06-08",
+   "perpMultiplier": 1
+  },
+  "zerebro": {
+   "base": "ZEREBRO",
+   "spotListedOn": "2024-12-11",
+   "perpSymbol": "ZEREBROUSDT",
+   "perpLaunchedOn": "2024-12-30",
+   "perpMultiplier": 1
+  },
+  "tensor": {
+   "base": "TNSR",
+   "spotListedOn": "2024-04-09",
+   "perpSymbol": "TNSRUSDT",
+   "perpLaunchedOn": "2024-04-09",
+   "perpMultiplier": 1
+  },
+  "hyperlane": {
+   "base": "HYPER",
+   "spotListedOn": "2025-04-22",
+   "perpSymbol": "HYPERUSDT",
+   "perpLaunchedOn": "2025-04-22",
+   "perpMultiplier": 1
+  },
+  "trusta-ai": {
+   "base": "TA",
+   "spotListedOn": "2025-07-21",
+   "perpSymbol": "TAUSDT",
+   "perpLaunchedOn": "2025-07-21",
+   "perpMultiplier": 1
+  },
+  "neiro-3": {
+   "base": "NEIROCTO",
+   "spotListedOn": "2024-11-20",
+   "perpSymbol": "1000NEIROCTOUSDT",
+   "perpLaunchedOn": "2024-09-16",
+   "perpMultiplier": 1000
+  },
+  "immutable-x": {
+   "base": "IMX",
+   "spotListedOn": "2021-11-05",
+   "perpSymbol": "IMXUSDT",
+   "perpLaunchedOn": "2021-11-24",
+   "perpMultiplier": 1
+  },
+  "book-of-meme": {
+   "base": "BOME",
+   "spotListedOn": "2024-03-16",
+   "perpSymbol": "BOMEUSDT",
+   "perpLaunchedOn": "2024-03-15",
+   "perpMultiplier": 1
+  },
+  "treehouse": {
+   "base": "TREE",
+   "spotListedOn": "2025-07-29",
+   "perpSymbol": "TREEUSDT",
+   "perpLaunchedOn": "2025-07-29",
+   "perpMultiplier": 1
+  },
+  "mask-network": {
+   "base": "MASK",
+   "spotListedOn": "2022-11-03",
+   "perpSymbol": "MASKUSDT",
+   "perpLaunchedOn": "2021-12-02",
+   "perpMultiplier": 1
+  },
+  "avalon-2": {
+   "base": "AVL",
+   "spotListedOn": "2025-02-12",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "usds": {
+   "base": "USDS",
+   "spotListedOn": "2026-04-29",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "ankr": {
+   "base": "ANKR",
+   "spotListedOn": "2021-10-16",
+   "perpSymbol": "ANKRUSDT",
+   "perpLaunchedOn": "2021-11-24",
+   "perpMultiplier": 1
+  },
+  "mantra": {
+   "base": "MANTRA",
+   "spotListedOn": "2026-03-04",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "g-token": {
+   "base": "G",
+   "spotListedOn": "2024-08-06",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "chaingpt": {
+   "base": "CGPT",
+   "spotListedOn": "2023-04-10",
+   "perpSymbol": "CGPTUSDT",
+   "perpLaunchedOn": "2025-01-10",
+   "perpMultiplier": 1
+  },
+  "anime": {
+   "base": "ANIME",
+   "spotListedOn": "2025-01-23",
+   "perpSymbol": "ANIMEUSDT",
+   "perpLaunchedOn": "2025-01-23",
+   "perpMultiplier": 1
+  },
+  "terrausd": {
+   "base": "USTC",
+   "spotListedOn": "2022-03-11",
+   "perpSymbol": "USTCUSDT",
+   "perpLaunchedOn": "2023-11-27",
+   "perpMultiplier": 1
+  },
+  "rats": {
+   "base": "RATS",
+   "spotListedOn": "2024-01-08",
+   "perpSymbol": "1000RATSUSDT",
+   "perpLaunchedOn": "2023-11-22",
+   "perpMultiplier": 1000
+  },
+  "zerobase": {
+   "base": "ZBT",
+   "spotListedOn": "2025-10-17",
+   "perpSymbol": "ZBTUSDT",
+   "perpLaunchedOn": "2025-10-17",
+   "perpMultiplier": 1
+  },
+  "recall": {
+   "base": "RECALL",
+   "spotListedOn": "2025-10-15",
+   "perpSymbol": "RECALLUSDT",
+   "perpLaunchedOn": "2025-10-15",
+   "perpMultiplier": 1
+  },
+  "heroes-of-mavia": {
+   "base": "MAVIA",
+   "spotListedOn": "2024-02-06",
+   "perpSymbol": "MAVIAUSDT",
+   "perpLaunchedOn": "2024-02-07",
+   "perpMultiplier": 1
+  },
+  "bittorrent": {
+   "base": "BTT",
+   "spotListedOn": "2022-02-21",
+   "perpSymbol": "1000BTTUSDT",
+   "perpLaunchedOn": "2022-02-25",
+   "perpMultiplier": 1000
+  },
+  "boundless": {
+   "base": "ZKC",
+   "spotListedOn": "2025-09-15",
+   "perpSymbol": "ZKCUSDT",
+   "perpLaunchedOn": "2025-09-15",
+   "perpMultiplier": 1
+  },
+  "sanctum-2": {
+   "base": "CLOUD",
+   "spotListedOn": "2024-07-18",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "siacoin": {
+   "base": "SC",
+   "spotListedOn": "2022-03-31",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "portal-2": {
+   "base": "PORTAL",
+   "spotListedOn": "2024-02-29",
+   "perpSymbol": "PORTALUSDT",
+   "perpLaunchedOn": "2024-03-01",
+   "perpMultiplier": 1
+  },
+  "debridge": {
+   "base": "DBR",
+   "spotListedOn": "2024-10-17",
+   "perpSymbol": "DBRUSDT",
+   "perpLaunchedOn": "2024-10-17",
+   "perpMultiplier": 1
+  },
+  "aixbt": {
+   "base": "AIXBT",
+   "spotListedOn": "2025-01-10",
+   "perpSymbol": "AIXBTUSDT",
+   "perpLaunchedOn": "2024-12-20",
+   "perpMultiplier": 1
+  },
+  "newton-protocol": {
+   "base": "NEWT",
+   "spotListedOn": "2025-06-24",
+   "perpSymbol": "NEWTUSDT",
+   "perpLaunchedOn": "2025-06-20",
+   "perpMultiplier": 1
+  },
+  "terra-luna": {
+   "base": "LUNC",
+   "spotListedOn": "2021-10-27",
+   "perpSymbol": "1000LUNCUSDT",
+   "perpLaunchedOn": "2022-09-09",
+   "perpMultiplier": 1000
+  },
+  "orbiter-finance": {
+   "base": "OBT",
+   "spotListedOn": "2025-01-20",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "caldera": {
+   "base": "ERA",
+   "spotListedOn": "2025-07-17",
+   "perpSymbol": "ERAUSDT",
+   "perpLaunchedOn": "2025-07-17",
+   "perpMultiplier": 1
+  },
+  "zkpass": {
+   "base": "ZKP",
+   "spotListedOn": "2025-12-19",
+   "perpSymbol": "ZKPUSDT",
+   "perpLaunchedOn": "2025-12-22",
+   "perpMultiplier": 1
+  },
+  "ravencoin": {
+   "base": "RVN",
+   "spotListedOn": "2021-12-21",
+   "perpSymbol": "RVNUSDT",
+   "perpLaunchedOn": "2022-01-06",
+   "perpMultiplier": 1
+  },
+  "dolomite": {
+   "base": "DOLO",
+   "spotListedOn": "2025-04-24",
+   "perpSymbol": "DOLOUSDT",
+   "perpLaunchedOn": "2025-07-28",
+   "perpMultiplier": 1
+  },
+  "sun-token": {
+   "base": "SUN",
+   "spotListedOn": "2022-02-21",
+   "perpSymbol": "SUNUSDT",
+   "perpLaunchedOn": "2022-02-18",
+   "perpMultiplier": 1
+  },
+  "dymension": {
+   "base": "DYM",
+   "spotListedOn": "2024-02-06",
+   "perpSymbol": "DYMUSDT",
+   "perpLaunchedOn": "2024-02-07",
+   "perpMultiplier": 1
+  },
+  "marblex": {
+   "base": "MBX",
+   "spotListedOn": "2023-03-31",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "catizen": {
+   "base": "CATI",
+   "spotListedOn": "2024-09-20",
+   "perpSymbol": "CATIUSDT",
+   "perpLaunchedOn": "2024-09-09",
+   "perpMultiplier": 1
+  },
+  "limewire-token": {
+   "base": "LMWR",
+   "spotListedOn": "2023-05-16",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "connect-token-wct": {
+   "base": "WCT",
+   "spotListedOn": "2025-04-15",
+   "perpSymbol": "WCTUSDT",
+   "perpLaunchedOn": "2025-04-15",
+   "perpMultiplier": 1
+  },
+  "memecoin-2": {
+   "base": "MEME",
+   "spotListedOn": "2023-11-03",
+   "perpSymbol": "MEMEUSDT",
+   "perpLaunchedOn": "2023-11-03",
+   "perpMultiplier": 1
+  },
+  "eesee": {
+   "base": "ESE",
+   "spotListedOn": "2024-04-11",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "vooi": {
+   "base": "VOOI",
+   "spotListedOn": "2025-12-18",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "mind-network": {
+   "base": "FHE",
+   "spotListedOn": "2025-04-10",
+   "perpSymbol": "FHEUSDT",
+   "perpLaunchedOn": "2026-01-07",
+   "perpMultiplier": 1
+  },
+  "woo-network": {
+   "base": "WOO",
+   "spotListedOn": "2021-11-10",
+   "perpSymbol": "WOOUSDT",
+   "perpLaunchedOn": "2021-11-09",
+   "perpMultiplier": 1
+  },
+  "verona": {
+   "base": "VERONA",
+   "spotListedOn": "2026-06-24",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "wrapped-bitcoin": {
+   "base": "WBTC",
+   "spotListedOn": "2022-04-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "stader": {
+   "base": "SD",
+   "spotListedOn": "2022-03-15",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "navi": {
+   "base": "NAVX",
+   "spotListedOn": "2024-10-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "hamster-kombat": {
+   "base": "HMSTR",
+   "spotListedOn": "2024-09-26",
+   "perpSymbol": "HMSTRUSDT",
+   "perpLaunchedOn": "2024-09-11",
+   "perpMultiplier": 1
+  },
+  "access-protocol": {
+   "base": "ACS",
+   "spotListedOn": "2023-02-15",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "icon": {
+   "base": "ICX",
+   "spotListedOn": "2022-01-06",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "goatseus-maximus": {
+   "base": "GOAT",
+   "spotListedOn": "2024-11-13",
+   "perpSymbol": "GOATUSDT",
+   "perpLaunchedOn": "2024-10-22",
+   "perpMultiplier": 1
+  },
+  "suins-token": {
+   "base": "NS",
+   "spotListedOn": "2024-11-14",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "wemix-token": {
+   "base": "WEMIX",
+   "spotListedOn": "2021-11-29",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "hashflow": {
+   "base": "HFT",
+   "spotListedOn": "2022-11-07",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "haedal": {
+   "base": "HAEDAL",
+   "spotListedOn": "2025-04-29",
+   "perpSymbol": "HAEDALUSDT",
+   "perpLaunchedOn": "2025-04-30",
+   "perpMultiplier": 1
+  },
+  "delysium": {
+   "base": "AGI",
+   "spotListedOn": "2023-04-11",
+   "perpSymbol": "AGIUSDT",
+   "perpLaunchedOn": "2023-11-17",
+   "perpMultiplier": 1
+  },
+  "0x": {
+   "base": "ZRX",
+   "spotListedOn": "2021-10-19",
+   "perpSymbol": "ZRXUSDT",
+   "perpLaunchedOn": "2022-03-28",
+   "perpMultiplier": 1
+  },
+  "manta-network": {
+   "base": "MANTA",
+   "spotListedOn": "2024-01-18",
+   "perpSymbol": "MANTAUSDT",
+   "perpLaunchedOn": "2024-01-18",
+   "perpMultiplier": 1
+  },
+  "concierge-io": {
+   "base": "AVA",
+   "spotListedOn": "2021-11-18",
+   "perpSymbol": "AVAUSDT",
+   "perpLaunchedOn": "2024-12-16",
+   "perpMultiplier": 1
+  },
+  "enjincoin": {
+   "base": "ENJ",
+   "spotListedOn": "2021-11-09",
+   "perpSymbol": "ENJUSDT",
+   "perpLaunchedOn": "2021-10-31",
+   "perpMultiplier": 1
+  },
+  "yield-basis": {
+   "base": "YB",
+   "spotListedOn": "2025-10-15",
+   "perpSymbol": "YBUSDT",
+   "perpLaunchedOn": "2025-10-11",
+   "perpMultiplier": 1
+  },
+  "major": {
+   "base": "MAJOR",
+   "spotListedOn": "2024-11-28",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "metaplex": {
+   "base": "MPLX",
+   "spotListedOn": "2022-09-20",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "wax": {
+   "base": "WAXP",
+   "spotListedOn": "2022-08-11",
+   "perpSymbol": "WAXPUSDT",
+   "perpLaunchedOn": "2023-10-10",
+   "perpMultiplier": 1
+  },
+  "ondo-us-dollar-yield": {
+   "base": "USDY",
+   "spotListedOn": "2024-01-18",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "dogs-2": {
+   "base": "DOGS",
+   "spotListedOn": "2024-08-26",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "medieval-empires": {
+   "base": "MEE",
+   "spotListedOn": "2022-12-19",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "aevo-exchange": {
+   "base": "AEVO",
+   "spotListedOn": "2024-03-13",
+   "perpSymbol": "AEVOUSDT",
+   "perpLaunchedOn": "2024-03-13",
+   "perpMultiplier": 1
+  },
+  "supra": {
+   "base": "SUPRA",
+   "spotListedOn": "2024-11-27",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "terra-luna-2": {
+   "base": "LUNA",
+   "spotListedOn": "2022-05-28",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "manchester-city-fan-token": {
+   "base": "CITY",
+   "spotListedOn": "2022-08-18",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "space-id": {
+   "base": "ID",
+   "spotListedOn": "2023-03-22",
+   "perpSymbol": "IDUSDT",
+   "perpLaunchedOn": "2023-03-24",
+   "perpMultiplier": 1
+  },
+  "magic": {
+   "base": "MAGIC",
+   "spotListedOn": "2022-12-12",
+   "perpSymbol": "MAGICUSDT",
+   "perpLaunchedOn": "2022-12-13",
+   "perpMultiplier": 1
+  },
+  "paris-saint-germain-fan-token": {
+   "base": "PSG",
+   "spotListedOn": "2022-08-16",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "juventus-fan-token": {
+   "base": "JUV",
+   "spotListedOn": "2022-08-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "zentry": {
+   "base": "ZENT",
+   "spotListedOn": "2024-04-30",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "solv-protocol": {
+   "base": "SOLV",
+   "spotListedOn": "2025-01-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "degen-base": {
+   "base": "DEGEN",
+   "spotListedOn": "2024-03-28",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "ssv-network": {
+   "base": "SSV",
+   "spotListedOn": "2023-01-20",
+   "perpSymbol": "SSVUSDT",
+   "perpLaunchedOn": "2023-03-01",
+   "perpMultiplier": 1
+  },
+  "bouncebit": {
+   "base": "BB",
+   "spotListedOn": "2024-05-13",
+   "perpSymbol": "BBUSDT",
+   "perpLaunchedOn": "2024-05-14",
+   "perpMultiplier": 1
+  },
+  "rocket-pool": {
+   "base": "RPL",
+   "spotListedOn": "2023-01-19",
+   "perpSymbol": "RPLUSDT",
+   "perpLaunchedOn": "2023-03-01",
+   "perpMultiplier": 1
+  },
+  "bitkub-coin": {
+   "base": "KUB",
+   "spotListedOn": "2023-12-13",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "ethereum-pow-iou": {
+   "base": "ETHW",
+   "spotListedOn": "2022-09-15",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "baby-doge-coin": {
+   "base": "BABYDOGE",
+   "spotListedOn": "2023-04-04",
+   "perpSymbol": "1000000BABYDOGEUSDT",
+   "perpLaunchedOn": "2024-06-11",
+   "perpMultiplier": 1000000
+  },
+  "ftx-token": {
+   "base": "FTT",
+   "spotListedOn": "2021-11-09",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "echelon-prime": {
+   "base": "PRIME",
+   "spotListedOn": "2023-03-01",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "brevis": {
+   "base": "BREV",
+   "spotListedOn": "2026-01-06",
+   "perpSymbol": "BREVUSDT",
+   "perpLaunchedOn": "2025-12-30",
+   "perpMultiplier": 1
+  },
+  "forta": {
+   "base": "FORT",
+   "spotListedOn": "2022-06-15",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "qtum": {
+   "base": "QTUM",
+   "spotListedOn": "2021-12-16",
+   "perpSymbol": "QTUMUSDT",
+   "perpLaunchedOn": "2021-12-13",
+   "perpMultiplier": 1
+  },
+  "magiccraft": {
+   "base": "MCRT",
+   "spotListedOn": "2022-10-28",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "mx-token": {
+   "base": "MX",
+   "spotListedOn": "2021-12-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "stepn": {
+   "base": "GMT",
+   "spotListedOn": "2022-04-08",
+   "perpSymbol": "GMTUSDT",
+   "perpLaunchedOn": "2022-03-19",
+   "perpMultiplier": 1
+  },
+  "coin98": {
+   "base": "C98",
+   "spotListedOn": "2021-11-23",
+   "perpSymbol": "C98USDT",
+   "perpLaunchedOn": "2021-10-25",
+   "perpMultiplier": 1
+  },
+  "sundog": {
+   "base": "SUNDOG",
+   "spotListedOn": "2024-09-11",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "boba-network": {
+   "base": "BOBA",
+   "spotListedOn": "2021-11-22",
+   "perpSymbol": "BOBAUSDT",
+   "perpLaunchedOn": "2022-04-06",
+   "perpMultiplier": 1
   },
   "straitsx-xusd": {
    "base": "XUSD",
    "spotListedOn": "2025-09-10",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
   "frax-share": {
    "base": "FRAX",
    "spotListedOn": "2026-01-12",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "zilliqa": {
+   "base": "ZIL",
+   "spotListedOn": "2021-12-29",
+   "perpSymbol": "ZILUSDT",
+   "perpLaunchedOn": "2022-01-29",
+   "perpMultiplier": 1
+  },
+  "solayer": {
+   "base": "LAYER",
+   "spotListedOn": "2025-02-11",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "sats-ordinals": {
+   "base": "SATS",
+   "spotListedOn": "2024-01-08",
+   "perpSymbol": "10000SATSUSDT",
+   "perpLaunchedOn": "2023-11-16",
+   "perpMultiplier": 10000
+  },
+  "simon-s-cat": {
+   "base": "CAT",
+   "spotListedOn": "2025-07-23",
+   "perpSymbol": "1000CATUSDT",
+   "perpLaunchedOn": "2024-09-12",
+   "perpMultiplier": 1000
+  },
+  "bella-protocol": {
+   "base": "BEL",
+   "spotListedOn": "2022-06-16",
+   "perpSymbol": "BELUSDT",
+   "perpLaunchedOn": "2022-06-17",
+   "perpMultiplier": 1
+  },
+  "apenft": {
+   "base": "NFT",
+   "spotListedOn": "2022-02-21",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "mantle-staked-ether": {
+   "base": "METH",
+   "spotListedOn": "2023-12-08",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "grvt": {
+   "base": "GRVT",
+   "spotListedOn": "2026-07-30",
+   "perpSymbol": "GRVTUSDT",
+   "perpLaunchedOn": "2026-07-31",
+   "perpMultiplier": 1
+  },
+  "usa": {
+   "base": "USAT",
+   "spotListedOn": "2026-01-27",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "bonfida": {
+   "base": "FIDA",
+   "spotListedOn": "2022-03-23",
+   "perpSymbol": "FIDAUSDT",
+   "perpLaunchedOn": "2024-09-25",
+   "perpMultiplier": 1
+  },
+  "scor": {
+   "base": "SCOR",
+   "spotListedOn": "2025-12-17",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "kucoin-shares": {
+   "base": "KCS",
+   "spotListedOn": "2023-11-30",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "mcdonald-s-xstock": {
+   "base": "MCDX",
+   "spotListedOn": "2025-07-08",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
+  },
+  "htx-dao": {
+   "base": "HTX",
+   "spotListedOn": "2024-02-19",
+   "perpSymbol": null,
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   },
   "meth-protocol": {
    "base": "COOK",
    "spotListedOn": "2024-10-29",
    "perpSymbol": null,
-   "perpLaunchedOn": null
+   "perpLaunchedOn": null,
+   "perpMultiplier": null
   }
  }
 }

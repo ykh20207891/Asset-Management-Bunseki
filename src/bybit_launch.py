@@ -51,8 +51,28 @@ def spot_listed_on(symbol: str) -> str | None:
     return datetime.fromtimestamp(ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
 
 
+# 先物の銘柄名に付く倍率（1000PEPE = PEPE 1000 枚単位、SHIB1000 も同じ）。
+# 1INCH のような「数字で始まる本名」と区別するため、10 の累乗だけを倍率とみなす
+_MULTIPLIERS = ("1000000", "100000", "10000", "1000", "100", "10")
+
+
+def split_multiplier(base: str) -> tuple[str, int]:
+    """'1000PEPE' -> ('PEPE', 1000) / 'SHIB1000' -> ('SHIB', 1000) / '1INCH' -> ('1INCH', 1)"""
+    for m in _MULTIPLIERS:
+        if base.startswith(m) and len(base) > len(m) and base[len(m)].isalpha():
+            return base[len(m):], int(m)
+        if base.endswith(m) and len(base) > len(m) and base[-len(m) - 1].isalpha():
+            return base[: -len(m)], int(m)
+    return base, 1
+
+
 def perp_index() -> dict[str, dict]:
-    """baseCoin -> {symbol, launched}。USDT 建て無期限のみ。"""
+    """現物の base -> {symbol, launched, multiplier}。USDT 建て無期限のみ。
+
+    PEPE・SHIB・BONK などは先物が 1000PEPE のような倍率付きの名前で、現物の base と
+    そのままでは一致しない。倍率を外して突き合わせる（先物の価格・数量は倍率付きの
+    単位のまま使うので、売買側の計算はそのままでよい）。
+    """
     out: dict[str, dict] = {}
     cursor = ""
     while True:
@@ -65,13 +85,14 @@ def perp_index() -> dict[str, dict]:
                 continue
             if it.get("status") != "Trading":
                 continue
-            base = (it.get("baseCoin") or "").upper()
+            raw_base = (it.get("baseCoin") or "").upper()
+            base, mult = split_multiplier(raw_base)
             ms = int(it.get("launchTime") or 0)
             launched = datetime.fromtimestamp(ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d") if ms else None
-            # 同じ baseCoin に 1000MOG のような倍率つきが並ぶことがある。倍率なしを優先
+            # 同じ銘柄に倍率なし・倍率つきが両方あれば、倍率なしを優先
             cur = out.get(base)
-            if cur is None or (not it["symbol"][0].isdigit() and cur["symbol"][0].isdigit()):
-                out[base] = {"symbol": it["symbol"], "launched": launched}
+            if cur is None or (mult == 1 and cur["multiplier"] != 1):
+                out[base] = {"symbol": it["symbol"], "launched": launched, "multiplier": mult}
         cursor = res.get("nextPageCursor") or ""
         if not cursor:
             break
@@ -112,6 +133,8 @@ def main() -> int:
             "spotListedOn": listed,
             "perpSymbol": perp["symbol"] if perp else None,
             "perpLaunchedOn": perp["launched"] if perp else None,
+            # 先物 1 枚が何枚分か（1000PEPE なら 1000）。価格比較などに使う
+            "perpMultiplier": perp["multiplier"] if perp else None,
         }
         if i % 50 == 0:
             LOG.info("%d / %d", i, len(rows))
