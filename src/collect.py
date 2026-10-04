@@ -140,7 +140,10 @@ def http_get_bytes(url: str, headers: dict, timeout: int, max_retry: int) -> byt
             last_err = e
             retry_after = e.headers.get("Retry-After") if e.headers else None
             if e.code in (429, 500, 502, 503, 504):
+                # 相手が指定する待ち時間（Retry-After）は上限 90 秒に抑える。
+                # 混雑時に 1 時間などを指定されると、そのまま待ってジョブの制限時間を超えていた
                 wait = float(retry_after) if (retry_after or "").isdigit() else delay
+                wait = min(wait, 90.0)
                 LOG.warning("HTTP %s (attempt %d/%d) -> %.0f秒待って再試行",
                             e.code, attempt, max_retry, wait)
                 time.sleep(wait)

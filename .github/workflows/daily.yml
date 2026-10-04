@@ -23,7 +23,8 @@ env:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # 各ステップに上限（daily.py の STEP_LIMITS）があるので、全体は余裕を持たせる
+    timeout-minutes: 60
     outputs:
       alert: ${{ steps.alert.outputs.alert }}
     steps:

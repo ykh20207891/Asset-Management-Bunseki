@@ -13,6 +13,8 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
+import signal
 from datetime import datetime, timezone
 import sys
 import time
@@ -126,6 +128,40 @@ def build_steps(dashboard_out: str | None):
     ]
 
 
+# 1 つのステップが通信の混雑などで止まっても、後の予測・公開・保存まで進めるための上限（秒）。
+# ジョブ全体の制限時間（ワークフローの timeout-minutes）を超えて全部が取り消されるのを防ぐ
+STEP_LIMITS = {
+    "collect": 15 * 60,
+    "predict": 15 * 60,
+    "track_performance": 20 * 60,
+}
+DEFAULT_STEP_LIMIT = 8 * 60
+
+
+class StepTimeout(BaseException):
+    """各ステップ内の「except Exception」で握りつぶされないよう BaseException にする。"""
+    pass
+
+
+@contextlib.contextmanager
+def _time_limit(seconds: int):
+    """POSIX（GitHub Actions の Linux）ではステップごとに時間切れにする。Windows では何もしない。"""
+    if not hasattr(signal, "SIGALRM"):
+        yield
+        return
+
+    def _raise(signum, frame):  # noqa: ARG001
+        raise StepTimeout("%d 秒を超えたので打ち切りました" % seconds)
+
+    old = signal.signal(signal.SIGALRM, _raise)
+    signal.alarm(int(seconds))
+    try:
+        yield
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old)
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description="日次パイプライン")
     p.add_argument("--dashboard-out", default=None,
@@ -158,9 +194,10 @@ def main() -> int:
         LOG.info("--- %s 開始 ---", name)
         t0 = time.monotonic()
         try:
-            fn()
+            with _time_limit(STEP_LIMITS.get(name, DEFAULT_STEP_LIMIT)):
+                fn()
             results.append((name, "ok", time.monotonic() - t0, ""))
-        except Exception as e:
+        except (Exception, StepTimeout) as e:
             msg = "%s: %s" % (type(e).__name__, e)
             results.append((name, "NG", time.monotonic() - t0, msg[:200]))
             LOG.error("--- %s 失敗 --- %s", name, msg[:300])
